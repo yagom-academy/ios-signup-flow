@@ -1,24 +1,18 @@
 import Foundation
 
 class UserInformation {
-    let id: String
-    fileprivate(set) var password: String
-    fileprivate(set) var phoneNumber: String
-    fileprivate(set) var dateOfBirth: Date
-    fileprivate(set) var profileImage: String
-    fileprivate(set) var introduction: String
+    var id: String?
+    var password: String?
+    var phoneNumber: String?
+    var dateOfBirth: Date?
+    var profileImage: String?
+    var introduction: String?
     
-    static var `default`: UserInformation?
+    static let shared = UserInformation()
     
-    init(id: String, password: String, phoneNumber: String, dateOfBirth: Date, profileImage: String, introduction: String) {
-        self.id = id
-        self.password = password
-        self.phoneNumber = phoneNumber
-        self.dateOfBirth = dateOfBirth
-        self.profileImage = profileImage
-        self.introduction = introduction
+    private init() {
     }
-    
+
     func isSame(password: String, checkPassword: String) -> Bool {
         return password == checkPassword
     }
@@ -31,6 +25,3 @@ class UserInformation {
         }
     }
 }
-
-
-
