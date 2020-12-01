@@ -13,14 +13,14 @@
         <scene sceneID="8KM-4s-3ES">
             <objects>
                 <viewController id="AcP-jA-ZOx" customClass="ViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o4q-ne-qb1" customClass="View">
+                    <view key="view" contentMode="scaleToFill" id="o4q-ne-qb1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xjz-PR-H2S">
                                 <rect key="frame" x="49.5" y="438" width="315" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yagom" translatesAutoresizingMaskIntoConstraints="NO" id="Pti-cy-kfN">
                                 <rect key="frame" x="30" y="64" width="354" height="354"/>
@@ -31,7 +31,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2k2-9B-VpK">
                                 <rect key="frame" x="49.5" y="492" width="315" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vmu-wY-5PL">
                                 <rect key="frame" x="49.5" y="546" width="315" height="28"/>
@@ -47,6 +47,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onClickSignupButton" destination="AcP-jA-ZOx" eventType="touchUpInside" id="l5d-aQ-krF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -69,15 +72,19 @@
                             <constraint firstItem="vmu-wY-5PL" firstAttribute="top" secondItem="2k2-9B-VpK" secondAttribute="bottom" constant="20" id="yxf-If-M6r"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="IDField" destination="xjz-PR-H2S" id="KKm-9c-M36"/>
+                        <outlet property="Password" destination="2k2-9B-VpK" id="vaV-Ww-Xcd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AqT-me-du7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="49" y="-121"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="cRN-B5-bBg">
             <objects>
-                <viewController id="vLW-Pc-hX2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUp" id="vLW-Pc-hX2" customClass="SignUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4B6-wx-ewX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edR-GQ-ZA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="738" y="-121"/>
+            <point key="canvasLocation" x="809" y="-121"/>
         </scene>
     </scenes>
     <resources>
