@@ -58,6 +58,7 @@
 			children = (
 				C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */,
 				C7352B8A256F59BD00C3B7F1 /* ViewController.swift */,
+				56A2795E25762B3000C13476 /* UserInformation.swift */,
 				C7352B8C256F59BD00C3B7F1 /* Main.storyboard */,
 				8B59BD9A2576306E0067AE16 /* UserInformation.swift */,
 				C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */,
