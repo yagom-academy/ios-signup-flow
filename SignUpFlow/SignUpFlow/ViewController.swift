@@ -19,5 +19,15 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    @IBAction func onClickSignupButton() {
+        guard let signUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SingUp") else {
+                    return
+        }
+        
+        let signUpNavigationController = UINavigationController(rootViewController: signUpViewController)
+        signUpNavigationController.modalPresentationStyle = .fullScreen
+        self.present(signUpNavigationController, animated: true)
+    }
 }
 

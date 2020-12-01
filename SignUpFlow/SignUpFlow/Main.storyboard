@@ -48,7 +48,7 @@
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="vLW-Pc-hX2" kind="presentation" id="l4f-4L-RT8"/>
+                                            <action selector="onClickSignupButton" destination="AcP-jA-ZOx" eventType="touchUpInside" id="l5d-aQ-krF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -81,20 +81,29 @@
             </objects>
             <point key="canvasLocation" x="49" y="-121"/>
         </scene>
-        <!--Sing Up View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="cRN-B5-bBg">
             <objects>
-                <viewController id="vLW-Pc-hX2" customClass="SingUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SingUp" id="vLW-Pc-hX2" customClass="SignUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4B6-wx-ewX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="회원 가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncr-tb-Kdz">
+                                <rect key="frame" x="169" y="369" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="o3E-NI-JBM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edR-GQ-ZA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="949" y="-121"/>
+            <point key="canvasLocation" x="733" y="-121"/>
         </scene>
     </scenes>
     <resources>
