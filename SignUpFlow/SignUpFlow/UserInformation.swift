@@ -47,3 +47,20 @@ class ErrorDescripter: LocalizedError {
         errorDescription = message
     }
 }
+
+class MemberList {
+    static let common = MemberList()
+    private init() {}
+    typealias MemberId = String
+    
+    private(set) var members = [MemberId : UserInformation]()
+    
+    func addNewMember(id: String) -> Result<String, ErrorDescripter> {
+        if members[id] == nil {
+            members[id] = UserInformation(id)
+            return .success("성공하였습니다.")
+        } else {
+            return .failure(ErrorDescripter(message: "이미 존재하는 아이디입니다."))
+        }
+    }
+}
