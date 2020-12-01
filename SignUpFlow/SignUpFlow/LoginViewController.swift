@@ -18,5 +18,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func touchUpSignUpButton(_ sender: Any) {
+        guard let targetController = self.storyboard?.instantiateViewController(identifier: "FirstSignUpViewController") else {
+            print("targetController 할당에 문제가 있습니다.")
+            return
+        }
+        targetController.modalPresentationStyle = .fullScreen
+        self.present(targetController, animated: true, completion: nil)
     }
 }
