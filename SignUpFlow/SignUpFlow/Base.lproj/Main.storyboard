@@ -18,51 +18,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DoQ-Oc-C6v">
-                                <rect key="frame" x="60" y="399" width="255" height="34"/>
+                                <rect key="frame" x="30" y="399" width="315" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ngg-07-kyC">
-                                <rect key="frame" x="60" y="453" width="255" height="34"/>
+                                <rect key="frame" x="30" y="453" width="315" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCV-G8-DaD">
-                                <rect key="frame" x="100" y="499" width="42" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Sign In"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlf-PS-LTu">
-                                <rect key="frame" x="227" y="507" width="48" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" systemColor="systemRedColor"/>
-                                </state>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yagom" translatesAutoresizingMaskIntoConstraints="NO" id="gKE-Nf-WCB">
                                 <rect key="frame" x="30" y="64" width="315" height="315"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gKE-Nf-WCB" secondAttribute="height" multiplier="1:1" id="5gT-GT-Bxs"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JrQ-Ve-PCP">
+                                <rect key="frame" x="30" y="507" width="315" height="28"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCV-G8-DaD">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Sign In"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlf-PS-LTu">
+                                        <rect key="frame" x="157.66666666666663" y="0.0" width="157.33333333333337" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pCV-G8-DaD" firstAttribute="top" secondItem="Ngg-07-kyC" secondAttribute="bottom" constant="20" id="3qK-i6-4PQ"/>
                             <constraint firstItem="DoQ-Oc-C6v" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3tj-Nb-jz1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gKE-Nf-WCB" secondAttribute="trailing" constant="30" id="4zk-6p-S4C"/>
-                            <constraint firstItem="mlf-PS-LTu" firstAttribute="leading" secondItem="pCV-G8-DaD" secondAttribute="trailing" constant="85" id="943-RQ-RuI"/>
                             <constraint firstItem="Ngg-07-kyC" firstAttribute="top" secondItem="DoQ-Oc-C6v" secondAttribute="bottom" constant="20" id="A6k-vo-1ER"/>
+                            <constraint firstItem="JrQ-Ve-PCP" firstAttribute="top" secondItem="Ngg-07-kyC" secondAttribute="bottom" constant="20" id="DFR-eB-Ch6"/>
                             <constraint firstItem="gKE-Nf-WCB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DWm-sx-BU7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DoQ-Oc-C6v" secondAttribute="trailing" constant="60" id="DdO-lP-aiP"/>
-                            <constraint firstItem="mlf-PS-LTu" firstAttribute="top" secondItem="Ngg-07-kyC" secondAttribute="bottom" constant="20" id="eQg-XR-u0q"/>
-                            <constraint firstItem="pCV-G8-DaD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="f4U-3B-XJI"/>
+                            <constraint firstItem="Ngg-07-kyC" firstAttribute="centerX" secondItem="DoQ-Oc-C6v" secondAttribute="centerX" id="HwJ-ZV-eC7"/>
+                            <constraint firstItem="JrQ-Ve-PCP" firstAttribute="width" secondItem="DoQ-Oc-C6v" secondAttribute="width" id="Z4b-3I-bOL"/>
                             <constraint firstItem="gKE-Nf-WCB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="fAn-j1-6EZ"/>
+                            <constraint firstItem="JrQ-Ve-PCP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hDi-04-j8H"/>
                             <constraint firstItem="Ngg-07-kyC" firstAttribute="width" secondItem="DoQ-Oc-C6v" secondAttribute="width" id="oa1-s2-2pS"/>
                             <constraint firstItem="gKE-Nf-WCB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="otf-Sb-Y74"/>
-                            <constraint firstItem="DoQ-Oc-C6v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="rNW-xI-Dh2"/>
-                            <constraint firstItem="Ngg-07-kyC" firstAttribute="leading" secondItem="DoQ-Oc-C6v" secondAttribute="leading" id="sBq-Il-7sV"/>
+                            <constraint firstItem="DoQ-Oc-C6v" firstAttribute="width" secondItem="gKE-Nf-WCB" secondAttribute="width" id="waL-q4-MXH"/>
                             <constraint firstItem="DoQ-Oc-C6v" firstAttribute="top" secondItem="gKE-Nf-WCB" secondAttribute="bottom" constant="20" id="z0i-GI-hEg"/>
                         </constraints>
                     </view>
