@@ -40,3 +40,10 @@ class UserInformation {
         self.dateOfBirth = dateOfBirth
     }
 }
+
+class ErrorDescripter: LocalizedError {
+    var errorDescription: String?
+    init(message: String) {
+        errorDescription = message
+    }
+}
