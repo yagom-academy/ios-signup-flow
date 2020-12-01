@@ -13,6 +13,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func touchUpSignUpButton(_ sender: UIButton) {
     }
+    @IBAction func closeButton(_ sender: UIButton) {
+        dismiss(animated: false, completion: nil)
+    }
 }
 
 // 키보드 제어
