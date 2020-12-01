@@ -21,6 +21,11 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func touchUpSignUpButton(_ sender: Any) {
+    @IBAction func touchUpSignUpButton(_ sender: UIButton) {
+        guard let targetController = self.storyboard?.instantiateViewController(withIdentifier: "FirstSignUpViewController") else {
+            print("targetController 할당에 문제가 있습니다.")
+            return
+        }
+        self.present(targetController, animated: true, completion: nil)
     }
 }
