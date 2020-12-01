@@ -1,25 +1,25 @@
 //
-//  SignUpFlow - ViewController.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
+//  MainViewController.swift
+//  SignUpFlow
+//
+//  Created by Wonhee on 2020/12/01.
+//
 
 import UIKit
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var IDField: UITextField!
-    @IBOutlet weak var Password: UITextField!
+class MainViewController: UIViewController {
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    @IBAction func tapAction(_ sender: Any) {
         self.view.endEditing(true)
     }
     
-    @IBAction func onClickSignupButton() {
+    @IBAction func tapSignupButton() {
         guard let signUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUp") else {
             return
         }
@@ -29,4 +29,3 @@ class ViewController: UIViewController {
         self.present(signUpNavigationController, animated: true)
     }
 }
-
