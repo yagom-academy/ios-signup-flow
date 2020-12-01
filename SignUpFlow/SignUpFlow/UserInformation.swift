@@ -12,33 +12,33 @@ final class UserInformation {
     
     private var user: User
     
-    static let userCommon = UserInformation()
+    static let common = UserInformation()
     
     private init() {
         user = User()
     }
     
-    func setId(id: String) {
+    func setId(_ id: String) {
         user.id = id
     }
     
-    func setPassword(pasword: String) {
+    func setPassword(_ pasword: String) {
         user.password = pasword
     }
     
-    func setImage(image: UIImage) {
+    func setImage(_ image: UIImage) {
         user.image = image
     }
     
-    func setIntroduction(introduction: String) {
+    func setIntroduction(_ introduction: String) {
         user.introduction = introduction
     }
     
-    func setPhoneNumber(phoneNumber: String) {
+    func setPhoneNumber(_ phoneNumber: String) {
         user.phoneNumber = phoneNumber
     }
     
-    func setBirthday(birthday: Date) {
+    func setBirthday(_ birthday: Date) {
         user.birthday = birthday
     }
 }
