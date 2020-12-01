@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     @IBAction func onClickSignupButton() {
         guard let signUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SingUp") else {
-                    return
+            return
         }
         
         let signUpNavigationController = UINavigationController(rootViewController: signUpViewController)
