@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,7 @@
         <!--First Sign Up View Controller-->
         <scene sceneID="7R5-QT-vEy">
             <objects>
-                <viewController id="MCm-75-c85" customClass="FirstSignUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstSignUpViewController" id="MCm-75-c85" customClass="FirstSignUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Ls-b7-snb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,7 +97,7 @@
         <!--Second Sign Up View Controller-->
         <scene sceneID="QNj-h6-vSO">
             <objects>
-                <viewController id="ojb-yV-2UX" customClass="SecondSignUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstSignUpViewController" id="ojb-yV-2UX" customClass="SecondSignUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D5B-OX-iIw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
         <!--Navigation Controller-->
         <scene sceneID="jJf-58-VlS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cdV-7T-18j" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="cdV-7T-18j" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nL4-mn-COZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
