@@ -13,6 +13,7 @@
 		C7352B8E256F59BD00C3B7F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7352B8C256F59BD00C3B7F1 /* Main.storyboard */; };
 		C7352B90256F59BF00C3B7F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */; };
 		C7352B93256F59BF00C3B7F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7352B91256F59BF00C3B7F1 /* LaunchScreen.storyboard */; };
+		D955E8292575E660007BBC25 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D955E8282575E660007BBC25 /* UserInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7352B92256F59BF00C3B7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7352B94256F59BF00C3B7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D955E8282575E660007BBC25 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */,
 				C7352B91256F59BF00C3B7F1 /* LaunchScreen.storyboard */,
 				C7352B94256F59BF00C3B7F1 /* Info.plist */,
+				D955E8282575E660007BBC25 /* UserInformation.swift */,
 			);
 			path = SignUpFlow;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7352B8B256F59BD00C3B7F1 /* ViewController.swift in Sources */,
+				D955E8292575E660007BBC25 /* UserInformation.swift in Sources */,
 				C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */,
 				C7352B89256F59BD00C3B7F1 /* SceneDelegate.swift in Sources */,
 			);
@@ -216,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -288,6 +292,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SignUpFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,6 +311,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SignUpFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
