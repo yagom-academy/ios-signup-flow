@@ -1,9 +1,3 @@
-//
-//  SignUpFlow - AppDelegate.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
-
 import UIKit
 
 @main
@@ -15,7 +9,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
-
-
 }
-
