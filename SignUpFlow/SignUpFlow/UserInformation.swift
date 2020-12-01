@@ -5,13 +5,14 @@
 //  Created by Yeon on 2020/11/30.
 //
 import Foundation
+import UIKit
 
-class UserInformation {
+final class UserInformation {
     static let shared: UserInformation = UserInformation()
     private init() {}
     var id: String?
     var password: String?
-    var imagePath: String?
+    var image: UIImage?
     var introduction: String?
     var phone: String?
     var birthDate: Date?
