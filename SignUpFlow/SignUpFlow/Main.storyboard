@@ -77,8 +77,8 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="idField" destination="xjz-PR-H2S" id="nnF-si-yKs"/>
-                        <outlet property="passwordField" destination="2k2-9B-VpK" id="CN6-zW-2Bs"/>
+                        <outlet property="idTextField" destination="xjz-PR-H2S" id="vaG-br-Adh"/>
+                        <outlet property="passwordTextField" destination="2k2-9B-VpK" id="b01-mH-pqa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AqT-me-du7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
