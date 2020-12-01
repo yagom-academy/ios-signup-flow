@@ -13,7 +13,11 @@
 		C7352B8E256F59BD00C3B7F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7352B8C256F59BD00C3B7F1 /* Main.storyboard */; };
 		C7352B90256F59BF00C3B7F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */; };
 		C7352B93256F59BF00C3B7F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7352B91256F59BF00C3B7F1 /* LaunchScreen.storyboard */; };
+<<<<<<< HEAD
 		E2D6CBB12574F242002B5210 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D6CBB02574F242002B5210 /* UserInformation.swift */; };
+=======
+		D9CA4E5725754BE20017B3C5 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA4E5625754BE20017B3C5 /* UserInformation.swift */; };
+>>>>>>> feature-innie
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +29,11 @@
 		C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7352B92256F59BF00C3B7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7352B94256F59BF00C3B7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		E2D6CBB02574F242002B5210 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
+=======
+		D9CA4E5625754BE20017B3C5 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
+>>>>>>> feature-innie
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,7 @@
 				C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */,
 				C7352B91256F59BF00C3B7F1 /* LaunchScreen.storyboard */,
 				C7352B94256F59BF00C3B7F1 /* Info.plist */,
+				D9CA4E5625754BE20017B3C5 /* UserInformation.swift */,
 			);
 			path = SignUpFlow;
 			sourceTree = "<group>";
@@ -141,7 +150,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7352B8B256F59BD00C3B7F1 /* ViewController.swift in Sources */,
+<<<<<<< HEAD
 				E2D6CBB12574F242002B5210 /* UserInformation.swift in Sources */,
+=======
+				D9CA4E5725754BE20017B3C5 /* UserInformation.swift in Sources */,
+>>>>>>> feature-innie
 				C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */,
 				C7352B89256F59BD00C3B7F1 /* SceneDelegate.swift in Sources */,
 			);
@@ -292,6 +305,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SignUpFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,6 +324,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SignUpFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
