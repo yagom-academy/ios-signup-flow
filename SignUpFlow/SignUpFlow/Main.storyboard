@@ -89,11 +89,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nY7-z8-NyE">
-                                <rect key="frame" x="20" y="79" width="126" height="126"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yagom" translatesAutoresizingMaskIntoConstraints="NO" id="nY7-z8-NyE">
+                                <rect key="frame" x="20" y="79" width="124" height="124"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nY7-z8-NyE" secondAttribute="height" multiplier="1:1" id="2Fk-o4-xgB"/>
-                                    <constraint firstItem="4B6-wx-ewX" firstAttribute="width" secondItem="nY7-z8-NyE" secondAttribute="width" multiplier="1:0.3" id="vrm-Rz-GQ5"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EyV-aJ-sKk">
@@ -106,20 +105,20 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cMp-Kc-dx7">
-                                <rect key="frame" x="169" y="79" width="212" height="126"/>
+                                <rect key="frame" x="164" y="79" width="220" height="124"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESW-Xf-ZxL">
-                                        <rect key="frame" x="0.0" y="0.0" width="97" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="34.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bYd-cs-ejd">
-                                        <rect key="frame" x="0.0" y="0.0" width="97" height="34"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="220" height="35"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Un-jX-Fe5">
-                                        <rect key="frame" x="57" y="46" width="97" height="34"/>
+                                        <rect key="frame" x="0.0" y="89.5" width="220" height="34.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -131,6 +130,7 @@
                         <constraints>
                             <constraint firstItem="cMp-Kc-dx7" firstAttribute="leading" secondItem="nY7-z8-NyE" secondAttribute="trailing" constant="20" id="0H5-Me-A7R"/>
                             <constraint firstItem="cMp-Kc-dx7" firstAttribute="top" secondItem="nY7-z8-NyE" secondAttribute="top" id="3Nv-nr-8ZK"/>
+                            <constraint firstItem="nY7-z8-NyE" firstAttribute="width" secondItem="o3E-NI-JBM" secondAttribute="width" multiplier="0.3:1" id="4c3-O0-kkT"/>
                             <constraint firstItem="o3E-NI-JBM" firstAttribute="trailing" secondItem="cMp-Kc-dx7" secondAttribute="trailing" constant="30" id="7QG-qz-Slf"/>
                             <constraint firstItem="nY7-z8-NyE" firstAttribute="top" secondItem="o3E-NI-JBM" secondAttribute="top" constant="35" id="Ugq-Hb-Btx"/>
                             <constraint firstItem="nY7-z8-NyE" firstAttribute="leading" secondItem="o3E-NI-JBM" secondAttribute="leading" constant="20" id="goL-ou-AMg"/>
@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edR-GQ-ZA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="808.69565217391312" y="-121.20535714285714"/>
+            <point key="canvasLocation" x="768" y="-127"/>
         </scene>
     </scenes>
     <resources>
