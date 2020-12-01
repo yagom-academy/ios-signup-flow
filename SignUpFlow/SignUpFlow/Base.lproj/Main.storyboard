@@ -52,6 +52,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="idTextField" destination="a4H-20-ZXS" id="ysI-Ew-fxK"/>
+                        <outlet property="passwordTextField" destination="6OH-gZ-C0Q" id="1ad-JW-jHH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
