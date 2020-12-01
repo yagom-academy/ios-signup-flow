@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B59BD9B2576306E0067AE16 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B59BD9A2576306E0067AE16 /* UserInformation.swift */; };
 		C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */; };
 		C7352B8B256F59BD00C3B7F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7352B8A256F59BD00C3B7F1 /* ViewController.swift */; };
 		C7352B8E256F59BD00C3B7F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7352B8C256F59BD00C3B7F1 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B59BD9A2576306E0067AE16 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		C7352B83256F59BD00C3B7F1 /* SignUpFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUpFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7352B8A256F59BD00C3B7F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */,
 				C7352B8A256F59BD00C3B7F1 /* ViewController.swift */,
 				C7352B8C256F59BD00C3B7F1 /* Main.storyboard */,
+				8B59BD9A2576306E0067AE16 /* UserInformation.swift */,
 				C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */,
 				C7352B91256F59BF00C3B7F1 /* LaunchScreen.storyboard */,
 				C7352B94256F59BF00C3B7F1 /* Info.plist */,
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7352B8B256F59BD00C3B7F1 /* ViewController.swift in Sources */,
+				8B59BD9B2576306E0067AE16 /* UserInformation.swift in Sources */,
 				C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
