@@ -25,4 +25,15 @@ final class UserInformation {
 
     // private로 선언해서 다른곳에서 객체생성이 불가능하게 한다
     private init() {}
+    
+    func clear() {
+        id = nil
+        password = nil
+        
+        description = nil
+        profileImage = nil
+        
+        phoneNumber = nil
+        birthdate = nil
+    }
 }
