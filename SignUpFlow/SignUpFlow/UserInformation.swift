@@ -4,7 +4,7 @@ class UserInformation {
     var id: String?
     var password: String?
     var profileImage: String?
-    var description: String?
+    var introduceText: String?
     var phoneNumber: String?
     var birth: String?
     
