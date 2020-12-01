@@ -39,6 +39,7 @@
                                 </state>
                                 <connections>
                                     <action selector="touchUpSignUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xql-wJ-ZDo"/>
+                                    <segue destination="9MS-Cr-6HD" kind="presentation" id="7ia-bd-ofd"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g97-x5-SR4">
@@ -69,6 +70,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="64.285714285714292"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="sRm-Rd-ZeE">
+            <objects>
+                <tableViewController id="oVo-Z2-64c" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Iec-0A-aWJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eR2-pV-QTJ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eR2-pV-QTJ" id="OEQ-Lf-FAt">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oVo-Z2-64c" id="MIy-KZ-Xzx"/>
+                            <outlet property="delegate" destination="oVo-Z2-64c" id="XaD-xf-JXu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="8Be-JD-Kgh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5qk-zT-z6w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="64"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kwl-En-vLv">
+            <objects>
+                <navigationController id="9MS-Cr-6HD" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gn6-hF-cTh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="oVo-Z2-64c" kind="relationship" relationship="rootViewController" id="PVK-Av-BMS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BaA-Gw-KaT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="959" y="64"/>
         </scene>
     </scenes>
     <resources>
