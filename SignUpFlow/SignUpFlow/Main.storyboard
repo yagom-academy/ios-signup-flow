@@ -69,6 +69,10 @@
                             <constraint firstItem="vmu-wY-5PL" firstAttribute="top" secondItem="2k2-9B-VpK" secondAttribute="bottom" constant="20" id="yxf-If-M6r"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="IDField" destination="xjz-PR-H2S" id="KKm-9c-M36"/>
+                        <outlet property="Password" destination="2k2-9B-VpK" id="vaV-Ww-Xcd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AqT-me-du7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
