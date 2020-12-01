@@ -84,7 +84,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="cRN-B5-bBg">
             <objects>
-                <viewController storyboardIdentifier="SingUp" id="vLW-Pc-hX2" customClass="SignUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUp" id="vLW-Pc-hX2" customClass="SignUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4B6-wx-ewX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
