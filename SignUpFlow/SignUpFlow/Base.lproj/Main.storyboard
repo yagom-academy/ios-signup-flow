@@ -97,7 +97,7 @@
         <!--Second Sign Up View Controller-->
         <scene sceneID="QNj-h6-vSO">
             <objects>
-                <viewController storyboardIdentifier="FirstSignUpViewController" id="ojb-yV-2UX" customClass="SecondSignUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondSignUpViewController" id="ojb-yV-2UX" customClass="SecondSignUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D5B-OX-iIw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
