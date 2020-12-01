@@ -15,11 +15,11 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    @IBAction func tapAction(_ sender: Any) {
         self.view.endEditing(true)
     }
     
-    @IBAction func onClickSignupButton() {
+    @IBAction func tapSignupButton() {
         guard let signUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUp") else {
             return
         }

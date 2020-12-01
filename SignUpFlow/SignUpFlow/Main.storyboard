@@ -48,7 +48,7 @@
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="onClickSignupButton" destination="AcP-jA-ZOx" eventType="touchUpInside" id="l5d-aQ-krF"/>
+                                            <action selector="tapSignupButton" destination="AcP-jA-ZOx" eventType="touchUpInside" id="hzL-hG-lts"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -56,6 +56,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iYg-g4-WU9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="vmu-wY-5PL" firstAttribute="width" secondItem="xjz-PR-H2S" secondAttribute="width" id="2Yn-An-fbe"/>
                             <constraint firstItem="vmu-wY-5PL" firstAttribute="centerX" secondItem="o4q-ne-qb1" secondAttribute="centerX" id="6Vj-az-pvP"/>
@@ -71,6 +72,9 @@
                             <constraint firstItem="xjz-PR-H2S" firstAttribute="top" secondItem="Pti-cy-kfN" secondAttribute="bottom" constant="20" id="teX-xL-tK3"/>
                             <constraint firstItem="vmu-wY-5PL" firstAttribute="top" secondItem="2k2-9B-VpK" secondAttribute="bottom" constant="20" id="yxf-If-M6r"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="8D5-nf-PPN" appends="YES" id="SOK-EU-BQa"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="idField" destination="xjz-PR-H2S" id="nnF-si-yKs"/>
@@ -78,6 +82,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AqT-me-du7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="8D5-nf-PPN">
+                    <connections>
+                        <action selector="tapAction:" destination="AcP-jA-ZOx" id="RkR-lo-9LO"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="49" y="-121"/>
         </scene>
