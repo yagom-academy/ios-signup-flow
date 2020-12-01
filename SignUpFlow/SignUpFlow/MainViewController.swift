@@ -1,13 +1,13 @@
 //
-//  SignUpFlow - ViewController.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
+//  MainViewController.swift
+//  SignUpFlow
+//
+//  Created by Wonhee on 2020/12/01.
+//
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class MainViewController: UIViewController {
     @IBOutlet weak var idField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
 
@@ -29,4 +29,3 @@ class ViewController: UIViewController {
         self.present(signUpNavigationController, animated: true)
     }
 }
-
