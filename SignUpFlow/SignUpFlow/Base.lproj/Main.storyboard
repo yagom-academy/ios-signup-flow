@@ -25,21 +25,21 @@
                                     <constraint firstAttribute="height" constant="150" id="rTY-dB-vbH"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wNA-Sx-Uai">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wNA-Sx-Uai">
                                 <rect key="frame" x="132" y="270" width="150" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TUx-AZ-WiQ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TUx-AZ-WiQ">
                                 <rect key="frame" x="132" y="337" width="150" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDc-L2-QdO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDc-L2-QdO">
                                 <rect key="frame" x="132" y="406" width="47" height="30"/>
                                 <state key="normal" title="Sign In"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLV-ag-meE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLV-ag-meE">
                                 <rect key="frame" x="228" y="406" width="54" height="30"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" systemColor="systemRedColor"/>
@@ -55,9 +55,16 @@
                             <constraint firstItem="hWW-Zc-ULt" firstAttribute="leading" secondItem="mDc-L2-QdO" secondAttribute="leading" id="1E1-s8-1ir"/>
                             <constraint firstItem="hWW-Zc-ULt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1JD-Kz-zhi"/>
                             <constraint firstItem="hWW-Zc-ULt" firstAttribute="centerX" secondItem="TUx-AZ-WiQ" secondAttribute="centerX" id="6hi-hL-wjC"/>
+                            <constraint firstItem="TUx-AZ-WiQ" firstAttribute="trailing" secondItem="hWW-Zc-ULt" secondAttribute="trailing" id="BfW-3P-Osj"/>
+                            <constraint firstItem="PLV-ag-meE" firstAttribute="top" secondItem="TUx-AZ-WiQ" secondAttribute="bottom" constant="35" id="HE4-vd-jZQ"/>
                             <constraint firstItem="hWW-Zc-ULt" firstAttribute="trailing" secondItem="PLV-ag-meE" secondAttribute="trailing" id="Imx-W5-2pX"/>
+                            <constraint firstItem="wNA-Sx-Uai" firstAttribute="trailing" secondItem="hWW-Zc-ULt" secondAttribute="trailing" id="WZH-sH-AC8"/>
                             <constraint firstItem="hWW-Zc-ULt" firstAttribute="centerX" secondItem="wNA-Sx-Uai" secondAttribute="centerX" id="fxE-6O-NcB"/>
                             <constraint firstItem="wNA-Sx-Uai" firstAttribute="top" secondItem="hWW-Zc-ULt" secondAttribute="bottom" constant="56" id="i30-6X-zfk"/>
+                            <constraint firstItem="TUx-AZ-WiQ" firstAttribute="leading" secondItem="hWW-Zc-ULt" secondAttribute="leading" id="mqX-Sp-uMH"/>
+                            <constraint firstItem="mDc-L2-QdO" firstAttribute="top" secondItem="TUx-AZ-WiQ" secondAttribute="bottom" constant="35" id="o0D-FM-Ke5"/>
+                            <constraint firstItem="wNA-Sx-Uai" firstAttribute="leading" secondItem="hWW-Zc-ULt" secondAttribute="leading" id="s2r-LJ-3CM"/>
+                            <constraint firstItem="TUx-AZ-WiQ" firstAttribute="top" secondItem="wNA-Sx-Uai" secondAttribute="bottom" constant="33" id="utQ-Da-JRp"/>
                             <constraint firstItem="hWW-Zc-ULt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="yWl-Ad-rhO"/>
                         </constraints>
                     </view>
