@@ -47,6 +47,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="vLW-Pc-hX2" kind="presentation" id="l4f-4L-RT8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -83,7 +86,7 @@
             <objects>
                 <viewController id="vLW-Pc-hX2" customClass="SingUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4B6-wx-ewX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="o3E-NI-JBM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -91,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edR-GQ-ZA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="738" y="-121"/>
+            <point key="canvasLocation" x="949" y="-121"/>
         </scene>
     </scenes>
     <resources>
