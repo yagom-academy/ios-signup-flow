@@ -45,7 +45,7 @@ extension ViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
         case passwordTextField:
-            ()
+            didTapSignInButton(signInButton)
         default:
             textField.resignFirstResponder()
         }
