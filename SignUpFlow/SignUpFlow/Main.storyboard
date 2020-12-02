@@ -169,7 +169,7 @@
                     </view>
                     <connections>
                         <outlet property="introductionTextView" destination="EyV-aJ-sKk" id="gEi-ge-C9Z"/>
-                        <outlet property="profileImage" destination="nY7-z8-NyE" id="KPD-Np-jsh"/>
+                        <outlet property="profileImageView" destination="nY7-z8-NyE" id="3f5-np-wh5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edR-GQ-ZA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

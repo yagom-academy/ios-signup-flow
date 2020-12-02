@@ -13,10 +13,13 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var introductionTextView: UITextView!
     
     private let profileImagePicker = UIImagePickerController()
+    private let introductionPlaceholderMessage = "자기소개를 입력해주세요."
+    private let introductionPlaceholderColor = UIColor.lightGray
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setProfileImage()
+        setIntroductionTextView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +32,11 @@ class SignUpViewController: UIViewController {
         
         profileImagePicker.allowsEditing = true
         profileImagePicker.delegate = self
+    }
+    
+    private func setIntroductionTextView() {
+        introductionTextView.delegate = self
+        setPlaceholder()
     }
     
     @objc func tapProfileImageView(_ sender: UITapGestureRecognizer) {
@@ -66,5 +74,12 @@ extension SignUpViewController : UIImagePickerControllerDelegate,
             self.profileImageView.image = profileImage
         }
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SignUpViewController : UITextViewDelegate {
+    func setPlaceholder() {
+        introductionTextView.text = self.introductionPlaceholderMessage
+        introductionTextView.textColor = self.introductionPlaceholderColor
     }
 }
