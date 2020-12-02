@@ -141,7 +141,7 @@
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYM-T1-Zve">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYM-T1-Zve">
                                         <rect key="frame" x="187" y="0.0" width="187" height="30"/>
                                         <state key="normal" title="다음"/>
                                     </button>
