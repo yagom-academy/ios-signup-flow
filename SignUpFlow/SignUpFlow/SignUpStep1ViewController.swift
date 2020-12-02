@@ -1,7 +1,7 @@
 import UIKit
 import MobileCoreServices
 
-class SignUpStep1ViewController: UIViewController, UINavigationControllerDelegate {
+class SignUpStep1ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -12,7 +12,6 @@ class SignUpStep1ViewController: UIViewController, UINavigationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     func isEmpty(_ any: Any) -> Bool {
@@ -48,7 +47,7 @@ class SignUpStep1ViewController: UIViewController, UINavigationControllerDelegat
     }
 }
 
-extension SignUpStep1ViewController: UIImagePickerControllerDelegate {
+extension SignUpStep1ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         dismiss(animated: true)
