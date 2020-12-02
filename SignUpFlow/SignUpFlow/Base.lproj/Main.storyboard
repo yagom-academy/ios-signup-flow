@@ -109,6 +109,9 @@
                                 <rect key="frame" x="292" y="820" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="다음"/>
+                                <connections>
+                                    <action selector="pressedNextButton:" destination="h2H-pK-OWC" eventType="touchUpInside" id="c7N-0U-JpM"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r8L-Bz-mNl">
                                 <rect key="frame" x="20" y="44" width="120" height="120"/>

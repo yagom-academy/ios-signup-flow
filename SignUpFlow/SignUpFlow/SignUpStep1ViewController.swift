@@ -67,6 +67,19 @@ class SignUpStep1ViewController: UIViewController {
     @IBAction func pressedBackButton(_ sender: UIButton) {
         dismiss(animated: true)
     }
+    
+    @IBAction func pressedNextButton(_ sender: UIButton) {
+        guard let id = idTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let image = imageView.image else { return }
+        guard let introduction = textView.text else { return }
+        
+        let userInformation = UserInformation.common
+        userInformation.setId(id)
+        userInformation.setPassword(password)
+        userInformation.setImage(image)
+        userInformation.setIntroduction(introduction)
+    }
 }
 
 extension SignUpStep1ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
