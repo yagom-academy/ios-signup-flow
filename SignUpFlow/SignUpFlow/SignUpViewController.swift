@@ -30,6 +30,7 @@ class SignUpViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
+    // MARK: - settings
     private func setKeyboard() {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.sizeToFit()
@@ -66,6 +67,7 @@ class SignUpViewController: UIViewController {
         setIntroductionPlaceholder()
     }
     
+    // MARK: - Profile Image func
     @objc func tapProfileImageView(_ sender: UITapGestureRecognizer) {
         let profileImageAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let openAlbum = UIAlertAction(title: "앨범에서 가져오기", style: .default) { _ in
@@ -93,6 +95,7 @@ class SignUpViewController: UIViewController {
         present(profileImagePicker, animated: false, completion: nil)
     }
     
+    // MARK: - Step Buttons
     @IBAction func tapCancleButton(_ sender: Any) {
         profileImageView.image = nil
         for textField in profileTextFields {
@@ -103,9 +106,11 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func tapNextButton(_ sender: Any) {
+        
     }
 }
 
+// MARK: - extensions
 extension SignUpViewController : UIImagePickerControllerDelegate,
                                  UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
