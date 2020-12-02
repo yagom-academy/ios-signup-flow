@@ -1,13 +1,12 @@
 import UIKit
 
 final class SignInViewController: UIViewController {
-    @IBOutlet weak var id: UITextField!
+    @IBOutlet weak var idTextField: UITextField!
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapView(gestureRecognizer:)))
-        
         self.view.addGestureRecognizer(tapRecognizer)
     }
         
