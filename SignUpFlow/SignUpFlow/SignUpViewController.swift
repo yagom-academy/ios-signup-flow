@@ -35,8 +35,15 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.dismiss(animated: true, completion: nil)
     }
     
+    @objc func tapImageView(_ gesture: UITapGestureRecognizer) {
+        self.present(self.imagePicker, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapImageView(_:)))
+        imageView.addGestureRecognizer(tapGesture)
+        imageView.isUserInteractionEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
