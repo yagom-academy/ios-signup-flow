@@ -10,6 +10,7 @@
 		26EE68192574B018005464D8 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE68182574B018005464D8 /* UserInformation.swift */; };
 		26EE6828257609FE005464D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26EE6827257609FE005464D8 /* Main.storyboard */; };
 		28278D0C2577B01A0051C656 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28278D0B2577B01A0051C656 /* UIColorExtension.swift */; };
+		28278D112577B9ED0051C656 /* SignUpOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28278D102577B9ED0051C656 /* SignUpOptionViewController.swift */; };
 		2873196F2576371400356540 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2873196E2576371400356540 /* SignUpViewController.swift */; };
 		2873197C2576734800356540 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2873197B2576734800356540 /* MainViewController.swift */; };
 		C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 		26EE68182574B018005464D8 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		26EE6827257609FE005464D8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		28278D0B2577B01A0051C656 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		28278D102577B9ED0051C656 /* SignUpOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOptionViewController.swift; sourceTree = "<group>"; };
 		2873196E2576371400356540 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2873197B2576734800356540 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C7352B83256F59BD00C3B7F1 /* SignUpFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUpFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 				C7352B94256F59BF00C3B7F1 /* Info.plist */,
 				2873196E2576371400356540 /* SignUpViewController.swift */,
 				2873197B2576734800356540 /* MainViewController.swift */,
+				28278D102577B9ED0051C656 /* SignUpOptionViewController.swift */,
 			);
 			path = SignUpFlow;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */,
 				C7352B89256F59BD00C3B7F1 /* SceneDelegate.swift in Sources */,
 				28278D0C2577B01A0051C656 /* UIColorExtension.swift in Sources */,
+				28278D112577B9ED0051C656 /* SignUpOptionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

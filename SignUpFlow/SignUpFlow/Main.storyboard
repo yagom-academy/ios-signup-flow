@@ -194,10 +194,10 @@
             </objects>
             <point key="canvasLocation" x="766.66666666666674" y="-127.23214285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up Option View Controller-->
         <scene sceneID="OEl-NP-8Ky">
             <objects>
-                <viewController id="IZL-1u-5TE" sceneMemberID="viewController">
+                <viewController id="IZL-1u-5TE" customClass="SignUpOptionViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GkF-Oi-2Si">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
