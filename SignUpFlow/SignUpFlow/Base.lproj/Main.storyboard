@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="-196.26168224299064" y="121.81425485961124"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up Step1 View Controller-->
         <scene sceneID="I2d-PE-uj4">
             <objects>
-                <viewController id="h2H-pK-OWC" sceneMemberID="viewController">
+                <viewController id="h2H-pK-OWC" customClass="SignUpStep1ViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tvI-hK-e9X">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
