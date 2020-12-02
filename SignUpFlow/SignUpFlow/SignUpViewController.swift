@@ -126,15 +126,22 @@ extension SignUpViewController : UITextViewDelegate {
         if textView.textColor == self.introductionPlaceholderColor {
             textView.text = nil
             textView.textColor = UIColor.textViewColor
-//            textView.textColor = self.introductionTextColor
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
+        if isNotvalidateText(from: textView) {
             textView.text = self.introductionPlaceholderMessage
             textView.textColor = self.introductionPlaceholderColor
         }
+    }
+    
+    private func isNotvalidateText(from textView: UITextView) -> Bool {
+        guard let text = textView.text,
+              !text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
+            return true
+        }
+        return false
     }
 }
 
