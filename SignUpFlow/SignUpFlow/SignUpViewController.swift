@@ -7,7 +7,6 @@
 
 import UIKit
 // TODO: 모든 필드 채워지고, 비밀번호-비밀번호 확인 일치하면 다음 활성화
-// TODO: 필드 return(next) 클릭시 다음 필드로 넘어가기
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -126,7 +125,8 @@ extension SignUpViewController : UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == self.introductionPlaceholderColor {
             textView.text = nil
-            textView.textColor = self.introductionTextColor
+            textView.textColor = UIColor.textViewColor
+//            textView.textColor = self.introductionTextColor
         }
     }
     
