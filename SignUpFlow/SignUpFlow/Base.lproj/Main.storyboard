@@ -36,7 +36,10 @@
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="h2H-pK-OWC" kind="presentation" id="tpr-dV-ENh"/>
+                                    <segue destination="h2H-pK-OWC" kind="presentation" id="tpr-dV-ENh">
+                                        <segue key="commit" inheritsFrom="parent" id="dZg-yJ-3Tw"/>
+                                        <segue key="preview" inheritsFrom="commit" id="QfO-xr-TzB"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="appleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5Px-8v-M6y">
@@ -87,7 +90,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r8L-Bz-mNl">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r8L-Bz-mNl">
                                 <rect key="frame" x="20" y="20" width="138" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -133,6 +136,9 @@
             <point key="canvasLocation" x="560.74766355140184" y="121.81425485961124"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tpr-dV-ENh"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="appleLogo" width="872" height="932"/>
         <systemColor name="labelColor">
