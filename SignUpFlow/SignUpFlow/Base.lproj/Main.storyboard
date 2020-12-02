@@ -154,6 +154,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="q7X-Lv-mZX"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="DM3-qh-nHf" id="6np-XU-P9v"/>
+                        <outlet property="checkPasswordTextField" destination="hAP-so-Vai" id="4nM-YG-iTd"/>
+                        <outlet property="introductionTextView" destination="J8W-hE-k9X" id="Eor-l0-U88"/>
+                        <outlet property="newIdTextField" destination="OGL-9v-6I9" id="1QN-v6-bSi"/>
+                        <outlet property="newPasswordTextField" destination="ZkJ-fW-dsD" id="yg1-54-cYY"/>
+                        <outlet property="nextButton" destination="jdH-Uo-OGb" id="VvW-Kr-h6t"/>
+                        <outlet property="profileImageView" destination="mhJ-Cv-Xhs" id="u66-7M-dTB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sun-a1-yc0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
