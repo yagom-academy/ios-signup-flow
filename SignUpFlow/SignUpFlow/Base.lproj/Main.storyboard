@@ -59,6 +59,8 @@
                         <outlet property="idTextField" destination="3UR-uR-oXX" id="vzF-ad-THk"/>
                         <outlet property="logoImageView" destination="hJp-hv-lIQ" id="VoF-XZ-xua"/>
                         <outlet property="passwordTextField" destination="hOT-Vy-3lj" id="KFU-rf-bWu"/>
+                        <outlet property="signInButton" destination="kkh-VC-Alq" id="2nR-KK-O4n"/>
+                        <outlet property="signUpButton" destination="Xf2-Hv-yMx" id="md3-xk-lBB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
