@@ -1,9 +1,8 @@
 import UIKit
 
 final class SignInViewController: UIViewController {
-
     @IBOutlet weak var id: UITextField!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -11,7 +10,7 @@ final class SignInViewController: UIViewController {
         
         self.view.addGestureRecognizer(tapRecognizer)
     }
-    
+        
     @objc func tapView(gestureRecognizer: UIGestureRecognizer) {
         self.view.endEditing(true)
     }
