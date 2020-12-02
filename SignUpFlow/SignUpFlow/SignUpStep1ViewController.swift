@@ -30,6 +30,14 @@ class SignUpStep1ViewController: UIViewController {
         
         return true
     }
+    
+    func verifyAllComponentHasValue() -> Bool {
+        let allComponent = [self.imageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.textView]
+        
+        return allComponent.reduce(true) { result, next -> Bool in
+            result && hasValue(next)
+        }
+    }
 
     @IBAction func pressedImageView(_ sender: UITapGestureRecognizer) {
         imagePicker.delegate = self
