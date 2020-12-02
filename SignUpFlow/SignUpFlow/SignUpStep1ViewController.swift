@@ -40,6 +40,14 @@ class SignUpStep1ViewController: UIViewController {
             result && hasValue(next)
         }
     }
+    
+    func verifyPasswordEquality() -> Bool {
+        guard let firstPassword = passwordTextField.text, let secondPassword = checkPasswordTextField.text else {
+            return false
+        }
+        
+        return firstPassword == secondPassword
+    }
 
     @IBAction func pressedImageView(_ sender: UITapGestureRecognizer) {
         imagePicker.delegate = self
