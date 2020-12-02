@@ -12,6 +12,8 @@ class SignUpStep1ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkPasswordTextField.delegate = self
     }
     
     func hasValue(_ any: Any?) -> Bool {
@@ -55,5 +57,11 @@ extension SignUpStep1ViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         dismiss(animated: true)
+    }
+}
+
+extension SignUpStep1ViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        
     }
 }
