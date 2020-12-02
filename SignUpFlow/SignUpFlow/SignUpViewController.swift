@@ -47,15 +47,24 @@ class SignUpViewController: UIViewController {
     }
     
     private func openAlbum() {
-        
+        profileImagePicker.sourceType = .photoLibrary
+        present(profileImagePicker, animated: false, completion: nil)
     }
     
     private func openCamera() {
-        
+        profileImagePicker.sourceType = .camera
+        present(profileImagePicker, animated: false, completion: nil)
     }
 }
 
 extension SignUpViewController : UIImagePickerControllerDelegate,
                                  UINavigationControllerDelegate {
-    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let profileImage = info[.originalImage] as? UIImage {
+            
+        }
+        else {
+            
+        }
+    }
 }
