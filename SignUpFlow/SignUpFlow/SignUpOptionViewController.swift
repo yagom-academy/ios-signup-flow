@@ -13,4 +13,7 @@ class SignUpOptionViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    @IBAction func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

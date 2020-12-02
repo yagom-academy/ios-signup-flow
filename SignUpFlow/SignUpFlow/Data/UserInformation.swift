@@ -17,3 +17,10 @@ final class UserInformation {
     var phone: String?
     var birthDate: Date?
 }
+
+protocol UserInfoForm {
+    var id: String? { get }
+    var password: String? { get }
+    var image: UIImage? { get }
+    var introduction: String? { get }
+}

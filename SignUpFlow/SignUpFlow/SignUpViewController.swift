@@ -6,17 +6,40 @@
 //
 
 import UIKit
+
+enum ProfileFieldType: Int, CaseIterable {
+    case id = 1
+    case password
+    case checkPassword
+    
+    func getFieldType(from tagNumber: Int) -> ProfileFieldType? {
+        for fieldType in ProfileFieldType.allCases {
+            if fieldType.rawValue == tagNumber {
+                return fieldType
+            }
+        }
+        return nil
+    }
+}
+
 // TODO: 모든 필드 채워지고, 비밀번호-비밀번호 확인 일치하면 다음 활성화
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet var profileTextFields: [UITextField]!
+    @IBOutlet weak var nextButton: UIButton!
     
     private let profileImagePicker = UIImagePickerController()
     private let introductionPlaceholderMessage = "자기소개를 입력해주세요."
     private let introductionPlaceholderColor = UIColor.lightGray
     private let introductionTextColor = UIColor.black
+    
+    private var isFilledForm: Bool = false {
+        didSet {
+            self.setNextButtonState()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,8 +128,29 @@ class SignUpViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    private func setNextButtonState() {
+        if isFilledForm != self.nextButton.isEnabled {
+            self.nextButton.isEnabled = isFilledForm
+        }
+    }
+    
     @IBAction func tapNextButton(_ sender: Any) {
-        
+        guard let signUpOptionViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpOption") else {
+            return
+        }
+        self.navigationController?.pushViewController(signUpOptionViewController, animated: true)
+    }
+    
+    // MARK: - check form
+    private func isValidateText(from text: String?) throws -> Bool {
+        guard let checkText = text else {
+            throw SignUpError.getText
+        }
+
+        if checkText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty {
+            return false
+        }
+        return true
     }
 }
 
@@ -135,18 +179,14 @@ extension SignUpViewController : UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if isNotvalidateText(from: textView) {
-            textView.text = self.introductionPlaceholderMessage
-            textView.textColor = self.introductionPlaceholderColor
+        do {
+            if try !isValidateText(from: textView.text) {
+                textView.text = self.introductionPlaceholderMessage
+                textView.textColor = self.introductionPlaceholderColor
+            }
+        } catch {
+            self.present(self.errorAlert(error, handler: nil), animated: true, completion: nil)
         }
-    }
-    
-    private func isNotvalidateText(from textView: UITextView) -> Bool {
-        guard let text = textView.text,
-              !text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
-            return true
-        }
-        return false
     }
 }
 
