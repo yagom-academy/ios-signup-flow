@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		26EE68192574B018005464D8 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE68182574B018005464D8 /* UserInformation.swift */; };
 		26EE6828257609FE005464D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26EE6827257609FE005464D8 /* Main.storyboard */; };
-		28278D0125775E400051C656 /* SignUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28278D0025775E400051C656 /* SignUpError.swift */; };
 		2873196F2576371400356540 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2873196E2576371400356540 /* SignUpViewController.swift */; };
 		2873197C2576734800356540 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2873197B2576734800356540 /* MainViewController.swift */; };
 		C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		26EE68182574B018005464D8 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		26EE6827257609FE005464D8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		28278D0025775E400051C656 /* SignUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
 		2873196E2576371400356540 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2873197B2576734800356540 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C7352B83256F59BD00C3B7F1 /* SignUpFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUpFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,14 +41,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28278CFF25775E330051C656 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				28278D0025775E400051C656 /* SignUpError.swift */,
-			);
-			path = Error;
-			sourceTree = "<group>";
-		};
 		28278D0325775E510051C656 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				28278D0325775E510051C656 /* Data */,
-				28278CFF25775E330051C656 /* Error */,
 				C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */,
 				C7352B88256F59BD00C3B7F1 /* SceneDelegate.swift */,
 				26EE6827257609FE005464D8 /* Main.storyboard */,
@@ -164,7 +153,6 @@
 			files = (
 				2873196F2576371400356540 /* SignUpViewController.swift in Sources */,
 				26EE68192574B018005464D8 /* UserInformation.swift in Sources */,
-				28278D0125775E400051C656 /* SignUpError.swift in Sources */,
 				2873197C2576734800356540 /* MainViewController.swift in Sources */,
 				C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */,
 				C7352B89256F59BD00C3B7F1 /* SceneDelegate.swift in Sources */,
@@ -313,7 +301,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.wonhee-.SignUpFlow";
+				PRODUCT_BUNDLE_IDENTIFIER = net.wonhee.SignUpFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -332,7 +320,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.wonhee-.SignUpFlow";
+				PRODUCT_BUNDLE_IDENTIFIER = net.wonhee.SignUpFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

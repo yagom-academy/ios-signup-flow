@@ -26,6 +26,7 @@ class SignUpViewController: UIViewController {
         let profileImageGesture = UITapGestureRecognizer(target: self, action: #selector(tapProfileImageView(_:)))
         profileImage.addGestureRecognizer(profileImageGesture)
         
+        profileImagePicker.allowsEditing = true
         profileImagePicker.delegate = self
     }
     
@@ -60,11 +61,9 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController : UIImagePickerControllerDelegate,
                                  UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let profileImage = info[.originalImage] as? UIImage {
-            
+        if let profileImage = info[.editedImage] as? UIImage {
+            self.profileImage.image = profileImage
         }
-        else {
-            
-        }
+        dismiss(animated: true, completion: nil)
     }
 }
