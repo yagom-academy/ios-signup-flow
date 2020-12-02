@@ -78,6 +78,10 @@ extension SignUpStep1ViewController: UIImagePickerControllerDelegate, UINavigati
 
 extension SignUpStep1ViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        
+        if verifyAllComponentHasValue() && verifyPasswordEquality() {
+            nextButton.isEnabled = true
+        } else {
+            nextButton.isEnabled = false
+        }
     }
 }
