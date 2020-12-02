@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController {
     private let profileImagePicker = UIImagePickerController()
     private let introductionPlaceholderMessage = "자기소개를 입력해주세요."
     private let introductionPlaceholderColor = UIColor.lightGray
+    private let introductionTextColor = UIColor.black
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,5 +82,17 @@ extension SignUpViewController : UITextViewDelegate {
     func setPlaceholder() {
         introductionTextView.text = self.introductionPlaceholderMessage
         introductionTextView.textColor = self.introductionPlaceholderColor
+    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == self.introductionPlaceholderColor {
+            textView.text = nil
+            textView.textColor = self.introductionTextColor
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = self.introductionPlaceholderMessage
+            textView.textColor = self.introductionPlaceholderColor
+        }
     }
 }
