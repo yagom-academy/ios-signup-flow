@@ -1,9 +1,3 @@
-//
-//  SignUpFlow - ViewController.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -15,13 +9,27 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        idTextFieldConfig(idTextField)
+        passwordTextFieldConfig(passwordTextField)
     }
 
     //MARK: - IBActions
     @IBAction func didTapSignInButton(_ sender: UIButton) {
     }
     @IBAction func didTapSignUpButton(_ sender: UIButton) {
+    }
+    
+    //MARK: - TextField Configuration
+    private func idTextFieldConfig(_ textField: UITextField) {
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.returnKeyType = .next
+    }
+    private func passwordTextFieldConfig(_ textField: UITextField) {
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.isSecureTextEntry = true
+        textField.returnKeyType = .done
     }
 }
 
