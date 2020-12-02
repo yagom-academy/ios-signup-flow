@@ -18,10 +18,6 @@ class ViewController: UIViewController {
     }
 
     //MARK: - IBActions
-    @IBAction func didTapSignInButton(_ sender: UIButton) {
-    }
-    @IBAction func didTapSignUpButton(_ sender: UIButton) {
-    }
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
@@ -48,7 +44,7 @@ extension ViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
         case passwordTextField:
-            didTapSignInButton(signInButton)
+            textField.resignFirstResponder()
         default:
             textField.resignFirstResponder()
         }
