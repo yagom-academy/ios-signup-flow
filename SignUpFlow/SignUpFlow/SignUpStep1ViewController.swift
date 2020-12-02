@@ -14,6 +14,27 @@ class SignUpStep1ViewController: UIViewController, UINavigationControllerDelegat
         super.viewDidLoad()
         
     }
+    
+    func isEmpty(_ any: Any) -> Bool {
+        switch any {
+        case let imageView as UIImageView:
+            if imageView.image != nil {
+                return false
+            }
+        case let textField as UITextField:
+            if textField.text != nil {
+                return false
+            }
+        case let textView as UITextView:
+            if textView.text != nil {
+                return false
+            }
+        default:
+            return true
+        }
+        
+        return true
+    }
 
     @IBAction func pressedImageView(_ sender: UITapGestureRecognizer) {
         imagePicker.delegate = self
