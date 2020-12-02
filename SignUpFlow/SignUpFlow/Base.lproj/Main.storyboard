@@ -126,7 +126,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="checkPasswordTextField" destination="aY7-Bv-Zzn" id="sHy-Hp-Qcr"/>
+                        <outlet property="idTextField" destination="KIl-Mh-uW6" id="zw8-89-yJo"/>
                         <outlet property="imageView" destination="r8L-Bz-mNl" id="j7r-0s-IFn"/>
+                        <outlet property="passwordTextField" destination="470-fJ-SvJ" id="pMc-mU-VLj"/>
+                        <outlet property="textView" destination="eTn-vH-cPy" id="Kdm-VT-fVQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcH-Pa-BDV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

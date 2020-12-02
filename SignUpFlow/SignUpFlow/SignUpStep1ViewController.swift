@@ -3,6 +3,10 @@ import MobileCoreServices
 
 class SignUpStep1ViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var checkPasswordTextField: UITextField!
+    @IBOutlet weak var textView: UITextView!
     
     let imagePicker: UIImagePickerController = UIImagePickerController()
     
