@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJp-hv-lIQ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yagom_symbol" translatesAutoresizingMaskIntoConstraints="NO" id="hJp-hv-lIQ">
                                 <rect key="frame" x="16" y="44" width="358" height="319"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -49,6 +49,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapSignUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6xA-ke-YxQ"/>
+                                    <segue destination="jMw-5X-4a3" kind="show" identifier="SignUpSegue" id="FMV-uL-ocQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -76,8 +77,25 @@
             </objects>
             <point key="canvasLocation" x="138.46153846153845" y="106.63507109004739"/>
         </scene>
+        <!--Register Step One View Controller-->
+        <scene sceneID="j4J-jt-vSW">
+            <objects>
+                <viewController id="jMw-5X-4a3" customClass="RegisterStepOneViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X4s-1A-md0">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sm0-Kf-k6T"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="j9H-7F-avc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2EX-hE-3ef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002" y="107"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="yagom_symbol" width="166.66667175292969" height="160.33332824707031"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
