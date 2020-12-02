@@ -112,6 +112,9 @@
                                 <state key="normal" title="취소">
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressedBackButton:" destination="h2H-pK-OWC" eventType="touchUpInside" id="QUX-uh-stT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyB-rn-EBM">
                                 <rect key="frame" x="291" y="794" width="30" height="30"/>

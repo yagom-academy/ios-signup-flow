@@ -17,6 +17,10 @@ class SignUpStep1ViewController: UIViewController, UINavigationControllerDelegat
         
         present(imagePicker, animated: true)
     }
+    
+    @IBAction func pressedBackButton(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
 }
 
 extension SignUpStep1ViewController: UIImagePickerControllerDelegate {
