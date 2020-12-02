@@ -15,6 +15,13 @@ class SignUpStep1ViewController: UIViewController {
         super.viewDidLoad()
         
         checkPasswordTextField.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func hasValue(_ any: Any?) -> Bool {
