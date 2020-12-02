@@ -14,6 +14,27 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var passwordCheckTextField: UITextField!
     @IBOutlet weak var introductionTextView: UITextView!
     
+    lazy var imagePicker: UIImagePickerController = {
+        let picker: UIImagePickerController = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        picker.delegate = self
+        return picker
+    }()
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let originalImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            return
+        }
+        UserInformation.shared.image = originalImage
+        self.imageView.image = originalImage
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
