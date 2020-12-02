@@ -27,11 +27,11 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let originalImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+        guard let editedImage: UIImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
-        UserInformation.shared.image = originalImage
-        self.imageView.image = originalImage
+        UserInformation.shared.image = editedImage
+        self.imageView.image = editedImage
         self.dismiss(animated: true, completion: nil)
     }
     
