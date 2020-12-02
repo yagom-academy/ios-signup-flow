@@ -11,14 +11,37 @@ enum ProfileFieldType: Int, CaseIterable {
     case id = 1
     case password
     case checkPassword
+}
+
+class UserInfo : InfoForm {
+    var id: String?
+    var checkPassword: String?
+    var password: String?
+    var image: UIImage?
+    var introduction: String?
     
-    func getFieldType(from tagNumber: Int) -> ProfileFieldType? {
-        for fieldType in ProfileFieldType.allCases {
-            if fieldType.rawValue == tagNumber {
-                return fieldType
-            }
+    func isFilled() -> Bool {
+        guard let _ = self.image,
+              let _ = self.id,
+              let validatePassword = self.password,
+              let validateCheckPassword = self.checkPassword,
+              let _ = self.introduction,
+              validatePassword == validateCheckPassword
+        else {
+            return false
         }
-        return nil
+        return true
+    }
+    
+    func clearInfo() {
+        self.id = nil
+        self.password = nil
+        self.image = nil
+        self.introduction = nil
+    }
+    
+    func validateInfo() throws -> Bool {
+        return false
     }
 }
 
@@ -35,11 +58,7 @@ class SignUpViewController: UIViewController {
     private let introductionPlaceholderColor = UIColor.lightGray
     private let introductionTextColor = UIColor.black
     
-    private var isFilledForm: Bool = false {
-        didSet {
-            self.setNextButtonState()
-        }
-    }
+    private(set) var userInfoForm = UserInfo()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,6 +148,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func setNextButtonState() {
+        let isFilledForm = self.userInfoForm.isFilled()
         if isFilledForm != self.nextButton.isEnabled {
             self.nextButton.isEnabled = isFilledForm
         }
@@ -142,15 +162,16 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - check form
-    private func isValidateText(from text: String?) throws -> Bool {
-        guard let checkText = text else {
-            throw SignUpError.getText
-        }
-
+    private func isValidateText(from checkText: String) -> Bool {
         if checkText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty {
             return false
         }
         return true
+    }
+    
+    // MARK: - alert func
+    private func showError(_ error: Error) {
+        self.present(self.errorAlert(error), animated: true, completion: nil)
     }
 }
 
@@ -160,7 +181,9 @@ extension SignUpViewController : UIImagePickerControllerDelegate,
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let profileImage = info[.editedImage] as? UIImage {
             self.profileImageView.image = profileImage
+            self.userInfoForm.image = profileImage
         }
+        self.setNextButtonState()
         dismiss(animated: true, completion: nil)
     }
 }
@@ -179,14 +202,17 @@ extension SignUpViewController : UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        do {
-            if try !isValidateText(from: textView.text) {
-                textView.text = self.introductionPlaceholderMessage
-                textView.textColor = self.introductionPlaceholderColor
-            }
-        } catch {
-            self.present(self.errorAlert(error, handler: nil), animated: true, completion: nil)
+        guard let introductionText = textView.text else {
+            return self.showError(SignUpError.getText)
         }
+        if isValidateText(from: introductionText) {
+            self.userInfoForm.introduction = introductionText
+        } else {
+            self.userInfoForm.introduction = nil
+            textView.text = self.introductionPlaceholderMessage
+            textView.textColor = self.introductionPlaceholderColor
+        }
+        self.setNextButtonState()
     }
 }
 
@@ -205,5 +231,22 @@ extension SignUpViewController : UITextFieldDelegate {
         else {
             self.introductionTextView.becomeFirstResponder()
         }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let type = ProfileFieldType(rawValue: textField.tag) else {
+            return self.showError(SignUpError.unknown)
+        }
+        
+        switch type {
+        case .id:
+            self.userInfoForm.id = textField.text
+        case .password:
+            self.userInfoForm.password = textField.text
+        case .checkPassword:
+            self.userInfoForm.checkPassword = textField.text
+        }
+        
+        self.setNextButtonState()
     }
 }
