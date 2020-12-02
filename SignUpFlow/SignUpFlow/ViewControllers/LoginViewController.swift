@@ -13,14 +13,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // ID
-        idTextField.returnKeyType = .next
-        idTextField.clearButtonMode = .whileEditing
-        //Password
-        passwordTextField.returnKeyType = .done
-        passwordTextField.clearButtonMode = .whileEditing
-        passwordTextField.isSecureTextEntry = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
