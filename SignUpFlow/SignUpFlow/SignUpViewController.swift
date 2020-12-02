@@ -14,6 +14,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var introductionTextView: UITextView!
+    @IBOutlet var profileTextFields: [UITextField]!
     
     private let profileImagePicker = UIImagePickerController()
     private let introductionPlaceholderMessage = "자기소개를 입력해주세요."
@@ -24,6 +25,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         setKeyboard()
         setProfileImage()
+        setProfileTextField()
         setIntroductionTextView()
     }
     
@@ -38,6 +40,9 @@ class SignUpViewController: UIViewController {
         keyboardToolbar.items = [doneButton]
         
         introductionTextView.inputAccessoryView = keyboardToolbar
+        for textField in profileTextFields {
+            textField.inputAccessoryView = keyboardToolbar
+        }
     }
     
     @objc func tapDoneButton(_ sender: Any) {
@@ -52,7 +57,14 @@ class SignUpViewController: UIViewController {
         profileImagePicker.delegate = self
     }
     
+    private func setProfileTextField() {
+        for textField in profileTextFields {
+            textField.delegate = self
+        }
+    }
+    
     private func setIntroductionTextView() {
+        introductionTextView.layer.borderColor = UIColor.lightGray.cgColor
         introductionTextView.delegate = self
         setPlaceholder()
     }
@@ -120,5 +132,15 @@ extension SignUpViewController : UITextViewDelegate {
             textView.text = self.introductionPlaceholderMessage
             textView.textColor = self.introductionPlaceholderColor
         }
+    }
+}
+
+extension SignUpViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == self.profileTextFields.count {
+            self.introductionTextView.becomeFirstResponder()
+            return true
+        }
+        return false
     }
 }
