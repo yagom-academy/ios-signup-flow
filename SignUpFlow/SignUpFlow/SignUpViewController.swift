@@ -9,7 +9,8 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var introductionTextView: UITextView!
     
     private let profileImagePicker = UIImagePickerController()
 
@@ -24,7 +25,7 @@ class SignUpViewController: UIViewController {
     
     private func setProfileImage() {
         let profileImageGesture = UITapGestureRecognizer(target: self, action: #selector(tapProfileImageView(_:)))
-        profileImage.addGestureRecognizer(profileImageGesture)
+        profileImageView.addGestureRecognizer(profileImageGesture)
         
         profileImagePicker.allowsEditing = true
         profileImagePicker.delegate = self
@@ -62,7 +63,7 @@ extension SignUpViewController : UIImagePickerControllerDelegate,
                                  UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let profileImage = info[.editedImage] as? UIImage {
-            self.profileImage.image = profileImage
+            self.profileImageView.image = profileImage
         }
         dismiss(animated: true, completion: nil)
     }
