@@ -14,20 +14,16 @@ class SignUpStep1ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func isEmpty(_ any: Any) -> Bool {
+    func hasValue(_ any: Any?) -> Bool {
         switch any {
         case let imageView as UIImageView:
-            if imageView.image != nil {
+            if imageView.image == nil {
                 return false
             }
         case let textField as UITextField:
-            if textField.text != nil {
-                return false
-            }
+            return textField.hasText
         case let textView as UITextView:
-            if textView.text != nil {
-                return false
-            }
+            return textView.hasText
         default:
             return true
         }
