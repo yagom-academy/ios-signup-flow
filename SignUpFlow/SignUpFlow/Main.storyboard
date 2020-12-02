@@ -168,6 +168,9 @@
                             <constraint firstItem="o3E-NI-JBM" firstAttribute="bottom" secondItem="KjI-WB-8GN" secondAttribute="bottom" constant="20" id="wDa-nd-uhk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="profileImage" destination="nY7-z8-NyE" id="KPD-Np-jsh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edR-GQ-ZA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
