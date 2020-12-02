@@ -9,6 +9,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        idTextField.delegate = self
+        passwordTextField.delegate = self
         idTextFieldConfig(idTextField)
         passwordTextFieldConfig(passwordTextField)
     }
@@ -30,6 +32,22 @@ class ViewController: UIViewController {
         textField.autocorrectionType = .no
         textField.isSecureTextEntry = true
         textField.returnKeyType = .done
+    }
+}
+
+//MARK: - UITextFieldDelegate
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case idTextField:
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            ()
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
     }
 }
 
