@@ -66,7 +66,6 @@
 				82E1469A2576764500422E2E /* UserInformation.swift */,
 				C7352B91256F59BF00C3B7F1 /* LaunchScreen.storyboard */,
 				C7352B94256F59BF00C3B7F1 /* Info.plist */,
-				B4F57B51257616A100908B67 /* UserInformation.swift */,
 			);
 			path = SignUpFlow;
 			sourceTree = "<group>";

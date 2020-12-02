@@ -22,6 +22,9 @@ class ViewController: UIViewController {
     }
     @IBAction func didTapSignUpButton(_ sender: UIButton) {
     }
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
     
     //MARK: - TextField Configuration
     private func idTextFieldConfig(_ textField: UITextField) {
@@ -52,4 +55,3 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
 }
-
