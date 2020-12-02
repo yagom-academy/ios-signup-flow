@@ -90,7 +90,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eTn-vH-cPy">
                                 <rect key="frame" x="20" y="172" width="374" height="640"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -113,9 +113,10 @@
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r8L-Bz-mNl">
                                 <rect key="frame" x="20" y="44" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="nKW-Nb-dO6" appends="YES" id="kTF-5q-4Cm"/>
+                                    <outletCollection property="gestureRecognizers" destination="nKW-Nb-dO6" appends="YES" id="a3Y-D4-d1i"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -123,11 +124,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="IAT-p1-NA8"/>
+                    <connections>
+                        <outlet property="checkPasswordTextField" destination="aY7-Bv-Zzn" id="42H-nN-OG3"/>
+                        <outlet property="idTextField" destination="KIl-Mh-uW6" id="LgF-oO-wRS"/>
+                        <outlet property="imageView" destination="r8L-Bz-mNl" id="rqi-eZ-ohR"/>
+                        <outlet property="passwordTextField" destination="470-fJ-SvJ" id="oVc-5c-fw1"/>
+                        <outlet property="textView" destination="eTn-vH-cPy" id="TmL-u7-Sy1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcH-Pa-BDV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="nKW-Nb-dO6">
                     <connections>
-                        <action selector="pressedImageView:" destination="h2H-pK-OWC" id="bpZ-bo-R2h"/>
+                        <action selector="pressedImageView:" destination="h2H-pK-OWC" id="I3T-KF-OJ3"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -158,6 +166,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
