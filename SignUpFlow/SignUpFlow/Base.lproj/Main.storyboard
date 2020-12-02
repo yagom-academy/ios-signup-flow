@@ -37,6 +37,9 @@
                                 <rect key="frame" x="101" y="482" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="didTapSignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9UI-s8-aCQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xf2-Hv-yMx">
                                 <rect key="frame" x="240" y="482" width="54" height="30"/>
@@ -44,11 +47,19 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapSignUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6xA-ke-YxQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="idTextField" destination="3UR-uR-oXX" id="vzF-ad-THk"/>
+                        <outlet property="logoImageView" destination="hJp-hv-lIQ" id="VoF-XZ-xua"/>
+                        <outlet property="passwordTextField" destination="hOT-Vy-3lj" id="KFU-rf-bWu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
