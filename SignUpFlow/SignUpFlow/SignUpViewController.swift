@@ -6,10 +6,8 @@
 //
 
 import UIKit
-// TODO: 취소 버튼 클릭 -> 지원 정보 지워지고 -> 로그인 화면으로 돌아가기
 // TODO: 모든 필드 채워지고, 비밀번호-비밀번호 확인 일치하면 다음 활성화
 // TODO: 필드 return(next) 클릭시 다음 필드로 넘어가기
-// TODO: 키보드 위에 악세서리 뷰 붙여서 키보드 내릴 수 있게?
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -66,7 +64,7 @@ class SignUpViewController: UIViewController {
     private func setIntroductionTextView() {
         introductionTextView.layer.borderColor = UIColor.lightGray.cgColor
         introductionTextView.delegate = self
-        setPlaceholder()
+        setIntroductionPlaceholder()
     }
     
     @objc func tapProfileImageView(_ sender: UITapGestureRecognizer) {
@@ -97,6 +95,11 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func tapCancleButton(_ sender: Any) {
+        profileImageView.image = nil
+        for textField in profileTextFields {
+            textField.text = nil
+        }
+        setIntroductionPlaceholder()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -115,7 +118,7 @@ extension SignUpViewController : UIImagePickerControllerDelegate,
 }
 
 extension SignUpViewController : UITextViewDelegate {
-    func setPlaceholder() {
+    func setIntroductionPlaceholder() {
         introductionTextView.text = self.introductionPlaceholderMessage
         introductionTextView.textColor = self.introductionPlaceholderColor
     }
@@ -137,10 +140,18 @@ extension SignUpViewController : UITextViewDelegate {
 
 extension SignUpViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.tag == self.profileTextFields.count {
-            self.introductionTextView.becomeFirstResponder()
-            return true
+        moveNextTextField(from: textField)
+        return true
+    }
+    
+    private func moveNextTextField(from textField: UITextField) {
+        let nextTag = textField.tag + 1
+        if nextTag <= self.profileTextFields.count {
+            let field = profileTextFields.first(where: { $0.tag == nextTag })
+            field?.becomeFirstResponder()
         }
-        return false
+        else {
+            self.introductionTextView.becomeFirstResponder()
+        }
     }
 }
