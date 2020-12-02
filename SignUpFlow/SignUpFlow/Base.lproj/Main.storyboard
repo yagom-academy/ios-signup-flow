@@ -128,6 +128,7 @@
                         <outlet property="checkPasswordTextField" destination="aY7-Bv-Zzn" id="42H-nN-OG3"/>
                         <outlet property="idTextField" destination="KIl-Mh-uW6" id="LgF-oO-wRS"/>
                         <outlet property="imageView" destination="r8L-Bz-mNl" id="rqi-eZ-ohR"/>
+                        <outlet property="nextButton" destination="iyB-rn-EBM" id="j9C-6w-eBf"/>
                         <outlet property="passwordTextField" destination="470-fJ-SvJ" id="oVc-5c-fw1"/>
                         <outlet property="textView" destination="eTn-vH-cPy" id="TmL-u7-Sy1"/>
                     </connections>

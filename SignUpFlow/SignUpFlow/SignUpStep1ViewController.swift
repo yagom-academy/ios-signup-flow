@@ -7,6 +7,7 @@ class SignUpStep1ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var checkPasswordTextField: UITextField!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var nextButton: UIButton!
     
     let imagePicker: UIImagePickerController = UIImagePickerController()
     
