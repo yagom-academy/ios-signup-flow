@@ -6,7 +6,10 @@
 //
 
 import UIKit
-
+// TODO: 취소 버튼 클릭 -> 지원 정보 지워지고 -> 로그인 화면으로 돌아가기
+// TODO: 모든 필드 채워지고, 비밀번호-비밀번호 확인 일치하면 다음 활성화
+// TODO: 필드 return(next) 클릭시 다음 필드로 넘어가기
+// TODO: 키보드 위에 악세서리 뷰 붙여서 키보드 내릴 수 있게?
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -19,12 +22,26 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setKeyboard()
         setProfileImage()
         setIntroductionTextView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func setKeyboard() {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(tapDoneButton(_:)))
+        keyboardToolbar.items = [doneButton]
+        
+        introductionTextView.inputAccessoryView = keyboardToolbar
+    }
+    
+    @objc func tapDoneButton(_ sender: Any) {
+        self.view.endEditing(true)
     }
     
     private func setProfileImage() {
@@ -66,6 +83,13 @@ class SignUpViewController: UIViewController {
         profileImagePicker.sourceType = .camera
         present(profileImagePicker, animated: false, completion: nil)
     }
+    
+    @IBAction func tapCancleButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func tapNextButton(_ sender: Any) {
+    }
 }
 
 extension SignUpViewController : UIImagePickerControllerDelegate,
@@ -83,12 +107,14 @@ extension SignUpViewController : UITextViewDelegate {
         introductionTextView.text = self.introductionPlaceholderMessage
         introductionTextView.textColor = self.introductionPlaceholderColor
     }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == self.introductionPlaceholderColor {
             textView.text = nil
             textView.textColor = self.introductionTextColor
         }
     }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = self.introductionPlaceholderMessage
