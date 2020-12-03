@@ -88,6 +88,14 @@ extension SignUpFirstViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func touchUpNextButton(_ sender: UIButton) {
+        guard let signUpSecondViewController = storyboard?.instantiateViewController(withIdentifier: SignUpSecondViewController.storyboardID) as? SignUpSecondViewController else {
+            return
+        }
+        
+        navigationController?.pushViewController(signUpSecondViewController, animated: true)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         

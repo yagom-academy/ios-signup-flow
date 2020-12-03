@@ -91,6 +91,9 @@
                                 <rect key="frame" x="214" y="789" width="130" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="다음"/>
+                                <connections>
+                                    <action selector="touchUpNextButton:" destination="s65-9g-lHQ" eventType="touchUpInside" id="G7v-3d-qA1"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l4A-Yc-62D">
                                 <rect key="frame" x="20" y="44" width="125" height="125"/>
