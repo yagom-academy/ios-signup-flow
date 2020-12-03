@@ -74,18 +74,22 @@ class SignUpFirstViewController: UIViewController {
         return true
     }
     
+    private var isValidProfileImage: Bool {
+        guard profileImage.image != nil else {
+            print("profileImage.image == nil")
+            return false
+        }
+        
+        return true
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTextField()
         setupTextView()
-        
-        imagePickerController.delegate = self
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(setProfileImage))
-        profileImage.addGestureRecognizer(tapGesture)
-        profileImage.isUserInteractionEnabled = true
+        setupImagePicker()
     }
 }
 
@@ -121,6 +125,7 @@ extension SignUpFirstViewController {
         card.id = idTextField.text
         card.password = passwordTextField.text
         card.introduction = introductionTextView.text
+        card.profileImage = profileImage.image
     }
     
     private func clearUserInformation() {
@@ -128,7 +133,7 @@ extension SignUpFirstViewController {
     }
     
     private func checkToEnableNextButton() {
-        guard isValidID, isValidPassword, isValidIntroduction else {
+        guard isValidID, isValidPassword, isValidIntroduction, isValidProfileImage else {
             nextButton.isEnabled = false
             return
         }
@@ -136,9 +141,10 @@ extension SignUpFirstViewController {
         nextButton.isEnabled = true
     }
   
-    @objc private func setProfileImage() {
+    @objc private func showImagePicker() {
         imagePickerController.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum
         imagePickerController.allowsEditing = true
+        
         self.present(imagePickerController, animated: true, completion: nil)
     }
 }
@@ -187,11 +193,22 @@ extension SignUpFirstViewController: UITextViewDelegate {
 
 //MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate Methods
 extension SignUpFirstViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    private func setupImagePicker() {
+        imagePickerController.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showImagePicker))
+        profileImage.addGestureRecognizer(tapGesture)
+        profileImage.isUserInteractionEnabled = true
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             profileImage.image = selectedImage
-            UserInformation.card.profileImage = self.profileImage.image
         }
+        
+        // 다음 버튼 활성화 조건 확인
+        checkToEnableNextButton()
+        
         dismiss(animated: true, completion: nil)
     }
 }
