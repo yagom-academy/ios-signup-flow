@@ -18,4 +18,13 @@ class UserInformation {
     var introduction: String?
     var phoneNumber: String?
     var birthDay: Date?
+    
+    func resetInformation() {
+        self.id = nil
+        self.password = nil
+        self.profileImage = nil
+        self.introduction = nil
+        self.phoneNumber = nil
+        self.birthDay = nil
+    }
 }
