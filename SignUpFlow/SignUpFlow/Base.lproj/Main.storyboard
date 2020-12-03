@@ -70,7 +70,7 @@
         <!--Sign Up First View Controller-->
         <scene sceneID="cZu-h1-pDq">
             <objects>
-                <viewController id="s65-9g-lHQ" customClass="SignUpFirstViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpFirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s65-9g-lHQ" customClass="SignUpFirstViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P6C-1J-nEI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,7 +141,7 @@
         <!--Sign Up Second View Controller-->
         <scene sceneID="Z52-cH-JXI">
             <objects>
-                <viewController id="shi-1d-axO" customClass="SignUpSecondViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpSecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="shi-1d-axO" customClass="SignUpSecondViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PGt-BS-VIe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
