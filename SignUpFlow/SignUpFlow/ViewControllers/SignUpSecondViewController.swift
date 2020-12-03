@@ -8,6 +8,9 @@
 import UIKit
 
 class SignUpSecondViewController: UIViewController {
-
+    // MARK: - Properites
+    class var storyboardID: String {
+        return "\(self)"
+    }
 
 }
