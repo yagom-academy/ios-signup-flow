@@ -96,6 +96,15 @@ extension SignUpFirstViewController {
     private func clearUserInformation() {
         UserInformation.card.clear()
     }
+    
+    private func checkToEnableNextButton() {
+        guard isValidID, isValidPassword, isValidIntroduction else {
+            nextButton.isEnabled = false
+            return
+        }
+        
+        nextButton.isEnabled = true
+    }
 }
 
 // MARK: - UITextFieldDelegate Methods
