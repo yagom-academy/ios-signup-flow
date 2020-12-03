@@ -39,14 +39,13 @@ extension FirstSignUpViewController: UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        if let selectedImage = info[.editedImage] as? UIImage {
-            self.profileImageView.image = selectedImage
-            user.profileImage = selectedImage
-        } else if let selectedImage = info[.originalImage] as? UIImage {
-            self.profileImageView.image = selectedImage
-            user.profileImage = selectedImage
+        guard let selectedImage = (info[.editedImage] ?? info[.originalImage]) as? UIImage else {
+            return
         }
-
+        
+        self.profileImageView.image = selectedImage
+        user.profileImage = selectedImage
+        
         self.dismiss(animated: true, completion: nil)
     }
 }
