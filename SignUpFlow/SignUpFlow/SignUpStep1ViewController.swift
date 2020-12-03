@@ -95,7 +95,9 @@ class SignUpStep1ViewController: UIViewController {
 extension SignUpStep1ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        dismiss(animated: true)
+        dismiss(animated: true) {
+            self.verifyToggleNextButton()
+        }
     }
 }
 
