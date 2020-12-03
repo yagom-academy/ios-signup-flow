@@ -35,6 +35,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         self.imageView.image = editedImage
         self.dismiss(animated: true, completion: nil)
+        checkFilled.image = editedImage
+        goNextButtonEnableChange()
     }
     
     @objc func tapImageView(_ gesture: UITapGestureRecognizer) {
@@ -44,14 +46,57 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapImageView(_:)))
         imageView.addGestureRecognizer(tapGesture)
         imageView.isUserInteractionEnabled = true
+        
+        idTextField.delegate = self
+        passwordTextField.delegate = self
+        passwordCheckTextField.delegate = self
+        introductionTextView.delegate = self
         setKeyboardDoneButton()
     }
     
     @IBAction private func tapCancelButton() {
         cancel()
+        checkFilled.resetInfo()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if idTextField.hasText {
+            guard let id = idTextField.text else { return }
+            checkFilled.id = id
+        } else {
+            checkFilled.id = nil
+        }
+        
+        if passwordTextField.hasText {
+            guard let password = passwordTextField.text else { return }
+            checkFilled.password = password
+        } else {
+            checkFilled.password = nil
+        }
+        
+        if passwordCheckTextField.hasText {
+            guard let passwordCheck = passwordCheckTextField.text else { return }
+            checkFilled.passwordCheck = passwordCheck
+        } else {
+            checkFilled.passwordCheck = nil
+        }
+        
+        goNextButtonEnableChange()
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if introductionTextView.hasText {
+            guard let introduction = introductionTextView.text else { return }
+            checkFilled.introduction = introduction
+        } else {
+            checkFilled.introduction = nil
+        }
+        
+        goNextButtonEnableChange()
     }
     
     private func isPasswordMatch() -> Bool {
