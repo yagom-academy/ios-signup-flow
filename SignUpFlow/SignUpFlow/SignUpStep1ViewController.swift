@@ -17,6 +17,7 @@ class SignUpStep1ViewController: UIViewController {
         idTextField.delegate = self
         passwordTextField.delegate = self
         checkPasswordTextField.delegate = self
+        introductionTextView.delegate = self
         
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
@@ -103,6 +104,12 @@ extension SignUpStep1ViewController: UIImagePickerControllerDelegate, UINavigati
 
 extension SignUpStep1ViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
+        verifyToggleNextButton()
+    }
+}
+
+extension SignUpStep1ViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
         verifyToggleNextButton()
     }
 }
