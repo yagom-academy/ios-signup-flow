@@ -24,8 +24,8 @@ class SignUpStep1ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func hasValue(_ any: Any?) -> Bool {
-        switch any {
+    func hasValue(_ uiView: UIView?) -> Bool {
+        switch uiView {
         case let imageView as UIImageView:
             if imageView.image == nil {
                 return false
