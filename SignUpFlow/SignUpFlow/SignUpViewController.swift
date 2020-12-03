@@ -62,8 +62,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     func goNextButtonEnableChange() {
         if checkFilled.isSignUpViewFilled() && isPasswordMatch() {
             goNextButton.isEnabled = true
-        }
-        else {
+        } else {
             goNextButton.isEnabled = false
         }
     }
