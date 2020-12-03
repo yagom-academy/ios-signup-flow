@@ -89,6 +89,10 @@ extension SignUpFirstViewController {
     }
     
     @IBAction func touchUpNextButton(_ sender: UIButton) {
+        // 이동하기 전에 입력값 저장
+        saveUserInformation()
+        
+        // 다음 화면으로 이동
         guard let signUpSecondViewController = storyboard?.instantiateViewController(withIdentifier: SignUpSecondViewController.storyboardID) as? SignUpSecondViewController else {
             return
         }
@@ -100,6 +104,14 @@ extension SignUpFirstViewController {
         super.touchesBegan(touches, with: event)
         
         view.endEditing(true)
+    }
+    
+    private func saveUserInformation() {
+        let card = UserInformation.card
+        
+        card.id = idTextField.text
+        card.password = passwordTextField.text
+        card.introduction = introductionTextView.text
     }
     
     private func clearUserInformation() {
