@@ -44,15 +44,16 @@ class UserInformation {
     static let common: UserInformation = UserInformation()
     private init() {}
     
-    typealias Id = String
+    typealias UserId = String
     
-    private(set) var userDirectory = [Id : User]()
+    private(set) var userDirectory = [UserId : User]()
     
     func addNewUser(id: String) {
         guard userDirectory[id] == nil else {
-            debugPrint("이미 존재하는 아이디입니다")
+            debugPrint(Message.existedId)
             return
         }
         userDirectory[id] = User(id)
     }
 }
+
