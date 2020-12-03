@@ -13,6 +13,7 @@ class SignUpPageController: UIViewController {
     }
     
     @IBAction func selectImageButton(_ sender: UIButton) {
+        openPhotoAlbum()
     }
 }
 
