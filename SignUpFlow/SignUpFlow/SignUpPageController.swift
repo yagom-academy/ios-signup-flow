@@ -25,15 +25,15 @@ extension SignUpPageController: UIImagePickerControllerDelegate, UINavigationCon
             
             present(imagePicker, animated: true, completion: nil)
         } else {
-            showErrorAlert()
+            showAlert(title: "error!", message: "접근할 수 없습니다.")
         }
     }
 }
 
 //error
 extension SignUpPageController {
-    func showErrorAlert() {
-        let alert = UIAlertController(title: nil, message: "접근할 수 없습니다.", preferredStyle: .alert)
+    func showAlert(title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         
         alert.addAction(okAction)
