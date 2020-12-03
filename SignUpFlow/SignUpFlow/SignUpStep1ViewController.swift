@@ -30,6 +30,10 @@ class SignUpStep1ViewController: UIViewController {
         view.endEditing(true)
     }
     
+    /// 입력된 UIView의 value가 들어있는지 Bool 값으로 반환하는 함수.
+    ///
+    /// - Parameter uiView: value의 유무를 확인할 UIView
+    /// - Returns: value가 있으면, true 없으면 false
     func hasValue(_ uiView: UIView?) -> Bool {
         switch uiView {
         case let imageView as UIImageView:
@@ -47,6 +51,9 @@ class SignUpStep1ViewController: UIViewController {
         return true
     }
     
+    /// Signup Step1의 모든 뷰 컴포넘트에 값이 있는지 확인 후  Bool로 결과를 반환하는 함수.
+    ///
+    /// - Returns: value가 모두 있으면 true, 없으면 false
     func verifyAllComponentHasValue() -> Bool {
         let allComponent = [self.imageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.introductionTextView]
         
@@ -55,6 +62,9 @@ class SignUpStep1ViewController: UIViewController {
         }
     }
     
+    /// password와 check password의 일치 여부를 반환하는 함수.
+    ///
+    /// - Returns: 일차하면 true, 아니면 false
     func verifyPasswordEquality() -> Bool {
         guard let firstPassword = passwordTextField.text, let secondPassword = checkPasswordTextField.text else {
             return false
@@ -63,6 +73,7 @@ class SignUpStep1ViewController: UIViewController {
         return firstPassword == secondPassword
     }
     
+    /// Signup Step1이 정상적으로 입력 완료되면 다음 버튼을 활성화 하는 함수.
     func checkNextButtonActivation() {
         if verifyAllComponentHasValue() && verifyPasswordEquality() {
             nextButton.isEnabled = true
