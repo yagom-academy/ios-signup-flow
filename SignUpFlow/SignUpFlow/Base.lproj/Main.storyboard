@@ -111,6 +111,9 @@
                                 <state key="normal" title="취소">
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchUpCancelButton:" destination="s65-9g-lHQ" eventType="touchUpInside" id="aAt-m5-vEx"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="S43-i0-MN7">
                                 <rect key="frame" x="153" y="89" width="241" height="34"/>

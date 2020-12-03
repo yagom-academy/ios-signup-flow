@@ -15,4 +15,7 @@ class SignUpFirstViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
 
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }
