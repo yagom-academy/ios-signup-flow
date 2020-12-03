@@ -58,6 +58,19 @@ class SignUpFirstViewController: UIViewController {
         return true
     }
     
+    var isValidIntroduction: Bool {
+        guard let description = introductionTextView.text else {
+            print("introductionTextView.text == nil")
+            return false
+        }
+        guard !description.isEmpty else {
+            print("Introduction이 비어있음")
+            return false
+        }
+        
+        return true
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
