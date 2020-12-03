@@ -63,7 +63,7 @@ class SignUpStep1ViewController: UIViewController {
         return firstPassword == secondPassword
     }
     
-    func verifyToggleNextButton() {
+    func checkNextButtonActivation() {
         if verifyAllComponentHasValue() && verifyPasswordEquality() {
             nextButton.isEnabled = true
         } else {
@@ -97,19 +97,19 @@ extension SignUpStep1ViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         dismiss(animated: true) {
-            self.verifyToggleNextButton()
+            self.checkNextButtonActivation()
         }
     }
 }
 
 extension SignUpStep1ViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        verifyToggleNextButton()
+        checkNextButtonActivation()
     }
 }
 
 extension SignUpStep1ViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        verifyToggleNextButton()
+        checkNextButtonActivation()
     }
 }
