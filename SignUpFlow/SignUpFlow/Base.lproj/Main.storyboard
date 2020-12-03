@@ -123,6 +123,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Eek-t1-5op"/>
+                    <connections>
+                        <outlet property="checkPasswordTextField" destination="a46-DG-CNu" id="tPd-ge-9km"/>
+                        <outlet property="idTextField" destination="M7L-M2-jub" id="gxs-1s-gth"/>
+                        <outlet property="introductionTextView" destination="a18-zQ-pTb" id="9Gl-eh-sJ7"/>
+                        <outlet property="nextButton" destination="hvn-Zw-BGO" id="s8F-Wt-Vc4"/>
+                        <outlet property="passwordTextField" destination="S43-i0-MN7" id="ZzM-ub-cj9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59q-Gw-ae1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
