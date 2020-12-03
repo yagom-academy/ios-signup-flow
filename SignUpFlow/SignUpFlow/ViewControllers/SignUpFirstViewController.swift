@@ -24,6 +24,12 @@ extension SignUpFirstViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        view.endEditing(true)
+    }
+    
     func clearUserInformation() {
         UserInformation.card.clear()
     }
