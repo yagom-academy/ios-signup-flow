@@ -9,7 +9,7 @@ class SignUpStep1ViewController: UIViewController {
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
     
-    let imagePicker: UIImagePickerController = UIImagePickerController()
+    private let imagePicker: UIImagePickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
