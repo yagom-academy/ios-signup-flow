@@ -61,6 +61,15 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,
         return false
     }
     
+    func goNextButtonEnableChange() {
+        if checkFilled.isSignUpViewFilled() && isPasswordMatch() {
+            goNextButton.isEnabled = true
+        }
+        else {
+            goNextButton.isEnabled = false
+        }
+    }
+    
     func setKeyboardDoneButton() {
         let toolBarKeyboard = UIToolbar()
         toolBarKeyboard.sizeToFit()
