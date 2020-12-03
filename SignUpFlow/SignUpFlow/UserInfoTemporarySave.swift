@@ -17,18 +17,26 @@ class UserInfoTemporarySave {
     var birthDate: Date?
     
     func isSignUpViewFilled() -> Bool {
-        if self.id?.isEmpty != nil && self.password?.isEmpty != nil && self.passwordCheck?.isEmpty != nil &&
-            self.image != nil && self.introduction?.isEmpty != nil {
-            return true
+        guard let _ = self.id,
+              let _ = self.password,
+              let _ = self.passwordCheck,
+              let _ = self.image,
+              let _ = self.introduction else {
+            return false
         }
-        return false
+        return true
     }
     
     func isAllInfoFilled() -> Bool {
-        if self.isSignUpViewFilled() && self.birthDate?.description.isEmpty != nil && self.phone?.isEmpty != nil {
+        if isSignUpViewFilled() {
+            guard let _ = self.birthDate,
+                  let _ = self.phone else {
+                return false
+            }
             return true
+        } else {
+            return false
         }
-        return false
     }
     
     func resetInfo() {
