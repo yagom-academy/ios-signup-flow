@@ -95,7 +95,7 @@
                                     <action selector="touchUpNextButton:" destination="s65-9g-lHQ" eventType="touchUpInside" id="G7v-3d-qA1"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l4A-Yc-62D">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l4A-Yc-62D">
                                 <rect key="frame" x="20" y="44" width="125" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -135,6 +135,7 @@
                         <outlet property="introductionTextView" destination="a18-zQ-pTb" id="9Gl-eh-sJ7"/>
                         <outlet property="nextButton" destination="hvn-Zw-BGO" id="s8F-Wt-Vc4"/>
                         <outlet property="passwordTextField" destination="S43-i0-MN7" id="ZzM-ub-cj9"/>
+                        <outlet property="profileImage" destination="l4A-Yc-62D" id="XyC-bb-L6y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59q-Gw-ae1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

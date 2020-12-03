@@ -14,8 +14,11 @@ class SignUpFirstViewController: UIViewController {
     @IBOutlet weak var checkPasswordTextField: UITextField!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var profileImage: UIImageView!
     
     // MARK: - Properties
+    private var imagePickerController = UIImagePickerController()
+  
     private var isValidID: Bool {
         guard let id = idTextField.text else {
             print("idTextField.text == nil")
@@ -77,6 +80,12 @@ class SignUpFirstViewController: UIViewController {
         
         setupTextField()
         setupTextView()
+        
+        imagePickerController.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(setProfileImage))
+        profileImage.addGestureRecognizer(tapGesture)
+        profileImage.isUserInteractionEnabled = true
     }
 }
 
@@ -126,6 +135,12 @@ extension SignUpFirstViewController {
         
         nextButton.isEnabled = true
     }
+  
+    @objc private func setProfileImage() {
+        imagePickerController.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum
+        imagePickerController.allowsEditing = true
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITextFieldDelegate Methods
@@ -167,5 +182,16 @@ extension SignUpFirstViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         // 텍스트뷰의 값 바뀔 때 마다 '다음'버튼 활성화 조건 확인
         checkToEnableNextButton()
+    }
+}
+
+//MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate Methods
+extension SignUpFirstViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            profileImage.image = selectedImage
+            UserInformation.card.profileImage = self.profileImage.image
+        }
+        dismiss(animated: true, completion: nil)
     }
 }
