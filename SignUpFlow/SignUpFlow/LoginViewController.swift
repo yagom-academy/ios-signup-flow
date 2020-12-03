@@ -16,11 +16,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         self.view.endEditing(true)
     }
-    
+
     @IBAction func touchUpSignUpButton(_ sender: UIButton) {
         guard let targetController = self.storyboard?.instantiateViewController(withIdentifier: "FirstSignUpViewController") else {
             print("targetController 할당에 문제가 있습니다.")
