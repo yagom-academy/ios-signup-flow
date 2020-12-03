@@ -7,8 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,
-                            UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
+class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -25,24 +24,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,
         return picker
     }()
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let editedImage: UIImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
-            return
-        }
-        self.imageView.image = editedImage
-        self.dismiss(animated: true, completion: nil)
-        checkFilled.image = editedImage
-        goNextButtonEnableChange()
-    }
-    
-    @objc func tapImageView(_ gesture: UITapGestureRecognizer) {
-        self.present(self.imagePicker, animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
@@ -58,45 +39,13 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,
         setKeyboardDoneButton()
     }
     
+    @objc func tapImageView(_ gesture: UITapGestureRecognizer) {
+        self.present(self.imagePicker, animated: true, completion: nil)
+    }
+    
     @IBAction private func tapCancelButton() {
         cancel()
         checkFilled.resetInfo()
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if idTextField.hasText {
-            guard let id = idTextField.text else { return }
-            checkFilled.id = id
-        } else {
-            checkFilled.id = nil
-        }
-        
-        if passwordTextField.hasText {
-            guard let password = passwordTextField.text else { return }
-            checkFilled.password = password
-        } else {
-            checkFilled.password = nil
-        }
-        
-        if passwordCheckTextField.hasText {
-            guard let passwordCheck = passwordCheckTextField.text else { return }
-            checkFilled.passwordCheck = passwordCheck
-        } else {
-            checkFilled.passwordCheck = nil
-        }
-        
-        goNextButtonEnableChange()
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        if introductionTextView.hasText {
-            guard let introduction = introductionTextView.text else { return }
-            checkFilled.introduction = introduction
-        } else {
-            checkFilled.introduction = nil
-        }
-        
-        goNextButtonEnableChange()
     }
     
     private func isPasswordMatch() -> Bool {
@@ -145,3 +94,60 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,
         self.present(signUpOptionViewController, animated: true)
     }
 }
+
+extension SignUpViewController: UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let editedImage: UIImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        self.imageView.image = editedImage
+        self.dismiss(animated: true, completion: nil)
+        checkFilled.image = editedImage
+        goNextButtonEnableChange()
+    }
+}
+
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if idTextField.hasText {
+            guard let id = idTextField.text else { return }
+            checkFilled.id = id
+        } else {
+            checkFilled.id = nil
+        }
+        
+        if passwordTextField.hasText {
+            guard let password = passwordTextField.text else { return }
+            checkFilled.password = password
+        } else {
+            checkFilled.password = nil
+        }
+        
+        if passwordCheckTextField.hasText {
+            guard let passwordCheck = passwordCheckTextField.text else { return }
+            checkFilled.passwordCheck = passwordCheck
+        } else {
+            checkFilled.passwordCheck = nil
+        }
+        
+        goNextButtonEnableChange()
+    }
+}
+
+extension SignUpViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if introductionTextView.hasText {
+            guard let introduction = introductionTextView.text else { return }
+            checkFilled.introduction = introduction
+        } else {
+            checkFilled.introduction = nil
+        }
+        
+        goNextButtonEnableChange()
+    }
+}
+
