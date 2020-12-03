@@ -28,6 +28,16 @@ extension SignUpPageController: UIImagePickerControllerDelegate, UINavigationCon
             showAlert(title: "error!", message: "접근할 수 없습니다.")
         }
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            userImageView.image = pickedImage
+        } else if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            userImageView.image = pickedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 //error
