@@ -19,3 +19,5 @@ class UserInformation {
     var phoneNumber: String?
     var birthDay: Date?
 }
+
+let user = UserInformation.common
