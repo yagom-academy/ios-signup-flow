@@ -30,7 +30,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         guard let editedImage: UIImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
-        UserInformation.shared.image = editedImage
         self.imageView.image = editedImage
         self.dismiss(animated: true, completion: nil)
     }
@@ -51,7 +50,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction private func tapCancelButton() {
-        userInformationReset()
         cancel()
     }
     
@@ -66,5 +64,14 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     private func cancel() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction private func tapGoNextButton() {
+        guard let signUpOptionViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpOption") else {
+            return
+        }
+        
+        signUpOptionViewController.modalPresentationStyle = .fullScreen
+        self.present(signUpOptionViewController, animated: true)
     }
 }
