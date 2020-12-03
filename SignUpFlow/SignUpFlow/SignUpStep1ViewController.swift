@@ -16,6 +16,9 @@ class SignUpStep1ViewController: UIViewController {
         
         checkPasswordTextField.delegate = self
         
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
@@ -58,9 +61,6 @@ class SignUpStep1ViewController: UIViewController {
     }
 
     @IBAction func pressedImageView(_ sender: UITapGestureRecognizer) {
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        
         present(imagePicker, animated: true)
     }
     
