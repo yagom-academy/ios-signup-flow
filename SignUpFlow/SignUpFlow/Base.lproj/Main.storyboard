@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,7 +12,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SigninViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4H-20-ZXS">
@@ -66,7 +64,7 @@
             <objects>
                 <viewController id="h2H-pK-OWC" customClass="SignUpStep1ViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tvI-hK-e9X">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KIl-Mh-uW6">
@@ -131,9 +129,9 @@
                         <outlet property="checkPasswordTextField" destination="aY7-Bv-Zzn" id="42H-nN-OG3"/>
                         <outlet property="idTextField" destination="KIl-Mh-uW6" id="LgF-oO-wRS"/>
                         <outlet property="imageView" destination="r8L-Bz-mNl" id="rqi-eZ-ohR"/>
+                        <outlet property="introductionTextView" destination="eTn-vH-cPy" id="TmL-u7-Sy1"/>
                         <outlet property="nextButton" destination="iyB-rn-EBM" id="j9C-6w-eBf"/>
                         <outlet property="passwordTextField" destination="470-fJ-SvJ" id="oVc-5c-fw1"/>
-                        <outlet property="textView" destination="eTn-vH-cPy" id="TmL-u7-Sy1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcH-Pa-BDV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -151,6 +149,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="hmC-d4-7L8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I6N-jQ-vuZ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -6,7 +6,7 @@ class SignUpStep1ViewController: UIViewController {
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var checkPasswordTextField: UITextField!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
     
     let imagePicker: UIImagePickerController = UIImagePickerController()
@@ -45,7 +45,7 @@ class SignUpStep1ViewController: UIViewController {
     }
     
     func verifyAllComponentHasValue() -> Bool {
-        let allComponent = [self.imageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.textView]
+        let allComponent = [self.imageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.introductionTextView]
         
         return allComponent.reduce(true) {
             $0 && hasValue($1)
@@ -72,7 +72,7 @@ class SignUpStep1ViewController: UIViewController {
         guard let id = idTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         guard let image = imageView.image else { return }
-        guard let introduction = textView.text else { return }
+        guard let introduction = introductionTextView.text else { return }
         
         let userInformation = UserInformation.common
         userInformation.setId(id)
