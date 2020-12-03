@@ -14,8 +14,17 @@ class SignUpFirstViewController: UIViewController {
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
     
+}
 
+// MARK: - IBActions & Methods
+extension SignUpFirstViewController {
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        clearUserInformation()
+        
         dismiss(animated: true, completion: nil)
+    }
+    
+    func clearUserInformation() {
+        UserInformation.card.clear()
     }
 }
