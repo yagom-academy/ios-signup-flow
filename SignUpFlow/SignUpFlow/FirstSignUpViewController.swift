@@ -7,20 +7,24 @@ final class FirstSignUpViewController: UIViewController {
     @IBOutlet weak var checkPasswordTextField: UITextField!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
-    
+        
     private let imagePicker = UIImagePickerController()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         nextButton.isEnabled = false
         
+        tapRecognizerSetting()
+    }
+    
+    private func tapRecognizerSetting() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapView(gestureRecognizer:)))
         self.view.addGestureRecognizer(tapRecognizer)
         
         let profileImageTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(editProfileImage(_:)))
         self.profileImageView.addGestureRecognizer(profileImageTapRecognizer)
     }
-    
+        
     @objc func tapView(gestureRecognizer: UIGestureRecognizer) {
         self.view.endEditing(true)
         
@@ -31,21 +35,28 @@ final class FirstSignUpViewController: UIViewController {
         self.imagePicker.sourceType = .photoLibrary
         self.imagePicker.allowsEditing = true
         self.imagePicker.delegate = self
-
+        
         self.present(self.imagePicker, animated: true)
     }
-
+    
     private func checkInfo() {
-        let checkedPassword: Bool = isSamePassword(password: passwordTextField.text!, checkPassword: checkPasswordTextField.text!)
-        
-        if (idTextField.text?.isEmpty == false) && (passwordTextField.text?.isEmpty == false) && (checkPasswordTextField.text?.isEmpty == false) && (introductionTextView.text.isEmpty == false) && (profileImageView.image != nil) && (checkedPassword == true) {
+        let checkedPassword: Bool = isSamePassword()
+
+        if (idTextField.text?.isEmpty == false) &&
+           (passwordTextField.text?.isEmpty == false) &&
+           (checkPasswordTextField.text?.isEmpty == false) &&
+           (introductionTextView.text.isEmpty == false) &&
+           (profileImageView.image != nil) &&
+           (checkedPassword == true) {
             nextButton.isEnabled = true
         } else {
             nextButton.isEnabled = false
         }
     }
     
-    private func isSamePassword(password: String, checkPassword: String) -> Bool {
+    private func isSamePassword() -> Bool {
+        guard let password = passwordTextField.text, let checkPassword = checkPasswordTextField.text else { return false }
+        
         return password == checkPassword
     }
     
@@ -70,6 +81,7 @@ extension FirstSignUpViewController: UIImagePickerControllerDelegate, UINavigati
         } else if let originalImage = info[.originalImage] as? UIImage {
             resultImage = originalImage
         }
+        
         profileImageView.image = resultImage
         picker.dismiss(animated: true)
         
