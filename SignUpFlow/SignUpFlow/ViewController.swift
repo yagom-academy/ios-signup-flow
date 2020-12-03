@@ -23,8 +23,7 @@ extension ViewController {
     
     // return키로 키보드 내리기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.idTextField.resignFirstResponder()
-        self.passwordTextField.resignFirstResponder()
+        self.view.endEditing(true)
         return true
     }
 }
