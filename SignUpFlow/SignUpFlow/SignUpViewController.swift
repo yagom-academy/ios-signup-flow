@@ -28,15 +28,19 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapImageView(_:)))
-        imageView.addGestureRecognizer(tapGesture)
-        imageView.isUserInteractionEnabled = true
-        
         idTextField.delegate = self
         passwordTextField.delegate = self
         passwordCheckTextField.delegate = self
         introductionTextView.delegate = self
+        
+        setTapGesture()
         setKeyboardDoneButton()
+    }
+    
+    private func setTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapImageView(_:)))
+        imageView.addGestureRecognizer(tapGesture)
+        imageView.isUserInteractionEnabled = true
     }
     
     @objc func tapImageView(_ gesture: UITapGestureRecognizer) {
