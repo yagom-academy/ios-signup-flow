@@ -7,12 +7,14 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,
+                            UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordCheckTextField: UITextField!
     @IBOutlet weak var introductionTextView: UITextView!
+    @IBOutlet weak var goNextButton: UIButton!
     
     lazy var imagePicker: UIImagePickerController = {
         let picker: UIImagePickerController = UIImagePickerController()
@@ -43,23 +45,28 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapImageView(_:)))
         imageView.addGestureRecognizer(tapGesture)
         imageView.isUserInteractionEnabled = true
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
+        setKeyboardDoneButton()
     }
     
     @IBAction private func tapCancelButton() {
         cancel()
     }
+
+    func setKeyboardDoneButton() {
+        let toolBarKeyboard = UIToolbar()
+        toolBarKeyboard.sizeToFit()
+        let btnDoneBar = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonClicked))
+        toolBarKeyboard.items = [btnDoneBar]
+        toolBarKeyboard.tintColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        
+        idTextField.inputAccessoryView = toolBarKeyboard
+        passwordTextField.inputAccessoryView = toolBarKeyboard
+        passwordCheckTextField.inputAccessoryView = toolBarKeyboard
+        introductionTextView.inputAccessoryView = toolBarKeyboard
+    }
     
-    private func userInformationReset() {
-        UserInformation.shared.id = nil
-        UserInformation.shared.password = nil
-        UserInformation.shared.image = nil
-        UserInformation.shared.introduction = nil
-        UserInformation.shared.phone = nil
-        UserInformation.shared.birthDate = nil
+    @IBAction func doneButtonClicked(_ sender: Any) {
+        self.view.endEditing(true)
     }
 
     private func cancel() {
