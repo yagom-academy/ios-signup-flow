@@ -42,6 +42,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapImageView(_:)))
         imageView.addGestureRecognizer(tapGesture)
         imageView.isUserInteractionEnabled = true
