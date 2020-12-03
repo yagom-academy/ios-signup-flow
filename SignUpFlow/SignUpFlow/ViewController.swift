@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var appLogoImageView: UIImageView!
     @IBOutlet weak var idTextField: UITextField!
@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 }
 
 // 키보드 제어
-extension ViewController {
+extension ViewController: UITextFieldDelegate {
     // 화면 터치시 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
          self.view.endEditing(true)
