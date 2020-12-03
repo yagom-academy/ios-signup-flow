@@ -35,8 +35,6 @@ extension SignUpFirstViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             profileImage.image = selectedImage
-            // 원본 비율 유지하면서 꽉 차게하는 임시 코드. 이건 아까 스토리보드에서 설정하지 않아서 나중에 옮겨 놓을거예요!
-            profileImage.contentMode = .scaleAspectFill
             UserInformation.card.profileImage = self.profileImage.image
         }
         dismiss(animated: true, completion: nil)
