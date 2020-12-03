@@ -44,8 +44,8 @@ class SignUpStep1ViewController: UIViewController {
     func verifyAllComponentHasValue() -> Bool {
         let allComponent = [self.imageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.textView]
         
-        return allComponent.reduce(true) { result, next -> Bool in
-            result && hasValue(next)
+        return allComponent.reduce(true) {
+            $0 && hasValue($1)
         }
     }
     
