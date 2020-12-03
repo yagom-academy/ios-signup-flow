@@ -15,6 +15,24 @@ class SignUpFirstViewController: UIViewController {
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
     
+    // MARK: - Properties
+    var isValidID: Bool {
+        guard let id = idTextField.text else {
+            print("idTextField.text == nil")
+            return false
+        }
+        guard !id.isEmpty else {
+            print("ID를 적지 않음")
+            return false
+        }
+        guard !id.contains(" ") else {
+            print("ID에 빈칸이 있음")
+            return false
+        }
+        
+        return true
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
