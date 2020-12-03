@@ -16,7 +16,7 @@ class SignUpFirstViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     // MARK: - Properties
-    var isValidID: Bool {
+    private var isValidID: Bool {
         guard let id = idTextField.text else {
             print("idTextField.text == nil")
             return false
@@ -27,6 +27,31 @@ class SignUpFirstViewController: UIViewController {
         }
         guard !id.contains(" ") else {
             print("ID에 빈칸이 있음")
+            return false
+        }
+        
+        return true
+    }
+    
+    private var isValidPassword: Bool {
+        guard let password = passwordTextField.text else {
+            print("passwordTextField.text == nil")
+            return false
+        }
+        guard let checkPassword = checkPasswordTextField.text else {
+            print("Check Password == nil")
+            return false
+        }
+        guard !password.isEmpty else {
+            print("Password가 비어있음")
+            return false
+        }
+        guard !password.contains(" ") else {
+            print("Password에 빈칸이 있음")
+            return false
+        }
+        guard password == checkPassword else {
+            print("Password가 서로 다름")
             return false
         }
         
