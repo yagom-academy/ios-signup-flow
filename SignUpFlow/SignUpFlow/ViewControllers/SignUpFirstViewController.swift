@@ -37,7 +37,7 @@ extension SignUpFirstViewController {
         view.endEditing(true)
     }
     
-    func clearUserInformation() {
+    private func clearUserInformation() {
         UserInformation.card.clear()
     }
 }
