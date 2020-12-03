@@ -58,7 +58,7 @@ class SignUpFirstViewController: UIViewController {
         return true
     }
     
-    var isValidIntroduction: Bool {
+    private var isValidIntroduction: Bool {
         guard let description = introductionTextView.text else {
             print("introductionTextView.text == nil")
             return false
