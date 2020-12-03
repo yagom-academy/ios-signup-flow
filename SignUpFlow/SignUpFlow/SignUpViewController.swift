@@ -48,8 +48,8 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction private func tapCancelButton() {
-        cancel()
         checkFilled.resetInfo()
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func isPasswordMatch() -> Bool {
@@ -82,10 +82,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBAction func doneButtonClicked(_ sender: Any) {
         self.view.endEditing(true)
-    }
-
-    private func cancel() {
-        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction private func tapGoNextButton() {
