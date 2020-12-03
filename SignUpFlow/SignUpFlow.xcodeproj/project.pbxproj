@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */; };
-		C7352B89256F59BD00C3B7F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7352B88256F59BD00C3B7F1 /* SceneDelegate.swift */; };
 		C7352B8B256F59BD00C3B7F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7352B8A256F59BD00C3B7F1 /* ViewController.swift */; };
 		C7352B8E256F59BD00C3B7F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7352B8C256F59BD00C3B7F1 /* Main.storyboard */; };
 		C7352B90256F59BF00C3B7F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */; };
@@ -19,7 +18,6 @@
 /* Begin PBXFileReference section */
 		C7352B83256F59BD00C3B7F1 /* SignUpFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUpFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7352B88256F59BD00C3B7F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C7352B8A256F59BD00C3B7F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7352B8D256F59BD00C3B7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */,
-				C7352B88256F59BD00C3B7F1 /* SceneDelegate.swift */,
 				C7352B8A256F59BD00C3B7F1 /* ViewController.swift */,
 				C7352B8C256F59BD00C3B7F1 /* Main.storyboard */,
 				C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */,
@@ -143,7 +140,6 @@
 				C7352B8B256F59BD00C3B7F1 /* ViewController.swift in Sources */,
 				EAF35087257527BB00870063 /* UserInformation.swift in Sources */,
 				C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */,
-				C7352B89256F59BD00C3B7F1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +288,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SignUpFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,6 +307,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SignUpFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
