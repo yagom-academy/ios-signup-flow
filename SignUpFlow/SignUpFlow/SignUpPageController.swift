@@ -22,7 +22,7 @@ extension SignUpPageController: UIImagePickerControllerDelegate, UINavigationCon
     func openPhotoAlbum() {
         if UIImagePickerController.isSourceTypeAvailable(imagePicker.sourceType) {
             imagePicker.sourceType = .photoLibrary
-            
+            imagePicker.allowsEditing = true
             present(imagePicker, animated: true, completion: nil)
         } else {
             showAlert(title: "error!", message: "접근할 수 없습니다.")
