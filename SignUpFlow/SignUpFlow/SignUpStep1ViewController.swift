@@ -6,15 +6,21 @@ class SignUpStep1ViewController: UIViewController {
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var checkPasswordTextField: UITextField!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
     
-    let imagePicker: UIImagePickerController = UIImagePickerController()
+    private let imagePicker: UIImagePickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        idTextField.delegate = self
+        passwordTextField.delegate = self
         checkPasswordTextField.delegate = self
+        introductionTextView.delegate = self
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -24,8 +30,8 @@ class SignUpStep1ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func hasValue(_ any: Any?) -> Bool {
-        switch any {
+    func hasValue(_ uiView: UIView?) -> Bool {
+        switch uiView {
         case let imageView as UIImageView:
             if imageView.image == nil {
                 return false
@@ -42,10 +48,10 @@ class SignUpStep1ViewController: UIViewController {
     }
     
     func verifyAllComponentHasValue() -> Bool {
-        let allComponent = [self.imageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.textView]
+        let allComponent = [self.imageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.introductionTextView]
         
-        return allComponent.reduce(true) { result, next -> Bool in
-            result && hasValue(next)
+        return allComponent.reduce(true) {
+            $0 && hasValue($1)
         }
     }
     
@@ -56,11 +62,16 @@ class SignUpStep1ViewController: UIViewController {
         
         return firstPassword == secondPassword
     }
+    
+    func checkNextButtonActivation() {
+        if verifyAllComponentHasValue() && verifyPasswordEquality() {
+            nextButton.isEnabled = true
+        } else {
+            nextButton.isEnabled = false
+        }
+    }
 
     @IBAction func pressedImageView(_ sender: UITapGestureRecognizer) {
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        
         present(imagePicker, animated: true)
     }
     
@@ -72,7 +83,7 @@ class SignUpStep1ViewController: UIViewController {
         guard let id = idTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         guard let image = imageView.image else { return }
-        guard let introduction = textView.text else { return }
+        guard let introduction = introductionTextView.text else { return }
         
         let userInformation = UserInformation.common
         userInformation.setId(id)
@@ -85,16 +96,20 @@ class SignUpStep1ViewController: UIViewController {
 extension SignUpStep1ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        dismiss(animated: true)
+        dismiss(animated: true) {
+            self.checkNextButtonActivation()
+        }
     }
 }
 
 extension SignUpStep1ViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        if verifyAllComponentHasValue() && verifyPasswordEquality() {
-            nextButton.isEnabled = true
-        } else {
-            nextButton.isEnabled = false
-        }
+        checkNextButtonActivation()
+    }
+}
+
+extension SignUpStep1ViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        checkNextButtonActivation()
     }
 }
