@@ -20,13 +20,23 @@ class SignUpPageController: UIViewController {
 extension SignUpPageController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func openPhotoAlbum() {
         if UIImagePickerController.isSourceTypeAvailable(imagePicker.sourceType) {
-            
             imagePicker.sourceType = .photoLibrary
             
             present(imagePicker, animated: true, completion: nil)
         } else {
-            //error!
+            showErrorAlert()
         }
+    }
+}
+
+//error
+extension SignUpPageController {
+    func showErrorAlert() {
+        let alert = UIAlertController(title: nil, message: "접근할 수 없습니다.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 
