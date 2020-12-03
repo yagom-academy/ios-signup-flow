@@ -18,7 +18,7 @@ final class FirstSignUpViewController: UIViewController {
         self.view.addGestureRecognizer(tapRecognizer)
         
         let profileImageTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(editProfileImage(_:)))
-        self.view.addGestureRecognizer(profileImageTapRecognizer)
+        self.profileImageView.addGestureRecognizer(profileImageTapRecognizer)
     }
     
     @objc func tapView(gestureRecognizer: UIGestureRecognizer) {
@@ -34,7 +34,7 @@ final class FirstSignUpViewController: UIViewController {
 
         self.present(self.imagePicker, animated: true)
     }
-    
+
     private func checkInfo() {
         let checkedPassword: Bool = isSamePassword(password: passwordTextField.text!, checkPassword: checkPasswordTextField.text!)
         
