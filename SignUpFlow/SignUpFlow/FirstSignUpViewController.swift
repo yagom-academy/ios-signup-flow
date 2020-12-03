@@ -19,11 +19,18 @@ class FirstSignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.nextButton.isEnabled = false
+//        self.nextButton.isEnabled = false
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
         UserInformation.common.resetInformation()
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func touchUpNextButton(_ sender: UIButton) {
+        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondSignUpViewController") else {
+            return
+        }
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

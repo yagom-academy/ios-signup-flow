@@ -119,6 +119,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdH-Uo-OGb">
                                 <rect key="frame" x="311" y="813" width="30" height="30"/>
                                 <state key="normal" title="다음"/>
+                                <connections>
+                                    <action selector="touchUpNextButton:" destination="MCm-75-c85" eventType="touchUpInside" id="0Ix-Va-0fZ"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZkJ-fW-dsD">
                                 <rect key="frame" x="163" y="157" width="231" height="34"/>
