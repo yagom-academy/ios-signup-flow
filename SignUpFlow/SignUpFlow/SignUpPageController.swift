@@ -16,8 +16,18 @@ class SignUpPageController: UIViewController {
     }
 }
 
+// 사진앨범 접근
 extension SignUpPageController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+    func openPhotoAlbum() {
+        if UIImagePickerController.isSourceTypeAvailable(imagePicker.sourceType) {
+            
+            imagePicker.sourceType = .photoLibrary
+            
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            //error!
+        }
+    }
 }
 
 extension SignUpPageController: UITextFieldDelegate {
