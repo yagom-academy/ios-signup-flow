@@ -16,6 +16,9 @@ final class FirstSignUpViewController: UIViewController {
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapView(gestureRecognizer:)))
         self.view.addGestureRecognizer(tapRecognizer)
+        
+        let profileImageTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(editProfileImage(_:)))
+        self.view.addGestureRecognizer(profileImageTapRecognizer)
     }
     
     @objc func tapView(gestureRecognizer: UIGestureRecognizer) {
@@ -23,8 +26,8 @@ final class FirstSignUpViewController: UIViewController {
         
         checkInfo()
     }
-
-    @IBAction func editProfileImage(_ sender: UITapGestureRecognizer) {
+    
+    @objc func editProfileImage(_ sender: UITapGestureRecognizer) {
         self.imagePicker.sourceType = .photoLibrary
         self.imagePicker.allowsEditing = true
         self.imagePicker.delegate = self
