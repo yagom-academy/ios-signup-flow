@@ -76,6 +76,7 @@ class SignUpFirstViewController: UIViewController {
         super.viewDidLoad()
         
         setupTextField()
+        setupTextView()
     }
 }
 
@@ -129,5 +130,22 @@ extension SignUpFirstViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        // 텍스트 필드의 값 바뀔 때마다 '다음'버튼 활성화 조건 확인
+        checkToEnableNextButton()
+    }
+}
+
+// MARK: - UITextViewDelegate Methods
+extension SignUpFirstViewController: UITextViewDelegate {
+    func setupTextView() {
+        introductionTextView.delegate = self
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        // 텍스트뷰의 값 바뀔 때 마다 '다음'버튼 활성화 조건 확인
+        checkToEnableNextButton()
     }
 }
