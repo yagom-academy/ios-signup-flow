@@ -49,4 +49,20 @@ extension SignUpFirstViewController: UITextFieldDelegate {
         passwordTextField.delegate = self
         checkPasswordTextField.delegate = self
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // 리턴 키 누르면 다음 텍스트필드로 커서 이동
+        switch textField {
+        case idTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            checkPasswordTextField.becomeFirstResponder()
+        case checkPasswordTextField:
+            // 비밀번호 확인 텍스트필드 입력 후에는 자기소개 텍스트뷰로 커서 이동
+            introductionTextView.becomeFirstResponder()
+        default: break
+        }
+        
+        return true
+    }
 }
