@@ -8,12 +8,19 @@
 import UIKit
 
 class SignUpFirstViewController: UIViewController {
+    // MARK: - IBOutlets
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var checkPasswordTextField: UITextField!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
     
+    // MARK: - Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupTextField()
+    }
 }
 
 // MARK: - IBActions & Methods
@@ -32,5 +39,14 @@ extension SignUpFirstViewController {
     
     func clearUserInformation() {
         UserInformation.card.clear()
+    }
+}
+
+// MARK: - UITextFieldDelegate Methods
+extension SignUpFirstViewController: UITextFieldDelegate {
+    private func setupTextField() {
+        idTextField.delegate = self
+        passwordTextField.delegate = self
+        checkPasswordTextField.delegate = self
     }
 }
