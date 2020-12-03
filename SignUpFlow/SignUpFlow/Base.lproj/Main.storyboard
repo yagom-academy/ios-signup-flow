@@ -112,6 +112,9 @@
                                 <state key="normal" title="취소">
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchUpCancelButton:" destination="MCm-75-c85" eventType="touchUpInside" id="U68-hb-XP1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdH-Uo-OGb">
                                 <rect key="frame" x="311" y="813" width="30" height="30"/>

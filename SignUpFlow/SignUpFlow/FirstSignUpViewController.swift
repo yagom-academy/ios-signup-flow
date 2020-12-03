@@ -17,9 +17,13 @@ class FirstSignUpViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nextButton.isEnabled = false
+    }
+    
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        UserInformation.common.resetInformation()
+        dismiss(animated: true, completion: nil)
     }
 }
