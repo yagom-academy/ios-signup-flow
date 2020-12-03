@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func touchUpSignUpButton(_ sender: UIButton) {
-        guard let targetController = self.storyboard?.instantiateViewController(withIdentifier: "FirstSignUpViewController") else {
+        guard let targetController = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") else {
             print("targetController 할당에 문제가 있습니다.")
             return
         }
