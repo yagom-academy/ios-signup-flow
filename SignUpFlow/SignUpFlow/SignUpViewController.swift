@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var passwordCheckTextField: UITextField!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var goNextButton: UIButton!
+    let checkFilled = UserInfoTemporarySave()
     
     lazy var imagePicker: UIImagePickerController = {
         let picker: UIImagePickerController = UIImagePickerController()
@@ -52,7 +53,14 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction private func tapCancelButton() {
         cancel()
     }
-
+    
+    private func isPasswordMatch() -> Bool {
+        if passwordTextField.text! == passwordCheckTextField.text! {
+            return true
+        }
+        return false
+    }
+    
     func setKeyboardDoneButton() {
         let toolBarKeyboard = UIToolbar()
         toolBarKeyboard.sizeToFit()
