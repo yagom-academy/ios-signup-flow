@@ -123,6 +123,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Eek-t1-5op"/>
+                    <connections>
+                        <outlet property="profileImage" destination="l4A-Yc-62D" id="XyC-bb-L6y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59q-Gw-ae1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
