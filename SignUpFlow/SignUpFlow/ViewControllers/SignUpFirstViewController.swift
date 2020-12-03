@@ -140,7 +140,7 @@ extension SignUpFirstViewController: UITextFieldDelegate {
 
 // MARK: - UITextViewDelegate Methods
 extension SignUpFirstViewController: UITextViewDelegate {
-    func setupTextView() {
+    private func setupTextView() {
         introductionTextView.delegate = self
     }
     
