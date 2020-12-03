@@ -4,12 +4,20 @@ class SignUpPageController: UIViewController {
     
     @IBOutlet weak var userImageView: UIImageView!
     
+    let imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePicker.delegate = self
     }
     
     @IBAction func selectImageButton(_ sender: UIButton) {
     }
+}
+
+extension SignUpPageController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
 }
 
 extension SignUpPageController: UITextFieldDelegate {
