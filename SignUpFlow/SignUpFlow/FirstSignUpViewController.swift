@@ -35,6 +35,16 @@ class FirstSignUpViewController: UIViewController {
         introductionTextView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        profileImageView.image = user.profileImage
+        newIdTextField.text = user.id
+        newPasswordTextField.text = user.password
+        introductionTextView.text = user.introduction
+
+    }
+    
     private func disableInitialInputStates() {
         self.nextButton.isEnabled = false
         self.checkPasswordTextField.isEnabled = false
@@ -131,6 +141,5 @@ extension FirstSignUpViewController: UITextViewDelegate {
         }
     }
 }
-
 
 
