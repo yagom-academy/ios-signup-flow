@@ -37,12 +37,12 @@ class FirstSignUpViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         profileImageView.image = user.profileImage
         newIdTextField.text = user.id
         newPasswordTextField.text = user.password
         introductionTextView.text = user.introduction
-
+        
     }
     
     private func disableInitialInputStates() {
@@ -94,6 +94,13 @@ class FirstSignUpViewController: UIViewController {
             return
         }
         verifiedConditions.insert(sender.tag)
+    }
+    
+    @IBAction func touchUpNextButton(_ sender: Any) {
+        user.id = newIdTextField.text
+        user.password = newPasswordTextField.text
+        user.profileImage = profileImageView.image
+        user.introduction = introductionTextView.text
     }
     
 }
