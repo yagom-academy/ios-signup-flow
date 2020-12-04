@@ -28,8 +28,12 @@ class SignUpSecondViewController: UIViewController {
         return formatter
     }()
     
-    var isValidBirthdate: Bool {
-        if datePicker.date == Date() {
+    private var isValidBirthDate: Bool {
+        guard let birthDateString = birthDateLabel.text else {
+            return false
+        }
+        
+        guard birthDateString != dateFormatter.string(from: Date()) else {
             print("생년월일을 설정하지 않았음")
             return false
         }
@@ -45,37 +49,21 @@ class SignUpSecondViewController: UIViewController {
         setupDatePicker()
         loadUserInformation()
         updateDateLabelFromDatePicker(datePicker)
+        checkToEnableSignUpButton()
     }
 }
 
 // MARK: - IBActions & Methods
-extension SignUpSecondViewController {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        
-        checkToEnableSignUpButton()
-        view.endEditing(true)
-        
-        if checkPhoneNumberPatternMatching() == false {
+extension SignUpSecondViewController {    
+    @IBAction func touchUpDoneButton(_ sender: UIBarButtonItem) {
+        guard checkPhoneNumberPatternMatching() else {
             alertInvalidPhoneNumber()
+            return
         }
         
-//        if checkPhoneNumberPatternMatching() == true {
-//            signUpButton.isEnabled = true
-//            view.endEditing(true)
-//        } else {
-//            alertInvalidPhoneNumber()
-//        }
-    }
-    
-    @IBAction func touchUpDoneButton(_ sender: UIBarButtonItem) {
         checkToEnableSignUpButton()
+        
         phoneNumberTextField.resignFirstResponder()
-//        if checkPhoneNumberPatternMatching() == true {
-//            phoneNumberTextField.resignFirstResponder()
-//        } else {
-//            alertInvalidPhoneNumber()
-//        }
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
@@ -92,7 +80,7 @@ extension SignUpSecondViewController {
     
     @IBAction func touchUpSignUpButton(_ sender: UIButton) {
         dismiss(animated: true) {
-            UserInformation.card.phoneNumber = self.phoneNumberTextField.text
+            self.saveUserInformation()
         }
     }
     
@@ -110,8 +98,6 @@ extension SignUpSecondViewController {
         if let birthDate = card.birthDate {
             datePicker.date = birthDate
         }
-        
-        checkToEnableSignUpButton()
     }
     
     private func clearUserInformation() {
@@ -119,11 +105,13 @@ extension SignUpSecondViewController {
     }
     
     private func checkToEnableSignUpButton() {
-        if checkPhoneNumberPatternMatching() == true, isValidBirthdate {
-            signUpButton.isEnabled = true
-        } else {
+        guard phoneNumberTextField.text != "",
+              isValidBirthDate else {
             signUpButton.isEnabled = false
+            return
         }
+        
+        signUpButton.isEnabled = true
     }
     
     private func alertInvalidPhoneNumber() {
@@ -134,14 +122,17 @@ extension SignUpSecondViewController {
     }
     
     private func checkPhoneNumberPatternMatching() -> Bool {
-        guard let phoneNumber = phoneNumberTextField.text else { return false }
+        guard let phoneNumber = phoneNumberTextField.text else {
+            return false
+        }
         let range = NSRange(location: 0, length: phoneNumber.count)
-        guard let patternForValidPhoneNumber = try? NSRegularExpression(pattern: "^01([0|1|6|7|8|9])[-|.]?([0-9]{3,4})[-|.]?([0-9]{4})$") else { return false }
+        guard let patternForValidPhoneNumber = try? NSRegularExpression(pattern: "^01([0|1|6|7|8|9])[-|.]?([0-9]{3,4})[-|.]?([0-9]{4})$") else {
+            return false
+        }
         
         if patternForValidPhoneNumber.firstMatch(in: phoneNumber, range: range) != nil {
             return true
         } else {
-            alertInvalidPhoneNumber()
             return false
         }
     }
@@ -170,7 +161,7 @@ extension SignUpSecondViewController {
     @objc func didDatePickerValueChanged(_ sender: UIDatePicker) {
         updateDateLabelFromDatePicker(sender)
         
-        // 가입 버튼 활성화 조건 확인 추가하기
+        checkToEnableSignUpButton()
     }
     
     func updateDateLabelFromDatePicker(_ sender: UIDatePicker) {
