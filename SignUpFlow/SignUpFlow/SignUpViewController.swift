@@ -106,7 +106,7 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - Step Buttons
-    @IBAction func tapCancleButton(_ sender: Any) {
+    @IBAction func tapCancelButton(_ sender: Any) {
         profileImageView.image = nil
         for textField in profileTextFields {
             textField.text = nil

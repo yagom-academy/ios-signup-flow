@@ -149,7 +149,7 @@
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="tapCancleButton:" destination="vLW-Pc-hX2" eventType="touchUpInside" id="xcV-FU-9OJ"/>
+                                            <action selector="tapCancelButton:" destination="vLW-Pc-hX2" eventType="touchUpInside" id="kZx-ze-76H"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYM-T1-Zve">
