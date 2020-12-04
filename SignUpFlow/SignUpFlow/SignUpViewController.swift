@@ -170,15 +170,14 @@ extension SignUpViewController : UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        guard let introductionText = textView.text else {
-            return self.showError(SignUpError.getText)
-        }
-        if isValidateText(from: introductionText) {
-            self.userInfoForm.introduction = introductionText
-        } else {
-            self.userInfoForm.introduction = nil
-            textView.text = self.introductionPlaceholderMessage
-            textView.textColor = self.introductionPlaceholderColor
+        if let introductionText = textView.text {
+            if isValidateText(from: introductionText) {
+                self.userInfoForm.introduction = introductionText
+            } else {
+                self.userInfoForm.introduction = nil
+                textView.text = self.introductionPlaceholderMessage
+                textView.textColor = self.introductionPlaceholderColor
+            }
         }
         self.setNextButtonState()
     }
@@ -206,15 +205,25 @@ extension SignUpViewController : UITextFieldDelegate {
             return self.showError(SignUpError.unknown)
         }
         
-        switch type {
-        case .id:
-            self.userInfoForm.id = textField.text
-        case .password:
-            self.userInfoForm.password = textField.text
-        case .checkPassword:
-            self.userInfoForm.checkPassword = textField.text
+        if let textFieldText = textField.text {
+            if isValidateText(from: textFieldText) {
+                setUserInfoFormData(type: type, text: textFieldText)
+            } else {
+                setUserInfoFormData(type: type, text: nil)
+            }
         }
         
         self.setNextButtonState()
+    }
+    
+    private func setUserInfoFormData(type: ProfileFieldType, text: String?) {
+        switch type {
+        case .id:
+            self.userInfoForm.id = text
+        case .password:
+            self.userInfoForm.password = text
+        case .checkPassword:
+            self.userInfoForm.checkPassword = text
+        }
     }
 }
