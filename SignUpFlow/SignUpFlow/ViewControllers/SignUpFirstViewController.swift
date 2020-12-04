@@ -102,7 +102,6 @@ extension SignUpFirstViewController {
     }
     
     @IBAction func touchUpNextButton(_ sender: UIButton) {
-        // 이동하기 전에 입력값 저장
         saveUserInformation()
         
         // 다음 화면으로 이동
@@ -174,7 +173,6 @@ extension SignUpFirstViewController: UITextFieldDelegate {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        // 텍스트 필드의 값 바뀔 때마다 '다음'버튼 활성화 조건 확인
         checkToEnableNextButton()
     }
 }
@@ -186,7 +184,6 @@ extension SignUpFirstViewController: UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        // 텍스트뷰의 값 바뀔 때 마다 '다음'버튼 활성화 조건 확인
         checkToEnableNextButton()
     }
 }
@@ -206,7 +203,6 @@ extension SignUpFirstViewController: UIImagePickerControllerDelegate, UINavigati
             profileImage.image = selectedImage
         }
         
-        // 다음 버튼 활성화 조건 확인
         checkToEnableNextButton()
         
         dismiss(animated: true, completion: nil)
