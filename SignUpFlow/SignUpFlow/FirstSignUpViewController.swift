@@ -56,7 +56,7 @@ class FirstSignUpViewController: UIViewController {
         user.introduction = self.introductionTextView.text
     }
     
-    func checkTextFields() {
+    private func checkTextFields() {
         [newIdTextField, newPasswordTextField, checkPasswordTextField].forEach {
             $0.addTarget(self, action: #selector(checkAllRequirementsAreFilled), for: .editingChanged)
         }
