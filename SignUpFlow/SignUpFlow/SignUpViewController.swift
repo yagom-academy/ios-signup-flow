@@ -165,7 +165,7 @@ extension SignUpViewController : UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == self.introductionPlaceholderColor {
             textView.text = nil
-            textView.textColor = UIColor.textViewColor
+            textView.textColor = UIColor.textViewTextColor
         }
     }
     

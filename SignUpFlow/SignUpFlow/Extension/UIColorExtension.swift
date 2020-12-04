@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    static var textViewColor: UIColor {
+    static var textViewTextColor: UIColor {
         if #available(iOS 13, *) {
             return UIColor { (traitCollection: UITraitCollection) -> UIColor in
                 if traitCollection.userInterfaceStyle == .dark {
