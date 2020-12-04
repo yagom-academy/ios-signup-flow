@@ -30,17 +30,18 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBar()
         setKeyboard()
         setProfileImage()
         setProfileTextField()
         setIntroductionTextView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    // MARK: - settings
+    private func setNavigationBar() {
         navigationController?.isNavigationBarHidden = true
     }
     
-    // MARK: - settings
     private func setKeyboard() {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.sizeToFit()
@@ -51,10 +52,6 @@ class SignUpViewController: UIViewController {
         for textField in profileTextFields {
             textField.inputAccessoryView = keyboardToolbar
         }
-    }
-    
-    @objc func tapDoneButton(_ sender: Any) {
-        self.view.endEditing(true)
     }
     
     private func setProfileImage() {
@@ -75,6 +72,10 @@ class SignUpViewController: UIViewController {
         introductionTextView.layer.borderColor = UIColor.lightGray.cgColor
         introductionTextView.delegate = self
         setIntroductionPlaceholder()
+    }
+    
+    @objc func tapDoneButton(_ sender: Any) {
+        self.view.endEditing(true)
     }
     
     // MARK: - Profile Image func
