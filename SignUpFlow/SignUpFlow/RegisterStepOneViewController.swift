@@ -29,8 +29,18 @@ class RegisterStepOneViewController: UIViewController {
     
     //MARK: - IBActions
     @IBAction func didTapNextButton(_ sender: UIButton) {
+//        프로필 이미지, 아이디, 자기소개가 모두 채워지고,
+//        패스워드가 일치하면 '다음' 버튼이 활성화됩니다.
+        
+
     }
     @IBAction func didTapCancelButton(_ sender: UIButton) {
+        profileImageView.image = nil
+        idTextField.text = nil
+        passwordTextField.text = nil
+        checkPasswordTextField.text = nil
+        introduceTextView.text = nil
+        dismiss(animated: true, completion: nil)
     }
 }
 
