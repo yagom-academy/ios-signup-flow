@@ -114,22 +114,25 @@ extension SignUpViewController: UIImagePickerControllerDelegate {
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if idTextField.hasText {
-            guard let id = idTextField.text else { return }
-            userInfoTemporarySave.id = id
+            if let id = idTextField.text {
+                userInfoTemporarySave.id = id
+            }
         } else {
             userInfoTemporarySave.id = nil
         }
         
         if passwordTextField.hasText {
-            guard let password = passwordTextField.text else { return }
-            userInfoTemporarySave.password = password
+            if let password = passwordTextField.text {
+                userInfoTemporarySave.password = password
+            }
         } else {
             userInfoTemporarySave.password = nil
         }
         
         if passwordCheckTextField.hasText {
-            guard let passwordCheck = passwordCheckTextField.text else { return }
-            userInfoTemporarySave.passwordCheck = passwordCheck
+            if let passwordCheck = passwordCheckTextField.text {
+                userInfoTemporarySave.passwordCheck = passwordCheck
+            }
         } else {
             userInfoTemporarySave.passwordCheck = nil
         }
@@ -141,8 +144,9 @@ extension SignUpViewController: UITextFieldDelegate {
 extension SignUpViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if introductionTextView.hasText {
-            guard let introduction = introductionTextView.text else { return }
-            userInfoTemporarySave.introduction = introduction
+            if let introduction = introductionTextView.text {
+                userInfoTemporarySave.introduction = introduction
+            }
         } else {
             userInfoTemporarySave.introduction = nil
         }

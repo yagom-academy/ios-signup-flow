@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AcP-jA-ZOx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AcP-jA-ZOx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,6 +12,10 @@
         <scene sceneID="8KM-4s-3ES">
             <objects>
                 <viewController id="AcP-jA-ZOx" customClass="MainViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k8Q-uI-tYG"/>
+                        <viewControllerLayoutGuide type="bottom" id="zWv-hw-Bji"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="o4q-ne-qb1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +57,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="iYg-g4-WU9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -62,10 +64,10 @@
                             <constraint firstItem="vmu-wY-5PL" firstAttribute="centerX" secondItem="o4q-ne-qb1" secondAttribute="centerX" id="6Vj-az-pvP"/>
                             <constraint firstItem="2k2-9B-VpK" firstAttribute="centerX" secondItem="o4q-ne-qb1" secondAttribute="centerX" id="8YL-tC-hrm"/>
                             <constraint firstItem="xjz-PR-H2S" firstAttribute="width" secondItem="Pti-cy-kfN" secondAttribute="width" multiplier="0.889831" id="ET1-ga-4yW"/>
-                            <constraint firstItem="Pti-cy-kfN" firstAttribute="top" secondItem="iYg-g4-WU9" secondAttribute="top" constant="20" id="F7i-oX-Exb"/>
-                            <constraint firstItem="Pti-cy-kfN" firstAttribute="leading" secondItem="iYg-g4-WU9" secondAttribute="leading" constant="30" id="IJ2-DX-OVT"/>
+                            <constraint firstItem="Pti-cy-kfN" firstAttribute="top" secondItem="k8Q-uI-tYG" secondAttribute="bottom" constant="20" id="F7i-oX-Exb"/>
+                            <constraint firstItem="Pti-cy-kfN" firstAttribute="leading" secondItem="o4q-ne-qb1" secondAttribute="leading" constant="30" id="IJ2-DX-OVT"/>
                             <constraint firstItem="xjz-PR-H2S" firstAttribute="centerX" secondItem="o4q-ne-qb1" secondAttribute="centerX" id="ODj-rC-k5a"/>
-                            <constraint firstItem="iYg-g4-WU9" firstAttribute="trailing" secondItem="Pti-cy-kfN" secondAttribute="trailing" constant="30" id="Qq3-qT-lWo"/>
+                            <constraint firstAttribute="trailing" secondItem="Pti-cy-kfN" secondAttribute="trailing" constant="30" id="Qq3-qT-lWo"/>
                             <constraint firstItem="Pti-cy-kfN" firstAttribute="centerX" secondItem="o4q-ne-qb1" secondAttribute="centerX" id="TrV-Th-RNl"/>
                             <constraint firstItem="2k2-9B-VpK" firstAttribute="top" secondItem="xjz-PR-H2S" secondAttribute="bottom" constant="20" id="n4T-Lo-Bni"/>
                             <constraint firstItem="2k2-9B-VpK" firstAttribute="width" secondItem="xjz-PR-H2S" secondAttribute="width" id="ppJ-SX-1PW"/>
@@ -94,11 +96,15 @@
         <scene sceneID="cRN-B5-bBg">
             <objects>
                 <viewController storyboardIdentifier="SignUp" id="vLW-Pc-hX2" customClass="SignUpViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kc8-g9-oeQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="0zg-Fy-6Kb"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4B6-wx-ewX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nY7-z8-NyE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nY7-z8-NyE">
                                 <rect key="frame" x="20" y="79" width="124" height="124"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nY7-z8-NyE" secondAttribute="height" multiplier="1:1" id="2Fk-o4-xgB"/>
@@ -153,24 +159,23 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="o3E-NI-JBM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cMp-Kc-dx7" firstAttribute="leading" secondItem="nY7-z8-NyE" secondAttribute="trailing" constant="20" id="0H5-Me-A7R"/>
                             <constraint firstItem="cMp-Kc-dx7" firstAttribute="top" secondItem="nY7-z8-NyE" secondAttribute="top" id="3Nv-nr-8ZK"/>
                             <constraint firstItem="EyV-aJ-sKk" firstAttribute="top" secondItem="nY7-z8-NyE" secondAttribute="bottom" constant="20" id="4ak-FJ-Bb1"/>
-                            <constraint firstItem="nY7-z8-NyE" firstAttribute="width" secondItem="o3E-NI-JBM" secondAttribute="width" multiplier="0.3:1" id="4c3-O0-kkT"/>
-                            <constraint firstItem="o3E-NI-JBM" firstAttribute="trailing" secondItem="cMp-Kc-dx7" secondAttribute="trailing" constant="30" id="7QG-qz-Slf"/>
-                            <constraint firstItem="nY7-z8-NyE" firstAttribute="top" secondItem="o3E-NI-JBM" secondAttribute="top" constant="35" id="Ugq-Hb-Btx"/>
+                            <constraint firstItem="nY7-z8-NyE" firstAttribute="width" secondItem="4B6-wx-ewX" secondAttribute="width" multiplier="0.3:1" id="4c3-O0-kkT"/>
+                            <constraint firstAttribute="trailing" secondItem="cMp-Kc-dx7" secondAttribute="trailing" constant="30" id="7QG-qz-Slf"/>
+                            <constraint firstItem="nY7-z8-NyE" firstAttribute="top" secondItem="Kc8-g9-oeQ" secondAttribute="bottom" constant="35" id="Ugq-Hb-Btx"/>
                             <constraint firstItem="EyV-aJ-sKk" firstAttribute="bottom" secondItem="KjI-WB-8GN" secondAttribute="top" constant="-20" id="Z2U-2s-96L"/>
-                            <constraint firstItem="EyV-aJ-sKk" firstAttribute="leading" secondItem="o3E-NI-JBM" secondAttribute="leading" constant="20" id="bkF-Mf-Soc"/>
+                            <constraint firstItem="EyV-aJ-sKk" firstAttribute="leading" secondItem="4B6-wx-ewX" secondAttribute="leading" constant="20" id="bkF-Mf-Soc"/>
                             <constraint firstItem="KjI-WB-8GN" firstAttribute="width" secondItem="EyV-aJ-sKk" secondAttribute="width" id="cC9-ek-cab"/>
-                            <constraint firstItem="nY7-z8-NyE" firstAttribute="leading" secondItem="o3E-NI-JBM" secondAttribute="leading" constant="20" id="goL-ou-AMg"/>
-                            <constraint firstItem="o3E-NI-JBM" firstAttribute="trailing" secondItem="EyV-aJ-sKk" secondAttribute="trailing" constant="20" id="iJR-pZ-JVf"/>
-                            <constraint firstItem="KjI-WB-8GN" firstAttribute="leading" secondItem="o3E-NI-JBM" secondAttribute="leading" constant="20" id="ka3-tc-qCJ"/>
+                            <constraint firstItem="nY7-z8-NyE" firstAttribute="leading" secondItem="4B6-wx-ewX" secondAttribute="leading" constant="20" id="goL-ou-AMg"/>
+                            <constraint firstAttribute="trailing" secondItem="EyV-aJ-sKk" secondAttribute="trailing" constant="20" id="iJR-pZ-JVf"/>
+                            <constraint firstItem="KjI-WB-8GN" firstAttribute="leading" secondItem="4B6-wx-ewX" secondAttribute="leading" constant="20" id="ka3-tc-qCJ"/>
                             <constraint firstItem="cMp-Kc-dx7" firstAttribute="bottom" secondItem="nY7-z8-NyE" secondAttribute="bottom" id="mfe-bY-DRu"/>
-                            <constraint firstItem="o3E-NI-JBM" firstAttribute="trailing" secondItem="KjI-WB-8GN" secondAttribute="trailing" constant="20" id="rhp-Ds-tJq"/>
-                            <constraint firstItem="o3E-NI-JBM" firstAttribute="bottom" secondItem="KjI-WB-8GN" secondAttribute="bottom" constant="20" id="wDa-nd-uhk"/>
+                            <constraint firstAttribute="trailing" secondItem="KjI-WB-8GN" secondAttribute="trailing" constant="20" id="rhp-Ds-tJq"/>
+                            <constraint firstItem="0zg-Fy-6Kb" firstAttribute="top" secondItem="KjI-WB-8GN" secondAttribute="bottom" constant="20" id="wDa-nd-uhk"/>
                         </constraints>
                     </view>
                     <connections>
@@ -190,6 +195,10 @@
         <scene sceneID="0fy-np-uCe">
             <objects>
                 <viewController storyboardIdentifier="SignUpOption" title="SignUpOptionalVC" id="Rb1-AM-Obe" customClass="SignUpOptionViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9c0-lY-azG"/>
+                        <viewControllerLayoutGuide type="bottom" id="VGj-68-XJZ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WSV-17-yKH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,18 +265,17 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Et5-Sh-u1u"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dpT-rl-IlN" firstAttribute="leading" secondItem="Et5-Sh-u1u" secondAttribute="leading" constant="20" id="6yZ-BZ-za1"/>
-                            <constraint firstItem="BOr-hA-6Ga" firstAttribute="leading" secondItem="Et5-Sh-u1u" secondAttribute="leading" constant="20" id="9bU-T0-429"/>
-                            <constraint firstItem="Ki4-PE-lZy" firstAttribute="leading" secondItem="Et5-Sh-u1u" secondAttribute="leading" constant="20" id="JSJ-pM-Ab3"/>
-                            <constraint firstItem="BOr-hA-6Ga" firstAttribute="top" secondItem="Et5-Sh-u1u" secondAttribute="top" constant="35" id="PRd-Rd-SBz"/>
+                            <constraint firstItem="dpT-rl-IlN" firstAttribute="leading" secondItem="WSV-17-yKH" secondAttribute="leading" constant="20" id="6yZ-BZ-za1"/>
+                            <constraint firstItem="BOr-hA-6Ga" firstAttribute="leading" secondItem="WSV-17-yKH" secondAttribute="leading" constant="20" id="9bU-T0-429"/>
+                            <constraint firstItem="Ki4-PE-lZy" firstAttribute="leading" secondItem="WSV-17-yKH" secondAttribute="leading" constant="20" id="JSJ-pM-Ab3"/>
+                            <constraint firstItem="BOr-hA-6Ga" firstAttribute="top" secondItem="9c0-lY-azG" secondAttribute="bottom" constant="35" id="PRd-Rd-SBz"/>
                             <constraint firstItem="Ki4-PE-lZy" firstAttribute="top" secondItem="BOr-hA-6Ga" secondAttribute="bottom" constant="20" id="cbe-ap-KmC"/>
-                            <constraint firstItem="Et5-Sh-u1u" firstAttribute="trailing" secondItem="dpT-rl-IlN" secondAttribute="trailing" constant="20" id="fUr-gx-NxI"/>
-                            <constraint firstItem="Et5-Sh-u1u" firstAttribute="trailing" secondItem="Ki4-PE-lZy" secondAttribute="trailing" constant="20" id="fr6-hG-eYx"/>
+                            <constraint firstAttribute="trailing" secondItem="dpT-rl-IlN" secondAttribute="trailing" constant="20" id="fUr-gx-NxI"/>
+                            <constraint firstAttribute="trailing" secondItem="Ki4-PE-lZy" secondAttribute="trailing" constant="20" id="fr6-hG-eYx"/>
                             <constraint firstItem="dpT-rl-IlN" firstAttribute="top" secondItem="Ki4-PE-lZy" secondAttribute="bottom" constant="20" id="jvT-qv-0g5"/>
-                            <constraint firstItem="Et5-Sh-u1u" firstAttribute="trailing" secondItem="BOr-hA-6Ga" secondAttribute="trailing" constant="20" id="zPN-dx-FXy"/>
+                            <constraint firstAttribute="trailing" secondItem="BOr-hA-6Ga" secondAttribute="trailing" constant="20" id="zPN-dx-FXy"/>
                         </constraints>
                     </view>
                     <connections>

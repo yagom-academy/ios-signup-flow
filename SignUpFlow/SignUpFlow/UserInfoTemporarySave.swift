@@ -27,16 +27,12 @@ class UserInfoTemporarySave {
         return true
     }
     
-    func isAllInfoFilled() -> Bool {
-        if isSignUpViewFilled() {
-            guard let _ = self.birthDate,
-                  let _ = self.phone else {
-                return false
-            }
-            return true
-        } else {
+    func isOptionInfoFilled() -> Bool {
+        guard let _ = self.birthDate,
+              let _ = self.phone else {
             return false
         }
+        return true
     }
     
     func resetInfo() {
