@@ -85,12 +85,10 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction private func tapGoNextButton() {
-        let signUpOptionVC = SignUpOptionViewController(nibName: "SignUpOption", bundle: nil)
-        signUpOptionVC.userInfoTemporarySave = self.userInfoTemporarySave
-        
-        guard let signUpOptionViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpOption") else {
+        guard let signUpOptionViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpOption") as? SignUpOptionViewController else {
             return
         }
+        signUpOptionViewController.userInfoTemporarySave = self.userInfoTemporarySave
         signUpOptionViewController.modalPresentationStyle = .fullScreen
         self.present(signUpOptionViewController, animated: true)
     }
