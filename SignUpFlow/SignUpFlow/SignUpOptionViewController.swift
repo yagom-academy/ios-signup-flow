@@ -22,11 +22,11 @@ class SignUpOptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setKeyboardDoneButton()
+        phoneTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        phoneTextField.delegate = self
         displayUserInfo()
     }
         
@@ -60,7 +60,7 @@ class SignUpOptionViewController: UIViewController {
         self.birthDateDisplayLabel.text = dateString
     }
     
-    @IBAction func tapGoBackButton() {
+    @IBAction private func tapGoBackButton() {
         self.dismiss(animated: true, completion: nil)
     }
 }
