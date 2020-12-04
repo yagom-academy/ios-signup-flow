@@ -26,7 +26,7 @@ class SignUpViewController: UIViewController {
     private let introductionPlaceholderColor = UIColor.lightGray
     private let introductionTextColor = UIColor.black
     
-    private(set) var userInfoForm = SignUpForm()
+    private(set) var signUpForm = SignUpForm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,16 +107,12 @@ class SignUpViewController: UIViewController {
     
     // MARK: - Step Buttons
     @IBAction func tapCancelButton(_ sender: Any) {
-        profileImageView.image = nil
-        for textField in profileTextFields {
-            textField.text = nil
-        }
-        setIntroductionPlaceholder()
+        self.signUpForm.clearInfo()
         self.dismiss(animated: true, completion: nil)
     }
     
     private func setNextButtonState() {
-        let isFilledForm = self.userInfoForm.isFilled()
+        let isFilledForm = self.signUpForm.isFilled()
         if isFilledForm != self.nextButton.isEnabled {
             self.nextButton.isEnabled = isFilledForm
         }
@@ -149,7 +145,7 @@ extension SignUpViewController : UIImagePickerControllerDelegate,
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let profileImage = info[.editedImage] as? UIImage {
             self.profileImageView.image = profileImage
-            self.userInfoForm.image = profileImage
+            self.signUpForm.image = profileImage
         }
         self.setNextButtonState()
         dismiss(animated: true, completion: nil)
@@ -172,9 +168,9 @@ extension SignUpViewController : UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if let introductionText = textView.text {
             if isValidateText(from: introductionText) {
-                self.userInfoForm.introduction = introductionText
+                self.signUpForm.introduction = introductionText
             } else {
-                self.userInfoForm.introduction = nil
+                self.signUpForm.introduction = nil
                 textView.text = self.introductionPlaceholderMessage
                 textView.textColor = self.introductionPlaceholderColor
             }
@@ -219,11 +215,11 @@ extension SignUpViewController : UITextFieldDelegate {
     private func setUserInfoFormData(type: ProfileFieldType, text: String?) {
         switch type {
         case .id:
-            self.userInfoForm.id = text
+            self.signUpForm.id = text
         case .password:
-            self.userInfoForm.password = text
+            self.signUpForm.password = text
         case .checkPassword:
-            self.userInfoForm.checkPassword = text
+            self.signUpForm.checkPassword = text
         }
     }
 }
