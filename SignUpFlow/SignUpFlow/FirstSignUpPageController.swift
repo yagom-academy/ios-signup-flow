@@ -1,6 +1,6 @@
 import UIKit
 
-class SignUpPageController: UIViewController {
+class FirstSignUpPageController: UIViewController {
     
     let userInformation = UserInformation.default
     let imagePicker = UIImagePickerController()
@@ -33,7 +33,7 @@ class SignUpPageController: UIViewController {
 }
 
 // 사진앨범 접근
-extension SignUpPageController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension FirstSignUpPageController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func openPhotoAlbum() {
         if UIImagePickerController.isSourceTypeAvailable(imagePicker.sourceType) {
             imagePicker.sourceType = .photoLibrary
@@ -56,7 +56,7 @@ extension SignUpPageController: UIImagePickerControllerDelegate, UINavigationCon
 }
 
 //error
-extension SignUpPageController {
+extension FirstSignUpPageController {
     func showAlert(title: String?, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -67,7 +67,7 @@ extension SignUpPageController {
 }
 
 // 화면 터치시 키보드 내리기
-extension SignUpPageController: UITextFieldDelegate {
+extension FirstSignUpPageController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
          self.view.endEditing(true)
    }
@@ -77,7 +77,7 @@ extension SignUpPageController: UITextFieldDelegate {
     }
 }
 
-extension SignUpPageController {
+extension FirstSignUpPageController {
     func inputFirstPageData() {
         userInformation.id = userIdTextField.text
         userInformation.password = userPasswordTextField.text

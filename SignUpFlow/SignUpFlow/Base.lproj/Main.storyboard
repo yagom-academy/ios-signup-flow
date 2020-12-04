@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="959" y="64"/>
         </scene>
-        <!--Sign Up Page Controller-->
+        <!--First Sign Up Page Controller-->
         <scene sceneID="RK8-vq-nTX">
             <objects>
-                <viewController id="Mr8-wq-szk" customClass="SignUpPageController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Mr8-wq-szk" customClass="FirstSignUpPageController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ocC-HU-jFE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,7 +139,6 @@
                                 <state key="normal" title="다음"/>
                                 <connections>
                                     <action selector="moveToNextButton:" destination="Mr8-wq-szk" eventType="touchUpInside" id="4ia-JK-7ow"/>
-                                    <segue destination="eC4-0v-5F6" kind="show" id="TJN-Xx-bEj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbU-2X-AIO">
