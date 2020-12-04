@@ -31,11 +31,51 @@ class FirstSignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         disableInitialInputStates()
+        initializeImagePicker()
     }
     
     private func disableInitialInputStates() {
         self.nextButton.isEnabled = false
         self.checkPasswordTextField.isEnabled = false
+    }
+    
+    private func initializeImagePicker() {
+        let profileImageTapGesture = UITapGestureRecognizer.init(target: self, action: #selector(pickProfileImage))
+        profileImageView.addGestureRecognizer(profileImageTapGesture)
+        profileImageView.isUserInteractionEnabled = true
+        
+    }
+}
+extension FirstSignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @objc func pickProfileImage() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.allowsEditing = true
+        imagePickerController.delegate = self
+        self.present(imagePickerController,animated: true,completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let selectedImage = (info[.editedImage] ?? info[.originalImage]) as? UIImage else {
+            return
+        }
+        
+        self.profileImageView.image = selectedImage
+        user.profileImage = selectedImage
+        
+        let imageTag = self.profileImageView.tag
+        
+        if self.profileImageView.image != nil {
+            verifiedConditions.insert(imageTag)
+        } else {
+            guard verifiedConditions.contains(imageTag) else {
+                return
+            }
+            verifiedConditions.remove(imageTag)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
