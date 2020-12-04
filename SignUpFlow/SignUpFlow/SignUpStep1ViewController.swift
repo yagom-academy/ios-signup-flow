@@ -1,8 +1,7 @@
 import UIKit
-import MobileCoreServices
 
 class SignUpStep1ViewController: UIViewController {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var checkPasswordTextField: UITextField!
@@ -14,9 +13,6 @@ class SignUpStep1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idTextField.delegate = self
-        passwordTextField.delegate = self
-        checkPasswordTextField.delegate = self
         introductionTextView.delegate = self
         
         imagePicker.delegate = self
@@ -34,28 +30,28 @@ class SignUpStep1ViewController: UIViewController {
     ///
     /// - Parameter uiView: value의 유무를 확인할 UIView
     /// - Returns: value가 있으면, true 없으면 false
-    func hasValue(_ uiView: UIView?) -> Bool {
-        switch uiView {
+    func hasValue(_ chekingView: UIView?) -> Bool {
+        switch chekingView {
         case let imageView as UIImageView:
             if imageView.image == nil {
                 return false
+            } else {
+                return true
             }
         case let textField as UITextField:
             return textField.hasText
         case let textView as UITextView:
             return textView.hasText
         default:
-            return true
+            return false
         }
-        
-        return true
     }
     
     /// Signup Step1의 모든 뷰 컴포넘트에 값이 있는지 확인 후  Bool로 결과를 반환하는 함수.
     ///
     /// - Returns: value가 모두 있으면 true, 없으면 false
     func verifyAllComponentHasValue() -> Bool {
-        let allComponent = [self.imageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.introductionTextView]
+        let allComponent = [self.profileImageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.introductionTextView]
         
         return allComponent.reduce(true) {
             $0 && hasValue($1)
@@ -81,7 +77,19 @@ class SignUpStep1ViewController: UIViewController {
             nextButton.isEnabled = false
         }
     }
-
+    
+    @IBAction func changedIdTextField(_ sender: UITextField) {
+        checkNextButtonActivation()
+    }
+    
+    @IBAction func changedPasswordTextField(_ sender: UITextField) {
+        checkNextButtonActivation()
+    }
+    
+    @IBAction func changedCheckPasswordTextField(_ sender: UITextField) {
+        checkNextButtonActivation()
+    }
+    
     @IBAction func pressedImageView(_ sender: UITapGestureRecognizer) {
         present(imagePicker, animated: true)
     }
@@ -93,7 +101,7 @@ class SignUpStep1ViewController: UIViewController {
     @IBAction func pressedNextButton(_ sender: UIButton) {
         guard let id = idTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-        guard let image = imageView.image else { return }
+        guard let image = profileImageView.image else { return }
         guard let introduction = introductionTextView.text else { return }
         
         let userInformation = UserInformation.common
@@ -106,16 +114,10 @@ class SignUpStep1ViewController: UIViewController {
 
 extension SignUpStep1ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        imageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        profileImageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         dismiss(animated: true) {
             self.checkNextButtonActivation()
         }
-    }
-}
-
-extension SignUpStep1ViewController: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        checkNextButtonActivation()
     }
 }
 
