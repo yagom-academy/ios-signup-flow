@@ -14,9 +14,9 @@ class SignUpStep1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idTextField.delegate = self
-        passwordTextField.delegate = self
-        checkPasswordTextField.delegate = self
+//        idTextField.delegate = self
+//        passwordTextField.delegate = self
+//        checkPasswordTextField.delegate = self
         introductionTextView.delegate = self
         
         imagePicker.delegate = self
@@ -81,7 +81,19 @@ class SignUpStep1ViewController: UIViewController {
             nextButton.isEnabled = false
         }
     }
-
+    
+    @IBAction func changedIdTextField(_ sender: UITextField) {
+        checkNextButtonActivation()
+    }
+    
+    @IBAction func changedPasswordTextField(_ sender: UITextField) {
+        checkNextButtonActivation()
+    }
+    
+    @IBAction func changedCheckPasswordTextField(_ sender: UITextField) {
+        checkNextButtonActivation()
+    }
+    
     @IBAction func pressedImageView(_ sender: UITapGestureRecognizer) {
         present(imagePicker, animated: true)
     }
@@ -113,11 +125,13 @@ extension SignUpStep1ViewController: UIImagePickerControllerDelegate, UINavigati
     }
 }
 
-extension SignUpStep1ViewController: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        checkNextButtonActivation()
-    }
-}
+//extension SignUpStep1ViewController: UITextFieldDelegate {
+//    func textFieldDidChangeSelection(_ textField: UITextField) {
+//        checkNextButtonActivation()
+//    }
+//}
+
+
 
 extension SignUpStep1ViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
