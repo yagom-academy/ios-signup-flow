@@ -28,3 +28,5 @@ class UserInformation {
         self.birthDay = nil
     }
 }
+
+let user = UserInformation.common
