@@ -32,6 +32,7 @@ class FirstSignUpViewController: UIViewController {
         super.viewDidLoad()
         disableInitialInputStates()
         initializeImagePicker()
+        introductionTextView.delegate = self
     }
     
     private func disableInitialInputStates() {
@@ -118,4 +119,18 @@ extension FirstSignUpViewController: UIImagePickerControllerDelegate, UINavigati
         self.dismiss(animated: true, completion: nil)
     }
 }
+extension FirstSignUpViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text?.isEmpty ?? true {
+            guard verifiedConditions.contains(textView.tag) else {
+                return
+            }
+            verifiedConditions.remove(textView.tag)
+        } else {
+            verifiedConditions.insert(textView.tag)
+        }
+    }
+}
+
+
 
