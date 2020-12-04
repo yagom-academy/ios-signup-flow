@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class UserInfo : InfoForm {
+class SignUpForm : InfoForm {
     var id: String?
     var checkPassword: String?
     var password: String?

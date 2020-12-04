@@ -26,7 +26,7 @@ class SignUpViewController: UIViewController {
     private let introductionPlaceholderColor = UIColor.lightGray
     private let introductionTextColor = UIColor.black
     
-    private(set) var userInfoForm = UserInfo()
+    private(set) var userInfoForm = SignUpForm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
