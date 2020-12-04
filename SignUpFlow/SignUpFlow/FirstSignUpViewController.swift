@@ -45,6 +45,11 @@ class FirstSignUpViewController: UIViewController {
 //        introductionTextView.text = user.introduction
 //    }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.view.endEditing(true)
+    }
+    
     private func disableInitialInputStates() {
         self.nextButton.isEnabled = false
         self.checkPasswordTextField.isEnabled = false
