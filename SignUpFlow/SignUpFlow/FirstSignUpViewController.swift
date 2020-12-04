@@ -8,7 +8,6 @@
 import UIKit
 
 class FirstSignUpViewController: UIViewController {
-    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var newIdTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
@@ -17,35 +16,19 @@ class FirstSignUpViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
+    let numberOfSignUpRequirements = 5
+    
+    private var verifiedConditions = Set<Int>() {
+        didSet {
+            if verifiedConditions.count == numberOfSignUpRequirements {
+                nextButton.isEnabled = true
+            } else {
+                nextButton.isEnabled = false
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.nextButton.isEnabled = false
-        
-        let profileImageTapGesture = UITapGestureRecognizer.init(target: self, action: #selector(pickProfileImage))
-        profileImageView.addGestureRecognizer(profileImageTapGesture)
-        profileImageView.isUserInteractionEnabled = true
-    }
-    
-}
-extension FirstSignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    @objc func pickProfileImage() {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.allowsEditing = true
-        imagePickerController.delegate = self
-        self.present(imagePickerController,animated: true,completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        guard let selectedImage = (info[.editedImage] ?? info[.originalImage]) as? UIImage else {
-            return
-        }
-        
-        self.profileImageView.image = selectedImage
-        user.profileImage = selectedImage
-        
-        self.dismiss(animated: true, completion: nil)
     }
 }
