@@ -3,14 +3,14 @@ import UIKit
 class SignUpPageController: UIViewController {
     
     let userInformation = UserInformation.default
+    let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userIntroductionTextView: UITextView!
     @IBOutlet weak var userIdTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var checkPasswordTextField: UITextField!
-    
-    let imagePicker = UIImagePickerController()
+    @IBOutlet weak var nextPageButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +19,15 @@ class SignUpPageController: UIViewController {
         userIdTextField.delegate = self
         userPasswordTextField.delegate = self
         checkPasswordTextField.delegate = self
+        
+        nextPageButton.isEnabled = false
     }
     
     @IBAction func selectImageButton(_ sender: UIButton) {
         openPhotoAlbum()
+    }
+    
+    @IBAction func moveToNextButton(_ sender: UIButton) {
     }
 }
 

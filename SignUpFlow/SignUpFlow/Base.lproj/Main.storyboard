@@ -138,6 +138,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="다음"/>
                                 <connections>
+                                    <action selector="moveToNextButton:" destination="Mr8-wq-szk" eventType="touchUpInside" id="4ia-JK-7ow"/>
                                     <segue destination="eC4-0v-5F6" kind="show" id="TJN-Xx-bEj"/>
                                 </connections>
                             </button>
@@ -156,6 +157,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="checkPasswordTextField" destination="DpI-Hz-4i9" id="VMp-z1-9bc"/>
+                        <outlet property="nextPageButton" destination="Dc4-wf-S6j" id="F4h-l8-KYC"/>
                         <outlet property="userIdTextField" destination="f9T-ye-8oD" id="Qce-QW-gec"/>
                         <outlet property="userImageView" destination="MJN-2X-VsD" id="hIE-et-8rb"/>
                         <outlet property="userIntroductionTextView" destination="zc1-JL-nIN" id="boH-Z9-IcN"/>
