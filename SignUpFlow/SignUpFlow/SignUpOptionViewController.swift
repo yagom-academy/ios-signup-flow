@@ -13,6 +13,24 @@ class SignUpOptionViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     var userInfoTemporarySave: UserInfoTemporarySave = UserInfoTemporarySave()
     
+    let dateFormatter: DateFormatter = {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "MMMM d, yyyy"
+        return formatter
+    }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        displayUserInfo()
+    }
+        
+    private func displayUserInfo() {
+        phoneTextField.text = userInfoTemporarySave.phone
+        if let dateString = userInfoTemporarySave.birthDate {
+            birthDateDisplayLabel.text = self.dateFormatter.string(from: dateString)
+        }
+    }
+    
     @IBAction func goBack() {
         self.dismiss(animated: true, completion: nil)
     }
