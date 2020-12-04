@@ -27,6 +27,8 @@ class LoginViewController: UIViewController {
             print("targetController 할당에 문제가 있습니다.")
             return
         }
+        
+        user.resetInformation()
         self.present(targetController, animated: true, completion: nil)
     }
 }
