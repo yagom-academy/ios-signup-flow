@@ -19,14 +19,22 @@ class SignUpSecondViewController: UIViewController {
     class var storyboardID: String {
         return "\(self)"
     }
-    
+  
+    private let dateFormatter: DateFormatter = {
+        let formatter: DateFormatter = DateFormatter()
+        // 날짜 형식 "November 18, 2020"
+        formatter.dateStyle = .long
+        
+        return formatter
+    }()
+  
+      // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegate()
+        setupDatePicker()
     }
 }
-
-//MARK:- Extensions
 
 //MARK: IBActions & Methods
 extension SignUpSecondViewController {
@@ -67,5 +75,29 @@ extension SignUpSecondViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         textField.inputAccessoryView = keyboardToolBar
         return true
+    }
+}
+
+// MARK: - UIDatePicker Methods
+extension SignUpSecondViewController {
+    func setupDatePicker() {
+        datePicker.addTarget(self, action: #selector(didDatePickerValueChanged(_:)), for: UIControl.Event.valueChanged)
+        
+        datePicker.maximumDate = Date()
+        
+        updateDateLabelFromDatePicker(datePicker)
+    }
+    
+    @objc func didDatePickerValueChanged(_ sender: UIDatePicker) {
+        updateDateLabelFromDatePicker(sender)
+        
+        // 가입 버튼 활성화 조건 확인 추가하기
+    }
+    
+    func updateDateLabelFromDatePicker(_ sender: UIDatePicker) {
+        let date: Date = sender.date
+        let dateString: String = dateFormatter.string(from: date)
+        
+        birthDateLabel.text = dateString
     }
 }
