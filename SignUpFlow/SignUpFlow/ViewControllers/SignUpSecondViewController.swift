@@ -34,20 +34,60 @@ class SignUpSecondViewController: UIViewController {
         setDelegate()
         setupDatePicker()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        if checkPhoneNumberPatternMatching() == true {
+            signUpButton.isEnabled = true
+            view.endEditing(true)
+        } else {
+            alertInvalidPhoneNumber()
+        }
+    }
 }
 
 //MARK: IBActions & Methods
 extension SignUpSecondViewController {
     @IBAction func finishInput(_ sender: UIBarButtonItem) {
         if checkPhoneNumberPatternMatching() == true {
+            checkToEnableCompleteButton()
             phoneNumberTextField.resignFirstResponder()
         } else {
+            checkToEnableCompleteButton()
             alertInvalidPhoneNumber()
+        }
+    }
+    
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        clearUserInformation()
+        dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func touchUpPreviousButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func touchUpSignUpButton(_ sender: UIButton) {
+        dismiss(animated: true) {
+            UserInformation.card.phoneNumber = self.phoneNumberTextField.text
         }
     }
 
     private func setDelegate() {
         phoneNumberTextField.delegate = self
+    }
+    
+    private func clearUserInformation() {
+        UserInformation.card.clear()
+    }
+    
+    private func checkToEnableCompleteButton() {
+        if checkPhoneNumberPatternMatching() == true {
+            signUpButton.isEnabled = true
+        } else {
+            signUpButton.isEnabled = false
+        }
     }
     
     private func alertInvalidPhoneNumber() {
@@ -75,6 +115,10 @@ extension SignUpSecondViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         textField.inputAccessoryView = keyboardToolBar
         return true
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        signUpButton.isEnabled = false
     }
 }
 
