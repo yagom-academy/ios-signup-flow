@@ -13,9 +13,6 @@ class SignUpStep1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        idTextField.delegate = self
-//        passwordTextField.delegate = self
-//        checkPasswordTextField.delegate = self
         introductionTextView.delegate = self
         
         imagePicker.delegate = self
