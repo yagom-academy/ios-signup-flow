@@ -20,7 +20,6 @@ final class UserInformation {
 
 protocol UserInfoForm {
     var isFilled: Bool { get }
-//    func isFilled() -> Bool
     func clearInfo()
     func validateInfo() throws -> Bool
 }
