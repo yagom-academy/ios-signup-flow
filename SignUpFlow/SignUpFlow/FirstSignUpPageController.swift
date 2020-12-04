@@ -107,4 +107,13 @@ extension FirstSignUpPageController {
         userInformation.birth = nil
     }
     
+    func isAllRequirementFilled() -> Bool {
+        let isPasswordSame: Bool = (userPasswordTextField.text == checkPasswordTextField.text)
+        
+        return userIdTextField.text != nil &&
+               userPasswordTextField.text != nil &&
+               userImageView.image != nil &&
+               userIntroductionTextView.text != nil &&
+               isPasswordSame
+    }
 }
