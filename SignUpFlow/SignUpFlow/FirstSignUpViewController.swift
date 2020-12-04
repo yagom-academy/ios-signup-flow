@@ -1,5 +1,6 @@
 import UIKit
-
+import PhotosUI
+    
 final class FirstSignUpViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var idTextField: UITextField!
@@ -7,9 +8,9 @@ final class FirstSignUpViewController: UIViewController {
     @IBOutlet weak var checkPasswordTextField: UITextField!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
-        
+      
     private let imagePicker = UIImagePickerController()
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
         nextButton.isEnabled = false
@@ -32,11 +33,28 @@ final class FirstSignUpViewController: UIViewController {
     }
     
     @objc func editProfileImage(_ sender: UITapGestureRecognizer) {
-        self.imagePicker.sourceType = .photoLibrary
-        self.imagePicker.allowsEditing = true
-        self.imagePicker.delegate = self
+        if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.authorized {
+            PHPhotoLibrary.requestAuthorization({ (status: PHAuthorizationStatus) -> Void in
+                if status != .authorized {
+                    self.alertMessage()
+                } else {
+                    self.imagePicker.sourceType = .photoLibrary
+                    self.imagePicker.allowsEditing = true
+                    self.imagePicker.delegate = self
+                    
+                    self.present(self.imagePicker, animated: true)
+                }
+            })
+        }
+    }
+    
+    func alertMessage() {
+        let alert = UIAlertController(title: "주의", message: "접근 권한 미허용으로 일부 기능이 동작하지 않습니다. 설정에서 허용을 해주십시오.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
         
-        self.present(self.imagePicker, animated: true)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     private func checkInfo() {
