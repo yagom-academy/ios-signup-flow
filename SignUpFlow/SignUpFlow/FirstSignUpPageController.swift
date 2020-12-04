@@ -126,3 +126,14 @@ extension FirstSignUpPageController: UserInformationManageable {
         print("gsd")
     }
 }
+
+// 버튼 제어
+extension FirstSignUpPageController {
+    func setButtonStatus() {
+        if isAllRequirementFilled() {
+            nextPageButton.isEnabled = true
+        } else {
+            nextPageButton.isEnabled = false
+        }
+    }
+}
