@@ -19,6 +19,11 @@ class SignUpOptionViewController: UIViewController {
         return formatter
     }()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setKeyboardDoneButton()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         displayUserInfo()
@@ -31,6 +36,20 @@ class SignUpOptionViewController: UIViewController {
         if let date = userInfoTemporarySave.birthDate {
             birthDateDisplayLabel.text = self.dateFormatter.string(from: date)
         }
+    }
+    
+    private func setKeyboardDoneButton() {
+        let toolBarKeyboard = UIToolbar()
+        toolBarKeyboard.sizeToFit()
+        let btnDoneBar = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonClicked))
+        toolBarKeyboard.items = [btnDoneBar]
+        toolBarKeyboard.tintColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        
+        phoneTextField.inputAccessoryView = toolBarKeyboard
+    }
+    
+    @IBAction func doneButtonClicked(_ sender: Any) {
+        self.view.endEditing(true)
     }
     
     @IBAction private func didDatePickerValueChanged(_ sender: UIDatePicker) {
