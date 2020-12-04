@@ -110,10 +110,10 @@ extension FirstSignUpPageController: UserInformationManageable {
     func isAllRequirementFilled() -> Bool {
         let isPasswordSame: Bool = (userPasswordTextField.text == checkPasswordTextField.text)
         
-        return userIdTextField.text != nil &&
-               userPasswordTextField.text != nil &&
+        return userIdTextField.hasText &&
+            userPasswordTextField.hasText &&
                userImageView.image != nil &&
-               userIntroductionTextView.text != nil &&
+            userIntroductionTextView.hasText &&
                isPasswordSame
     }
 }
