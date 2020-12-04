@@ -21,7 +21,7 @@ class FirstSignUpPageController: UIViewController {
         checkPasswordTextField.delegate = self
         userIntroductionTextView.delegate = self
         
-        nextPageButton.isEnabled = true
+        nextPageButton.isEnabled = false
     }
     
     @IBAction func selectImageButton(_ sender: UIButton) {
@@ -60,6 +60,7 @@ extension FirstSignUpPageController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             userImageView.image = pickedImage
+            setButtonStatus()
         } else if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             userImageView.image = pickedImage
         }
@@ -119,11 +120,11 @@ extension FirstSignUpPageController: UserInformationManageable {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("ended")
+        setButtonStatus()
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        print("gsd")
+        setButtonStatus()
     }
 }
 
