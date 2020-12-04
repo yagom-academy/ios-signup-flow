@@ -63,6 +63,11 @@ class SignUpOptionViewController: UIViewController {
     @IBAction private func tapGoBackButton() {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction private func tapCancelButton() {
+        userInfoTemporarySave.resetInfo()
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension SignUpOptionViewController: UITextFieldDelegate {
