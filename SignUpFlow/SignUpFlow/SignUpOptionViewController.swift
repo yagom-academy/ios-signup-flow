@@ -26,6 +26,7 @@ class SignUpOptionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        phoneTextField.delegate = self
         displayUserInfo()
     }
         
@@ -61,5 +62,17 @@ class SignUpOptionViewController: UIViewController {
     
     @IBAction func goBack() {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SignUpOptionViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if phoneTextField.hasText {
+            if let phone = phoneTextField.text {
+                userInfoTemporarySave.phone = phone
+            }
+        } else {
+            userInfoTemporarySave.phone = nil
+        }
     }
 }
