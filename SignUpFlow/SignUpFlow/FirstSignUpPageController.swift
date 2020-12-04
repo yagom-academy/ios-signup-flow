@@ -39,7 +39,7 @@ class FirstSignUpPageController: UIViewController {
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
-        resetUserData()
+        resetUserInformation()
         dismiss(animated: true, completion: nil)
     }
 }
@@ -98,7 +98,7 @@ extension FirstSignUpPageController {
         userInformation.selfIntroductionText = userIntroductionTextView.text
     }
     
-    func resetUserData() {
+    func resetUserInformation() {
         userInformation.id = nil
         userInformation.password = nil
         userInformation.profileImage = nil
@@ -106,4 +106,5 @@ extension FirstSignUpPageController {
         userInformation.phoneNumber = nil
         userInformation.birth = nil
     }
+    
 }
