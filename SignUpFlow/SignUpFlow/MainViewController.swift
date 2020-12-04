@@ -19,7 +19,7 @@ class MainViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func tapSignupButton() {
+    @IBAction func touchUpSignupButton() {
         guard let signUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUp") else {
             return
         }

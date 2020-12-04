@@ -48,7 +48,7 @@
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="tapSignupButton" destination="AcP-jA-ZOx" eventType="touchUpInside" id="hzL-hG-lts"/>
+                                            <action selector="touchUpSignupButton" destination="AcP-jA-ZOx" eventType="touchUpInside" id="oOP-XB-Oya"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -149,14 +149,14 @@
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="tapCancelButton:" destination="vLW-Pc-hX2" eventType="touchUpInside" id="kZx-ze-76H"/>
+                                            <action selector="touchUpCancelButton:" destination="vLW-Pc-hX2" eventType="touchUpInside" id="EY6-h9-Zc2"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYM-T1-Zve">
                                         <rect key="frame" x="187" y="0.0" width="187" height="30"/>
                                         <state key="normal" title="다음"/>
                                         <connections>
-                                            <action selector="tapNextButton:" destination="vLW-Pc-hX2" eventType="touchUpInside" id="91M-5I-p0M"/>
+                                            <action selector="touchUpNextButton:" destination="vLW-Pc-hX2" eventType="touchUpInside" id="7Qg-eV-CVD"/>
                                         </connections>
                                     </button>
                                 </subviews>

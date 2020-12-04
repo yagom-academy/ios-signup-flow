@@ -45,7 +45,7 @@ class SignUpViewController: UIViewController {
     private func setUpKeyboard() {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(tapDoneButton(_:)))
+        let doneButton = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(touchUpDoneButton(_:)))
         keyboardToolbar.items = [doneButton]
         
         introductionTextView.inputAccessoryView = keyboardToolbar
@@ -55,7 +55,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func setUpProfileImage() {
-        let profileImageGesture = UITapGestureRecognizer(target: self, action: #selector(tapProfileImageView(_:)))
+        let profileImageGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpProfileImageView(_:)))
         profileImageView.addGestureRecognizer(profileImageGesture)
         
         profileImagePicker.allowsEditing = true
@@ -74,12 +74,12 @@ class SignUpViewController: UIViewController {
         setIntroductionPlaceholder()
     }
     
-    @objc func tapDoneButton(_ sender: Any) {
+    @objc func touchUpDoneButton(_ sender: Any) {
         self.view.endEditing(true)
     }
     
     // MARK: - Profile Image func
-    @objc func tapProfileImageView(_ sender: UITapGestureRecognizer) {
+    @objc func touchUpProfileImageView(_ sender: UITapGestureRecognizer) {
         let profileImageAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let openAlbum = UIAlertAction(title: "앨범에서 가져오기", style: .default) { _ in
             self.openAlbum()
@@ -107,7 +107,7 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - Step Buttons
-    @IBAction func tapCancelButton(_ sender: Any) {
+    @IBAction func touchUpCancelButton(_ sender: Any) {
         self.signUpForm.clearInfo()
         self.dismiss(animated: true, completion: nil)
     }
@@ -119,7 +119,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    @IBAction func tapNextButton(_ sender: Any) {
+    @IBAction func touchUpNextButton(_ sender: Any) {
         guard let signUpOptionViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpOption") else {
             return
         }
