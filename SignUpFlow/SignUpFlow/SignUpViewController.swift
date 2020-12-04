@@ -80,7 +80,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         introductionTextView.inputAccessoryView = toolBarKeyboard
     }
     
-    @IBAction func doneButtonClicked(_ sender: Any) {
+    @objc func doneButtonClicked(_ sender: Any) {
         self.view.endEditing(true)
     }
     

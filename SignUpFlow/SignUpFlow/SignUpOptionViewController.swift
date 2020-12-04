@@ -49,7 +49,7 @@ class SignUpOptionViewController: UIViewController {
         phoneTextField.inputAccessoryView = toolBarKeyboard
     }
     
-    @IBAction func doneButtonClicked(_ sender: Any) {
+    @objc func doneButtonClicked(_ sender: Any) {
         self.view.endEditing(true)
     }
     
@@ -60,7 +60,7 @@ class SignUpOptionViewController: UIViewController {
         self.birthDateDisplayLabel.text = dateString
     }
     
-    @IBAction func goBack() {
+    @IBAction func tapGoBackButton() {
         self.dismiss(animated: true, completion: nil)
     }
 }
