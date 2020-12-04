@@ -81,8 +81,8 @@ extension FirstSignUpViewController: UIImagePickerControllerDelegate, UINavigati
         } else if let originalImage = info[.originalImage] as? UIImage {
             resultImage = originalImage
         }
-        
         profileImageView.image = resultImage
+        
         picker.dismiss(animated: true)
         
         checkInfo()
