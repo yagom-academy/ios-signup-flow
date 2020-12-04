@@ -155,8 +155,11 @@
                     <navigationItem key="navigationItem" id="8PN-uR-xNU"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="checkPasswordTextField" destination="DpI-Hz-4i9" id="VMp-z1-9bc"/>
+                        <outlet property="userIdTextField" destination="f9T-ye-8oD" id="Qce-QW-gec"/>
                         <outlet property="userImageView" destination="MJN-2X-VsD" id="hIE-et-8rb"/>
                         <outlet property="userIntroductionTextView" destination="zc1-JL-nIN" id="boH-Z9-IcN"/>
+                        <outlet property="userPasswordTextField" destination="EAG-gY-zoU" id="5in-Ot-Sf3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgQ-1s-ZtO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -4,6 +4,9 @@ class SignUpPageController: UIViewController {
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userIntroductionTextView: UITextView!
+    @IBOutlet weak var userIdTextField: UITextField!
+    @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var checkPasswordTextField: UITextField!
     
     let imagePicker = UIImagePickerController()
     
@@ -11,6 +14,9 @@ class SignUpPageController: UIViewController {
         super.viewDidLoad()
         
         imagePicker.delegate = self
+        userIdTextField.delegate = self
+        userPasswordTextField.delegate = self
+        checkPasswordTextField.delegate = self
     }
     
     @IBAction func selectImageButton(_ sender: UIButton) {
