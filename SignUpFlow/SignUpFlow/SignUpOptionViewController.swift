@@ -31,6 +31,13 @@ class SignUpOptionViewController: UIViewController {
         }
     }
     
+    @IBAction private func didDatePickerValueChanged(_ sender: UIDatePicker) {
+        let date: Date = self.datePicker.date
+        let dateString: String = self.dateFormatter.string(from: date)
+        userInfoTemporarySave.birthDate = date
+        self.birthDateDisplayLabel.text = dateString
+    }
+    
     @IBAction func goBack() {
         self.dismiss(animated: true, completion: nil)
     }
