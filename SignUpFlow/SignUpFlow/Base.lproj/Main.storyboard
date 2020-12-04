@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -149,13 +150,93 @@
                     <view key="view" contentMode="scaleToFill" id="PGt-BS-VIe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0y-ZF-jMp">
+                                <rect key="frame" x="20" y="44" width="59" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Ety-G5-YXr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생년월일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxI-km-3rj">
+                                <rect key="frame" x="20" y="119" width="80" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Kq8-R7-Evh"/>
+                                    <constraint firstAttribute="width" constant="80" id="vGc-1K-dXb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5yz-nK-Wja">
+                                <rect key="frame" x="20" y="77" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="November 18, 2020" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cl-VA-e0N">
+                                <rect key="frame" x="214" y="119" width="180" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="RIH-jD-4Qk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker autoresizesSubviews="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="S02-WX-r8q">
+                                <rect key="frame" x="0.0" y="152" width="414" height="353.5"/>
+                            </datePicker>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ekd-ew-Uk6">
+                                <rect key="frame" x="20" y="513.5" width="374" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDM-LC-mgO">
+                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="30"/>
+                                        <state key="normal" title="취소">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0Y-b3-vFq">
+                                        <rect key="frame" x="127.5" y="0.0" width="119" height="30"/>
+                                        <state key="normal" title="이전"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTP-Li-KNA">
+                                        <rect key="frame" x="254.5" y="0.0" width="119.5" height="30"/>
+                                        <state key="normal" title="가입"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="YOv-9h-WxX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ekd-ew-Uk6" firstAttribute="top" secondItem="S02-WX-r8q" secondAttribute="bottom" constant="8" id="7av-Gi-9Kb"/>
+                            <constraint firstItem="S02-WX-r8q" firstAttribute="leading" secondItem="YOv-9h-WxX" secondAttribute="leading" id="8S2-4Q-oQh"/>
+                            <constraint firstItem="5yz-nK-Wja" firstAttribute="top" secondItem="V0y-ZF-jMp" secondAttribute="bottom" constant="8" id="IUY-2d-E1b"/>
+                            <constraint firstItem="YOv-9h-WxX" firstAttribute="trailing" secondItem="8cl-VA-e0N" secondAttribute="trailing" constant="20" id="NZh-1l-QhE"/>
+                            <constraint firstItem="YOv-9h-WxX" firstAttribute="trailing" secondItem="ekd-ew-Uk6" secondAttribute="trailing" constant="20" id="OtU-RU-t1b"/>
+                            <constraint firstItem="V0y-ZF-jMp" firstAttribute="top" secondItem="YOv-9h-WxX" secondAttribute="top" id="R2o-cR-cbu"/>
+                            <constraint firstItem="V0y-ZF-jMp" firstAttribute="leading" secondItem="YOv-9h-WxX" secondAttribute="leading" constant="20" id="Wvk-sj-JTr"/>
+                            <constraint firstItem="S02-WX-r8q" firstAttribute="top" secondItem="pxI-km-3rj" secondAttribute="bottom" constant="8" id="aiF-7g-h4c"/>
+                            <constraint firstItem="5yz-nK-Wja" firstAttribute="leading" secondItem="YOv-9h-WxX" secondAttribute="leading" constant="20" id="fk5-RJ-7eU"/>
+                            <constraint firstItem="YOv-9h-WxX" firstAttribute="trailing" secondItem="5yz-nK-Wja" secondAttribute="trailing" constant="20" id="khn-So-kSC"/>
+                            <constraint firstItem="pxI-km-3rj" firstAttribute="leading" secondItem="YOv-9h-WxX" secondAttribute="leading" constant="20" id="q7Y-qZ-2Hn"/>
+                            <constraint firstItem="YOv-9h-WxX" firstAttribute="trailing" secondItem="S02-WX-r8q" secondAttribute="trailing" id="qN7-JB-rDD"/>
+                            <constraint firstItem="ekd-ew-Uk6" firstAttribute="leading" secondItem="YOv-9h-WxX" secondAttribute="leading" constant="20" id="tTU-2P-OvL"/>
+                            <constraint firstItem="pxI-km-3rj" firstAttribute="top" secondItem="5yz-nK-Wja" secondAttribute="bottom" constant="8" id="vat-qR-Dn4"/>
+                            <constraint firstItem="S02-WX-r8q" firstAttribute="centerX" secondItem="PGt-BS-VIe" secondAttribute="centerX" id="wTD-h7-eUe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="birthDateLabel" destination="8cl-VA-e0N" id="5ZU-AH-ZpS"/>
+                        <outlet property="datePicker" destination="S02-WX-r8q" id="Vla-du-oSk"/>
+                        <outlet property="phoneNumberTextField" destination="5yz-nK-Wja" id="Dmq-lJ-Ert"/>
+                        <outlet property="signUpButton" destination="TTP-Li-KNA" id="rDQ-RL-3cY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsA-or-irJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2296" y="119"/>
+            <point key="canvasLocation" x="2295.6521739130435" y="118.52678571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="heX-WE-k70">
