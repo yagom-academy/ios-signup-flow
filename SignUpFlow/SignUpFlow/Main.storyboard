@@ -191,10 +191,10 @@
             </objects>
             <point key="canvasLocation" x="770" y="-121"/>
         </scene>
-        <!--SignUpOptionalVC-->
+        <!--Sign Up Option View Controller-->
         <scene sceneID="0fy-np-uCe">
             <objects>
-                <viewController storyboardIdentifier="SignUpOption" title="SignUpOptionalVC" id="Rb1-AM-Obe" customClass="SignUpOptionViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpOption" id="Rb1-AM-Obe" customClass="SignUpOptionViewController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9c0-lY-azG"/>
                         <viewControllerLayoutGuide type="bottom" id="VGj-68-XJZ"/>
@@ -250,22 +250,29 @@
                                         <state key="normal" title="취소">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tapCancelButton" destination="Rb1-AM-Obe" eventType="touchUpInside" id="pU0-9C-fiF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="404-4X-5P9">
                                         <rect key="frame" x="128" y="0.0" width="118" height="30"/>
                                         <state key="normal" title="이전"/>
                                         <connections>
-                                            <action selector="goBack" destination="Rb1-AM-Obe" eventType="touchUpInside" id="qn1-FD-BW7"/>
+                                            <action selector="tapGoBackButton" destination="Rb1-AM-Obe" eventType="touchUpInside" id="kUI-7s-qVa"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJG-D3-c18">
                                         <rect key="frame" x="256" y="0.0" width="118" height="30"/>
                                         <state key="normal" title="가입"/>
+                                        <connections>
+                                            <action selector="tapSignUpButton" destination="Rb1-AM-Obe" eventType="touchUpInside" id="0jH-0f-1Li"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="dpT-rl-IlN" firstAttribute="leading" secondItem="WSV-17-yKH" secondAttribute="leading" constant="20" id="6yZ-BZ-za1"/>
                             <constraint firstItem="BOr-hA-6Ga" firstAttribute="leading" secondItem="WSV-17-yKH" secondAttribute="leading" constant="20" id="9bU-T0-429"/>
@@ -282,6 +289,7 @@
                         <outlet property="birthDateDisplayLabel" destination="Sgf-MV-ypm" id="iW4-PF-3rL"/>
                         <outlet property="datePicker" destination="Ki4-PE-lZy" id="f0i-an-qsP"/>
                         <outlet property="phoneTextField" destination="Sis-Az-fjM" id="U8E-Fs-x4Y"/>
+                        <outlet property="signUpButton" destination="YJG-D3-c18" id="k0J-61-b4L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Cq-Ic-OKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
