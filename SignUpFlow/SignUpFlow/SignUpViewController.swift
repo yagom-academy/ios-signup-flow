@@ -172,8 +172,7 @@ extension SignUpViewController : UITextViewDelegate {
                 self.signUpForm.introduction = introductionText
             } else {
                 self.signUpForm.introduction = nil
-                textView.text = self.introductionPlaceholderMessage
-                textView.textColor = self.introductionPlaceholderColor
+                setIntroductionPlaceholder()
             }
         }
         self.setNextButtonState()
