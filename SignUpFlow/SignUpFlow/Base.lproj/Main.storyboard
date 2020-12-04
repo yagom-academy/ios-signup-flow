@@ -45,7 +45,7 @@
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jMw-5X-4a3" kind="show" identifier="SignUpSegue" id="FMV-uL-ocQ"/>
+                                    <segue destination="y2a-NI-jp0" kind="show" identifier="SignUpSegue" id="FMV-uL-ocQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -87,7 +87,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2EX-hE-3ef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1002" y="107"/>
+            <point key="canvasLocation" x="1798" y="107"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="v6K-mh-whh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="y2a-NI-jp0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="zIc-Ff-vCD"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wo1-J6-sV8">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jMw-5X-4a3" kind="relationship" relationship="rootViewController" id="122-V8-8Yf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kiG-2L-Kpc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="949" y="107"/>
         </scene>
     </scenes>
     <resources>
