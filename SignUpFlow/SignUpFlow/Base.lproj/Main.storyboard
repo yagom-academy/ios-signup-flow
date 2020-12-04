@@ -147,6 +147,9 @@
                                 <state key="normal" title="취소">
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="Mr8-wq-szk" eventType="touchUpInside" id="1Hc-aw-eMC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vYn-fU-dqc"/>

@@ -37,6 +37,10 @@ class FirstSignUpPageController: UIViewController {
             return
         }
     }
+    
+    @IBAction func cancelButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 // 사진앨범 접근
