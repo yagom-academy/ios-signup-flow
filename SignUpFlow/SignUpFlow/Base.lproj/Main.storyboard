@@ -167,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="1717.5999999999999" y="63.546798029556655"/>
         </scene>
-        <!--View Controller-->
+        <!--Second Sign Up Page Controller-->
         <scene sceneID="oHC-Wy-I4h">
             <objects>
-                <viewController id="eC4-0v-5F6" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondSignUpPageController" id="eC4-0v-5F6" customClass="SecondSignUpPageController" customModule="SignUpFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aBv-Fl-Cxl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

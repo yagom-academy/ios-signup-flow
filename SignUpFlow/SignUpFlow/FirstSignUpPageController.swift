@@ -20,7 +20,7 @@ class FirstSignUpPageController: UIViewController {
         userPasswordTextField.delegate = self
         checkPasswordTextField.delegate = self
         
-        nextPageButton.isEnabled = false
+        nextPageButton.isEnabled = true
     }
     
     @IBAction func selectImageButton(_ sender: UIButton) {
@@ -29,6 +29,13 @@ class FirstSignUpPageController: UIViewController {
     
     @IBAction func moveToNextButton(_ sender: UIButton) {
         inputFirstPageData()
+        
+        if let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "SecondSignUpPageController") {
+            self.navigationController?.pushViewController(pushVC, animated: true)
+        } else {
+            showAlert(title: "error!", message: "다음으로 이동할 수 없습니다.")
+            return
+        }
     }
 }
 

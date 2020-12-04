@@ -1,6 +1,6 @@
 import UIKit
 
-class SecondSignUpController: UIViewController {
+class SecondSignUpPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
