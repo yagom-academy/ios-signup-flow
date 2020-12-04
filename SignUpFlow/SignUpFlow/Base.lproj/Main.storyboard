@@ -37,9 +37,6 @@
                                 <rect key="frame" x="101" y="482" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign In"/>
-                                <connections>
-                                    <action selector="didTapSignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9UI-s8-aCQ"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xf2-Hv-yMx">
                                 <rect key="frame" x="240" y="482" width="54" height="30"/>
@@ -48,7 +45,6 @@
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapSignUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6xA-ke-YxQ"/>
                                     <segue destination="jMw-5X-4a3" kind="show" identifier="SignUpSegue" id="FMV-uL-ocQ"/>
                                 </connections>
                             </button>

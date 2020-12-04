@@ -1,7 +1,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     //MARK: - IBOutlets
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var idTextField: UITextField!
@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         idTextFieldConfig(idTextField)
         passwordTextFieldConfig(passwordTextField)
     }
-
+    
     //MARK: - IBActions
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -39,13 +39,9 @@ class ViewController: UIViewController {
 //MARK: - UITextFieldDelegate
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-        case idTextField:
-            textField.resignFirstResponder()
+        if textField == idTextField {
             passwordTextField.becomeFirstResponder()
-        case passwordTextField:
-            textField.resignFirstResponder()
-        default:
+        } else {
             textField.resignFirstResponder()
         }
         return true
