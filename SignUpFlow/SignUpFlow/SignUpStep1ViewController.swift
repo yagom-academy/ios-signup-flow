@@ -39,16 +39,16 @@ class SignUpStep1ViewController: UIViewController {
         case let imageView as UIImageView:
             if imageView.image == nil {
                 return false
+            } else {
+                return true
             }
         case let textField as UITextField:
             return textField.hasText
         case let textView as UITextView:
             return textView.hasText
         default:
-            return true
+            return false
         }
-        
-        return true
     }
     
     /// Signup Step1의 모든 뷰 컴포넘트에 값이 있는지 확인 후  Bool로 결과를 반환하는 함수.
