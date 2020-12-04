@@ -30,5 +30,12 @@ class FirstSignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        disableInitialInputStates()
+    }
+    
+    private func disableInitialInputStates() {
+        self.nextButton.isEnabled = false
+        self.checkPasswordTextField.isEnabled = false
     }
 }
+
