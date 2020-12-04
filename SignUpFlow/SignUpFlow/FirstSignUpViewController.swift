@@ -65,11 +65,11 @@ class FirstSignUpViewController: UIViewController {
         guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondSignUpViewController") else {
             return
         }
-        setUserInfomation()
+        assignUserInformation()
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
-    private func setUserInfomation() {
+    private func assignUserInformation() {
         user.profileImage = self.profileImageView.image
         user.id = self.newIdTextField.text
         user.password = self.newPasswordTextField.text
