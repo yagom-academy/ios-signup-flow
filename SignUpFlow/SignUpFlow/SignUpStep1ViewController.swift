@@ -1,5 +1,4 @@
 import UIKit
-import MobileCoreServices
 
 class SignUpStep1ViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
