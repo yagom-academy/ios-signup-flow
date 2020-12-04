@@ -29,6 +29,7 @@ class SignUpOptionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         displayUserInfo()
+        signUpButtonEnableChange()
     }
         
     private func displayUserInfo() {
@@ -59,6 +60,7 @@ class SignUpOptionViewController: UIViewController {
         let dateString: String = self.dateFormatter.string(from: date)
         userInfoTemporarySave.birthDate = date
         self.birthDateDisplayLabel.text = dateString
+        signUpButtonEnableChange()
     }
     
     @IBAction private func tapGoBackButton() {
@@ -80,6 +82,14 @@ class SignUpOptionViewController: UIViewController {
         userInfoTemporarySave.resetInfo()
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
+    
+    private func signUpButtonEnableChange() {
+        if userInfoTemporarySave.isOptionInfoFilled() {
+            signUpButton.isEnabled = true
+        } else {
+            signUpButton.isEnabled = false
+        }
+    }
 }
 
 extension SignUpOptionViewController: UITextFieldDelegate {
@@ -91,5 +101,7 @@ extension SignUpOptionViewController: UITextFieldDelegate {
         } else {
             userInfoTemporarySave.phone = nil
         }
+        
+        signUpButtonEnableChange()
     }
 }
