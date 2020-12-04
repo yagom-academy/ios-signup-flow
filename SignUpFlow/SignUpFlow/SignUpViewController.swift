@@ -14,7 +14,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var passwordCheckTextField: UITextField!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var goNextButton: UIButton!
-    let checkFilled = UserInfoTemporarySave()
+    let userInfoTemporarySave = UserInfoTemporarySave()
     
     lazy var imagePicker: UIImagePickerController = {
         let picker: UIImagePickerController = UIImagePickerController()
@@ -48,7 +48,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction private func tapCancelButton() {
-        checkFilled.resetInfo()
+        userInfoTemporarySave.resetInfo()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -60,7 +60,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func goNextButtonEnableChange() {
-        if checkFilled.isSignUpViewFilled() && isPasswordMatch() {
+        if userInfoTemporarySave.isSignUpViewFilled() && isPasswordMatch() {
             goNextButton.isEnabled = true
         } else {
             goNextButton.isEnabled = false
@@ -102,7 +102,7 @@ extension SignUpViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage: UIImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             self.imageView.image = editedImage
-            checkFilled.image = editedImage
+            userInfoTemporarySave.image = editedImage
         }
         goNextButtonEnableChange()
         self.dismiss(animated: true, completion: nil)
@@ -113,23 +113,23 @@ extension SignUpViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if idTextField.hasText {
             guard let id = idTextField.text else { return }
-            checkFilled.id = id
+            userInfoTemporarySave.id = id
         } else {
-            checkFilled.id = nil
+            userInfoTemporarySave.id = nil
         }
         
         if passwordTextField.hasText {
             guard let password = passwordTextField.text else { return }
-            checkFilled.password = password
+            userInfoTemporarySave.password = password
         } else {
-            checkFilled.password = nil
+            userInfoTemporarySave.password = nil
         }
         
         if passwordCheckTextField.hasText {
             guard let passwordCheck = passwordCheckTextField.text else { return }
-            checkFilled.passwordCheck = passwordCheck
+            userInfoTemporarySave.passwordCheck = passwordCheck
         } else {
-            checkFilled.passwordCheck = nil
+            userInfoTemporarySave.passwordCheck = nil
         }
         
         goNextButtonEnableChange()
@@ -140,9 +140,9 @@ extension SignUpViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if introductionTextView.hasText {
             guard let introduction = introductionTextView.text else { return }
-            checkFilled.introduction = introduction
+            userInfoTemporarySave.introduction = introduction
         } else {
-            checkFilled.introduction = nil
+            userInfoTemporarySave.introduction = nil
         }
         
         goNextButtonEnableChange()
