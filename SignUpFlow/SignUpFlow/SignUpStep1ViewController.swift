@@ -2,7 +2,7 @@ import UIKit
 import MobileCoreServices
 
 class SignUpStep1ViewController: UIViewController {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var checkPasswordTextField: UITextField!
@@ -55,7 +55,7 @@ class SignUpStep1ViewController: UIViewController {
     ///
     /// - Returns: value가 모두 있으면 true, 없으면 false
     func verifyAllComponentHasValue() -> Bool {
-        let allComponent = [self.imageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.introductionTextView]
+        let allComponent = [self.profileImageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.introductionTextView]
         
         return allComponent.reduce(true) {
             $0 && hasValue($1)
@@ -93,7 +93,7 @@ class SignUpStep1ViewController: UIViewController {
     @IBAction func pressedNextButton(_ sender: UIButton) {
         guard let id = idTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-        guard let image = imageView.image else { return }
+        guard let image = profileImageView.image else { return }
         guard let introduction = introductionTextView.text else { return }
         
         let userInformation = UserInformation.common
@@ -106,7 +106,7 @@ class SignUpStep1ViewController: UIViewController {
 
 extension SignUpStep1ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        imageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        profileImageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         dismiss(animated: true) {
             self.checkNextButtonActivation()
         }
