@@ -28,6 +28,7 @@ class SignUpPageController: UIViewController {
     }
     
     @IBAction func moveToNextButton(_ sender: UIButton) {
+        inputFirstPageData()
     }
 }
 
@@ -73,5 +74,14 @@ extension SignUpPageController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
+    }
+}
+
+extension SignUpPageController {
+    func inputFirstPageData() {
+        userInformation.id = userIdTextField.text
+        userInformation.password = userPasswordTextField.text
+        userInformation.profileImage = userImageView.image
+        userInformation.selfIntroductionText = userIntroductionTextView.text
     }
 }
