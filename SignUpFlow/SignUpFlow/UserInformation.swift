@@ -12,3 +12,9 @@ class UserInformation {
     
     private init() {}
 }
+
+protocol UserInformationManageable {
+    func inputUserInformation()
+    func resetUserInformation()
+    func isAllRequirementFilled() -> Bool
+}

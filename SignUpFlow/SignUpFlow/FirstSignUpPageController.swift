@@ -90,8 +90,8 @@ extension FirstSignUpPageController: UITextFieldDelegate {
 }
 
 // 유저가 입력한 데이터 관리
-extension FirstSignUpPageController {
-    func inputFirstPageData() {
+extension FirstSignUpPageController: UserInformationManageable {
+    func inputUserInformation() {
         userInformation.id = userIdTextField.text
         userInformation.password = userPasswordTextField.text
         userInformation.profileImage = userImageView.image
