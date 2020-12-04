@@ -39,6 +39,7 @@ class FirstSignUpPageController: UIViewController {
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
+        resetUserData()
         dismiss(animated: true, completion: nil)
     }
 }
@@ -88,11 +89,21 @@ extension FirstSignUpPageController: UITextFieldDelegate {
     }
 }
 
+// 유저가 입력한 데이터 관리
 extension FirstSignUpPageController {
     func inputFirstPageData() {
         userInformation.id = userIdTextField.text
         userInformation.password = userPasswordTextField.text
         userInformation.profileImage = userImageView.image
         userInformation.selfIntroductionText = userIntroductionTextView.text
+    }
+    
+    func resetUserData() {
+        userInformation.id = nil
+        userInformation.password = nil
+        userInformation.profileImage = nil
+        userInformation.selfIntroductionText = nil
+        userInformation.phoneNumber = nil
+        userInformation.birth = nil
     }
 }
