@@ -25,9 +25,11 @@ class SignUpOptionViewController: UIViewController {
     }
         
     private func displayUserInfo() {
-        phoneTextField.text = userInfoTemporarySave.phone
-        if let dateString = userInfoTemporarySave.birthDate {
-            birthDateDisplayLabel.text = self.dateFormatter.string(from: dateString)
+        if let phone = userInfoTemporarySave.phone {
+            phoneTextField.text = phone
+        }
+        if let date = userInfoTemporarySave.birthDate {
+            birthDateDisplayLabel.text = self.dateFormatter.string(from: date)
         }
     }
     
