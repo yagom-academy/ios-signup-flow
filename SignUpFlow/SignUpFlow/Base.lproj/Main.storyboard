@@ -175,8 +175,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="November 18, 2020" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cl-VA-e0N">
-                                <rect key="frame" x="214" y="119" width="180" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 18, 2020" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cl-VA-e0N">
+                                <rect key="frame" x="214" y="123.5" width="180" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="RIH-jD-4Qk"/>
                                 </constraints>
@@ -212,6 +212,7 @@
                         <constraints>
                             <constraint firstItem="ekd-ew-Uk6" firstAttribute="top" secondItem="S02-WX-r8q" secondAttribute="bottom" constant="8" id="7av-Gi-9Kb"/>
                             <constraint firstItem="S02-WX-r8q" firstAttribute="leading" secondItem="YOv-9h-WxX" secondAttribute="leading" id="8S2-4Q-oQh"/>
+                            <constraint firstItem="8cl-VA-e0N" firstAttribute="bottom" secondItem="pxI-km-3rj" secondAttribute="bottom" id="AbR-mq-gA2"/>
                             <constraint firstItem="5yz-nK-Wja" firstAttribute="top" secondItem="V0y-ZF-jMp" secondAttribute="bottom" constant="8" id="IUY-2d-E1b"/>
                             <constraint firstItem="YOv-9h-WxX" firstAttribute="trailing" secondItem="8cl-VA-e0N" secondAttribute="trailing" constant="20" id="NZh-1l-QhE"/>
                             <constraint firstItem="YOv-9h-WxX" firstAttribute="trailing" secondItem="ekd-ew-Uk6" secondAttribute="trailing" constant="20" id="OtU-RU-t1b"/>
