@@ -9,6 +9,7 @@ import UIKit
 
 class RegisterStepOneViewController: UIViewController {
 
+    //MARK: - IBOutlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -20,6 +21,8 @@ class RegisterStepOneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    //MARK: - IBActions
     @IBAction func didTapNextButton(_ sender: UIButton) {
     }
     @IBAction func didTapCancelButton(_ sender: UIButton) {
