@@ -3,6 +3,7 @@ import UIKit
 class SignUpPageController: UIViewController {
     
     @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userIntroductionTextView: UITextView!
     
     let imagePicker = UIImagePickerController()
     

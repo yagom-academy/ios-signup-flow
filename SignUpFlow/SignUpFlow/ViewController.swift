@@ -8,6 +8,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        idTextField.delegate = self
     }
     
     @IBAction func touchUpSignUpButton(_ sender: UIButton) {

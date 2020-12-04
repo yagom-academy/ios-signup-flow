@@ -26,9 +26,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="username"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Sg3-no-Joz"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnr-72-JwS">
                                 <rect key="frame" x="200" y="405" width="67" height="35"/>
@@ -131,7 +128,10 @@
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="username"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dc4-wf-S6j">
                                 <rect key="frame" x="188" y="714" width="171" height="64"/>
@@ -156,6 +156,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="userImageView" destination="MJN-2X-VsD" id="hIE-et-8rb"/>
+                        <outlet property="userIntroductionTextView" destination="zc1-JL-nIN" id="boH-Z9-IcN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgQ-1s-ZtO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
