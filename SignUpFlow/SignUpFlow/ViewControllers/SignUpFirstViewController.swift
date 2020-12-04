@@ -21,15 +21,11 @@ class SignUpFirstViewController: UIViewController {
   
     private var isValidID: Bool {
         guard let id = idTextField.text else {
-            print("idTextField.text == nil")
             return false
         }
-        guard !id.isEmpty else {
-            print("ID를 적지 않음")
-            return false
-        }
-        guard !id.contains(" ") else {
-            print("ID에 빈칸이 있음")
+
+        if id.isEmpty || id.contains(" ") {
+            print("ID가 유효하지 않음")
             return false
         }
         
@@ -37,37 +33,26 @@ class SignUpFirstViewController: UIViewController {
     }
     
     private var isValidPassword: Bool {
-        guard let password = passwordTextField.text else {
-            print("passwordTextField.text == nil")
+        guard let password = passwordTextField.text,
+              let checkPassword = checkPasswordTextField.text else {
             return false
         }
-        guard let checkPassword = checkPasswordTextField.text else {
-            print("Check Password == nil")
+
+        if password.isEmpty || password.contains(" ") || password != checkPassword {
+            print("Password가 유효하지 않음")
             return false
         }
-        guard !password.isEmpty else {
-            print("Password가 비어있음")
-            return false
-        }
-        guard !password.contains(" ") else {
-            print("Password에 빈칸이 있음")
-            return false
-        }
-        guard password == checkPassword else {
-            print("Password가 서로 다름")
-            return false
-        }
-        
+ 
         return true
     }
     
     private var isValidIntroduction: Bool {
-        guard let description = introductionTextView.text else {
-            print("introductionTextView.text == nil")
+        guard let introduction = introductionTextView.text else {
             return false
         }
-        guard !description.isEmpty else {
-            print("Introduction이 비어있음")
+        
+        if introduction.isEmpty {
+            print("Introduction이 유효하지 않음")
             return false
         }
         
@@ -75,12 +60,11 @@ class SignUpFirstViewController: UIViewController {
     }
     
     private var isValidProfileImage: Bool {
-        guard profileImage.image != nil else {
-            print("profileImage.image == nil")
+        if let _ = profileImage.image {
+            return true
+        } else {
             return false
         }
-        
-        return true
     }
     
     // MARK: - Life Cycle
