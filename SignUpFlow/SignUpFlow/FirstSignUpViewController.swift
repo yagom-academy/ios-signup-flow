@@ -43,8 +43,48 @@ class FirstSignUpViewController: UIViewController {
         let profileImageTapGesture = UITapGestureRecognizer.init(target: self, action: #selector(pickProfileImage))
         profileImageView.addGestureRecognizer(profileImageTapGesture)
         profileImageView.isUserInteractionEnabled = true
-        
     }
+    
+    @IBAction func verifyIdField(_ sender: UITextField) {
+        if sender.text?.isEmpty ?? true {
+            guard verifiedConditions.contains(sender.tag) else {
+                return
+            }
+            verifiedConditions.remove(sender.tag)
+        } else {
+            verifiedConditions.insert(sender.tag)
+        }
+    }
+    
+    @IBAction func verifyPasswordField(_ sender: UITextField) {
+        if sender.text?.isEmpty ?? true {
+            guard verifiedConditions.contains(sender.tag) else {
+                return
+            }
+            verifiedConditions.remove(sender.tag)
+            self.checkPasswordTextField.text = ""
+            self.checkPasswordTextField.isEnabled = false
+        } else {
+            verifiedConditions.insert(sender.tag)
+            self.checkPasswordTextField.isEnabled = true
+        }
+    }
+    
+    
+    @IBAction func verifyCheckPasswordField(_ sender: UITextField) {
+        guard let writtenPassword = self.newPasswordTextField.text, let checkingPassword = sender.text else {
+            return
+        }
+        guard writtenPassword == checkingPassword else {
+            guard verifiedConditions.contains(sender.tag) else {
+                return
+            }
+            verifiedConditions.remove(sender.tag)
+            return
+        }
+        verifiedConditions.insert(sender.tag)
+    }
+    
 }
 extension FirstSignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @objc func pickProfileImage() {
