@@ -19,6 +19,7 @@ class FirstSignUpPageController: UIViewController {
         userIdTextField.delegate = self
         userPasswordTextField.delegate = self
         checkPasswordTextField.delegate = self
+        userIntroductionTextView.delegate = self
         
         nextPageButton.isEnabled = true
     }
@@ -79,7 +80,7 @@ extension FirstSignUpPageController {
 }
 
 // 화면 터치시 키보드 내리기
-extension FirstSignUpPageController: UITextFieldDelegate {
+extension FirstSignUpPageController: UITextFieldDelegate, UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
          self.view.endEditing(true)
    }
@@ -115,5 +116,13 @@ extension FirstSignUpPageController: UserInformationManageable {
                userImageView.image != nil &&
             userIntroductionTextView.hasText &&
                isPasswordSame
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("ended")
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("gsd")
     }
 }
