@@ -28,7 +28,7 @@ class FirstSignUpPageController: UIViewController {
     }
     
     @IBAction func moveToNextButton(_ sender: UIButton) {
-        inputFirstPageData()
+        inputUserInformation()
         
         if let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "SecondSignUpPageController") {
             self.navigationController?.pushViewController(pushVC, animated: true)
