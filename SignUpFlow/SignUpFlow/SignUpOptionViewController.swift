@@ -11,6 +11,7 @@ class SignUpOptionViewController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var birthDateDisplayLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var signUpButton: UIButton!
     var userInfoTemporarySave: UserInfoTemporarySave = UserInfoTemporarySave()
     
     let dateFormatter: DateFormatter = {
@@ -65,6 +66,17 @@ class SignUpOptionViewController: UIViewController {
     }
     
     @IBAction private func tapCancelButton() {
+        userInfoTemporarySave.resetInfo()
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction private func tapSignUpButton() {
+        UserInformation.shared.image = userInfoTemporarySave.image
+        UserInformation.shared.id = userInfoTemporarySave.id
+        UserInformation.shared.password = userInfoTemporarySave.id
+        UserInformation.shared.introduction = userInfoTemporarySave.introduction
+        UserInformation.shared.phone = userInfoTemporarySave.phone
+        UserInformation.shared.birthDate = userInfoTemporarySave.birthDate
         userInfoTemporarySave.resetInfo()
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
