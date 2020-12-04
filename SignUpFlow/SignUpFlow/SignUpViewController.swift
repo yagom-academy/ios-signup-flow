@@ -13,6 +13,7 @@ enum ProfileFieldType: Int, CaseIterable {
     case checkPassword
 }
 
+// TODO: 이메일 체킹
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!

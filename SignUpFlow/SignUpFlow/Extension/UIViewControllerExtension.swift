@@ -10,15 +10,15 @@ import UIKit
 
 extension UIViewController {
     func errorAlert(_ error: Error) -> UIAlertController {
-        var errorMessgae: String?
+        var errorMessage: String?
         if let signUpError = error as? SignUpError {
-            errorMessgae = signUpError.localizedDescription
+            errorMessage = signUpError.localizedDescription
         }
         else {
-            errorMessgae = SignUpError.unknown.localizedDescription
+            errorMessage = SignUpError.unknown.localizedDescription
         }
         
-        let alert = UIAlertController(title: "오류", message: errorMessgae, preferredStyle: .alert)
+        let alert = UIAlertController(title: "오류", message: errorMessage, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
         alert.addAction(okAction)
         return alert
