@@ -27,44 +27,66 @@ class SignUpSecondViewController: UIViewController {
         
         return formatter
     }()
+    
+    var isValidBirthdate: Bool {
+        if datePicker.date == Date() {
+            print("생년월일을 설정하지 않았음")
+            return false
+        }
+        
+        return true
+    }
   
-      // MARK: - Life Cycle
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDelegate()
-        setupDatePicker()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
         
-        if checkPhoneNumberPatternMatching() == true {
-            signUpButton.isEnabled = true
-            view.endEditing(true)
-        } else {
-            alertInvalidPhoneNumber()
-        }
+        phoneNumberTextField.delegate = self
+        setupDatePicker()
+        loadUserInformation()
+        updateDateLabelFromDatePicker(datePicker)
     }
 }
 
-//MARK: IBActions & Methods
+// MARK: - IBActions & Methods
 extension SignUpSecondViewController {
-    @IBAction func finishInput(_ sender: UIBarButtonItem) {
-        if checkPhoneNumberPatternMatching() == true {
-            checkToEnableCompleteButton()
-            phoneNumberTextField.resignFirstResponder()
-        } else {
-            checkToEnableCompleteButton()
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        checkToEnableSignUpButton()
+        view.endEditing(true)
+        
+        if checkPhoneNumberPatternMatching() == false {
             alertInvalidPhoneNumber()
         }
+        
+//        if checkPhoneNumberPatternMatching() == true {
+//            signUpButton.isEnabled = true
+//            view.endEditing(true)
+//        } else {
+//            alertInvalidPhoneNumber()
+//        }
+    }
+    
+    @IBAction func touchUpDoneButton(_ sender: UIBarButtonItem) {
+        checkToEnableSignUpButton()
+        phoneNumberTextField.resignFirstResponder()
+//        if checkPhoneNumberPatternMatching() == true {
+//            phoneNumberTextField.resignFirstResponder()
+//        } else {
+//            alertInvalidPhoneNumber()
+//        }
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
         clearUserInformation()
+        
         dismiss(animated: true, completion: nil)
     }
 
     @IBAction func touchUpPreviousButton(_ sender: UIButton) {
+        saveUserInformation()
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -73,17 +95,31 @@ extension SignUpSecondViewController {
             UserInformation.card.phoneNumber = self.phoneNumberTextField.text
         }
     }
-
-    private func setDelegate() {
-        phoneNumberTextField.delegate = self
+    
+    private func saveUserInformation() {
+        let card = UserInformation.card
+        
+        card.phoneNumber = phoneNumberTextField.text
+        card.birthDate = datePicker.date
+    }
+    
+    private func loadUserInformation() {
+        let card = UserInformation.card
+        
+        phoneNumberTextField.text = card.phoneNumber
+        if let birthDate = card.birthDate {
+            datePicker.date = birthDate
+        }
+        
+        checkToEnableSignUpButton()
     }
     
     private func clearUserInformation() {
         UserInformation.card.clear()
     }
     
-    private func checkToEnableCompleteButton() {
-        if checkPhoneNumberPatternMatching() == true {
+    private func checkToEnableSignUpButton() {
+        if checkPhoneNumberPatternMatching() == true, isValidBirthdate {
             signUpButton.isEnabled = true
         } else {
             signUpButton.isEnabled = false
@@ -105,6 +141,7 @@ extension SignUpSecondViewController {
         if patternForValidPhoneNumber.firstMatch(in: phoneNumber, range: range) != nil {
             return true
         } else {
+            alertInvalidPhoneNumber()
             return false
         }
     }
@@ -128,8 +165,6 @@ extension SignUpSecondViewController {
         datePicker.addTarget(self, action: #selector(didDatePickerValueChanged(_:)), for: UIControl.Event.valueChanged)
         
         datePicker.maximumDate = Date()
-        
-        updateDateLabelFromDatePicker(datePicker)
     }
     
     @objc func didDatePickerValueChanged(_ sender: UIDatePicker) {

@@ -252,7 +252,7 @@
                     <items>
                         <barButtonItem systemItem="done" id="4bP-PF-tsL">
                             <connections>
-                                <action selector="finishInput:" destination="shi-1d-axO" id="0WC-M2-que"/>
+                                <action selector="touchUpDoneButton:" destination="shi-1d-axO" id="0WC-M2-que"/>
                             </connections>
                         </barButtonItem>
                     </items>
