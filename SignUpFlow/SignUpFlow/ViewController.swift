@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     private func idTextFieldConfig(_ textField: UITextField) {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
+        textField.keyboardType = .emailAddress
         textField.returnKeyType = .next
     }
     private func passwordTextFieldConfig(_ textField: UITextField) {
