@@ -230,7 +230,7 @@
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Ki4-PE-lZy">
                                 <rect key="frame" x="20" y="269" width="374" height="216"/>
                                 <connections>
-                                    <action selector="didDatePickerValueChanged:" destination="Rb1-AM-Obe" eventType="valueChanged" id="Xpq-YG-vDf"/>
+                                    <action selector="didDatePickerValueChanged:" destination="Rb1-AM-Obe" eventType="valueChanged" id="mL2-if-Onj"/>
                                 </connections>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dpT-rl-IlN">
@@ -273,6 +273,7 @@
                     <connections>
                         <outlet property="birthDateDisplayLabel" destination="Sgf-MV-ypm" id="iW4-PF-3rL"/>
                         <outlet property="datePicker" destination="Ki4-PE-lZy" id="f0i-an-qsP"/>
+                        <outlet property="phoneTextField" destination="Sis-Az-fjM" id="U8E-Fs-x4Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Cq-Ic-OKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
