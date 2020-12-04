@@ -30,19 +30,19 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar()
-        setKeyboard()
-        setProfileImage()
-        setProfileTextField()
-        setIntroductionTextView()
+        setUpNavigationBar()
+        setUpKeyboard()
+        setUpProfileImage()
+        setUpProfileTextField()
+        setUpIntroductionTextView()
     }
     
     // MARK: - settings
-    private func setNavigationBar() {
+    private func setUpNavigationBar() {
         navigationController?.isNavigationBarHidden = true
     }
     
-    private func setKeyboard() {
+    private func setUpKeyboard() {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(tapDoneButton(_:)))
@@ -54,7 +54,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    private func setProfileImage() {
+    private func setUpProfileImage() {
         let profileImageGesture = UITapGestureRecognizer(target: self, action: #selector(tapProfileImageView(_:)))
         profileImageView.addGestureRecognizer(profileImageGesture)
         
@@ -62,13 +62,13 @@ class SignUpViewController: UIViewController {
         profileImagePicker.delegate = self
     }
     
-    private func setProfileTextField() {
+    private func setUpProfileTextField() {
         for textField in profileTextFields {
             textField.delegate = self
         }
     }
     
-    private func setIntroductionTextView() {
+    private func setUpIntroductionTextView() {
         introductionTextView.layer.borderColor = UIColor.lightGray.cgColor
         introductionTextView.delegate = self
         setIntroductionPlaceholder()
@@ -167,13 +167,14 @@ extension SignUpViewController : UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if let introductionText = textView.text {
-            if isValidateText(from: introductionText) {
-                self.signUpForm.introduction = introductionText
-            } else {
-                self.signUpForm.introduction = nil
-                setIntroductionPlaceholder()
-            }
+        guard let introductionText = textView.text else {
+            return self.showError(SignUpError.getText)
+        }
+        if isValidateText(from: introductionText) {
+            self.signUpForm.introduction = introductionText
+        } else {
+            self.signUpForm.introduction = nil
+            setIntroductionPlaceholder()
         }
         self.setNextButtonState()
     }

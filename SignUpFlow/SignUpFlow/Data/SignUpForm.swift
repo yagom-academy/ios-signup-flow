@@ -1,8 +1,8 @@
 //
-//  UserInfo.swift
+//  SignUpForm.swift
 //  SignUpFlow
 //
-//  Created by Wonhee on 2020/12/03.
+//  Created by Wonhee on 2020/12/04.
 //
 
 import Foundation
