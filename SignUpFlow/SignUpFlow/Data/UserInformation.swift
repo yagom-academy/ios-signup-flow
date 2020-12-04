@@ -19,7 +19,8 @@ final class UserInformation {
 }
 
 protocol UserInfoForm {
-    func isFilled() -> Bool
+    var isFilled: Bool { get }
+//    func isFilled() -> Bool
     func clearInfo()
     func validateInfo() throws -> Bool
 }
@@ -30,4 +31,9 @@ protocol InfoForm: UserInfoForm {
     var passwordCheck: String? { get }
     var image: UIImage? { get }
     var introduction: String? { get }
+}
+
+protocol InfoOptionForm: UserInfoForm {
+    var phone: String? { get }
+    var birthDate: Date? { get }
 }

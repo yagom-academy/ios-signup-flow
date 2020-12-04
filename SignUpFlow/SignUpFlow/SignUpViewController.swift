@@ -113,7 +113,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func setNextButtonState() {
-        let isFilledForm = self.signUpForm.isFilled()
+        let isFilledForm = self.signUpForm.isFilled
         if isFilledForm != self.nextButton.isEnabled {
             self.nextButton.isEnabled = isFilledForm
         }

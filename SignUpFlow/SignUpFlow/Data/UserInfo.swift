@@ -15,7 +15,7 @@ class SignUpForm : InfoForm {
     var image: UIImage?
     var introduction: String?
     
-    func isFilled() -> Bool {
+    var isFilled: Bool {
         guard let _ = self.image,
               let _ = self.id,
               let validatePassword = self.password,
