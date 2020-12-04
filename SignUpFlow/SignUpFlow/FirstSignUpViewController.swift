@@ -15,39 +15,19 @@ class FirstSignUpViewController: UIViewController {
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
-    
-    let numberOfSignUpRequirements = 5
-    
-    private var verifiedConditions = Set<Int>() {
-        didSet {
-            if verifiedConditions.count == numberOfSignUpRequirements {
-                nextButton.isEnabled = true
-            } else {
-                nextButton.isEnabled = false
-            }
-        }
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        disableInitialInputStates()
+        self.nextButton.isEnabled = false
         initializeImagePicker()
+        checkTextFields()
         introductionTextView.delegate = self
+        self.navigationController?.navigationBar.isHidden = true
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        profileImageView.image = user.profileImage
-//        newIdTextField.text = user.id
-//        newPasswordTextField.text = user.password
-//        introductionTextView.text = user.introduction
-//    }
-    
-    private func disableInitialInputStates() {
-        self.nextButton.isEnabled = false
-        self.checkPasswordTextField.isEnabled = false
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.view.endEditing(true)
     }
     
     private func initializeImagePicker() {
@@ -76,48 +56,26 @@ class FirstSignUpViewController: UIViewController {
         user.introduction = self.introductionTextView.text
     }
     
-
-    @IBAction func verifyIdField(_ sender: UITextField) {
-        if sender.text?.isEmpty ?? true {
-            guard verifiedConditions.contains(sender.tag) else {
-                return
-            }
-            verifiedConditions.remove(sender.tag)
-        } else {
-            verifiedConditions.insert(sender.tag)
+    func checkTextFields() {
+        [newIdTextField, newPasswordTextField, checkPasswordTextField].forEach {
+            $0.addTarget(self, action: #selector(checkAllRequirementsAreFilled), for: .editingChanged)
         }
     }
     
-    @IBAction func verifyPasswordField(_ sender: UITextField) {
-        if sender.text?.isEmpty ?? true {
-            guard verifiedConditions.contains(sender.tag) else {
-                return
-            }
-            verifiedConditions.remove(sender.tag)
-            self.checkPasswordTextField.text = ""
-            self.checkPasswordTextField.isEnabled = false
-        } else {
-            verifiedConditions.insert(sender.tag)
-            self.checkPasswordTextField.isEnabled = true
-            self.checkPasswordTextField.attributedPlaceholder = NSAttributedString(string: "CheckPassword", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
-        }
-    }
-    
-    
-    @IBAction func verifyCheckPasswordField(_ sender: UITextField) {
-        guard let writtenPassword = self.newPasswordTextField.text, let checkingPassword = sender.text else {
+    @objc private func checkAllRequirementsAreFilled() {
+        guard let id = newIdTextField.text, !id.isEmpty,
+              let password = newPasswordTextField.text, !password.isEmpty,
+              let checkPassword = checkPasswordTextField.text, !checkPassword.isEmpty,
+              password == checkPassword,
+              let textView = introductionTextView.text, !textView.isEmpty,
+              profileImageView.image != nil else {
+            nextButton.isEnabled = false
             return
         }
-        guard writtenPassword == checkingPassword else {
-            guard verifiedConditions.contains(sender.tag) else {
-                return
-            }
-            verifiedConditions.remove(sender.tag)
-            return
-        }
-        verifiedConditions.insert(sender.tag)
+        nextButton.isEnabled = true
     }
 }
+
 extension FirstSignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @objc func pickProfileImage() {
         let imagePickerController = UIImagePickerController()
@@ -128,38 +86,17 @@ extension FirstSignUpViewController: UIImagePickerControllerDelegate, UINavigati
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         guard let selectedImage = (info[.editedImage] ?? info[.originalImage]) as? UIImage else {
             return
         }
-        
         self.profileImageView.image = selectedImage
-        
-        let imageTag = self.profileImageView.tag
-        
-        if self.profileImageView.image != nil {
-            verifiedConditions.insert(imageTag)
-        } else {
-            guard verifiedConditions.contains(imageTag) else {
-                return
-            }
-            verifiedConditions.remove(imageTag)
-        }
-        
+        checkAllRequirementsAreFilled()
         self.dismiss(animated: true, completion: nil)
     }
 }
+
 extension FirstSignUpViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        if textView.text?.isEmpty ?? true {
-            guard verifiedConditions.contains(textView.tag) else {
-                return
-            }
-            verifiedConditions.remove(textView.tag)
-        } else {
-            verifiedConditions.insert(textView.tag)
-        }
+        checkAllRequirementsAreFilled()
     }
 }
-
-
