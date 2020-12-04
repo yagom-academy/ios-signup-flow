@@ -220,7 +220,7 @@ extension SignUpViewController : UITextFieldDelegate {
         case .password:
             self.signUpForm.password = text
         case .checkPassword:
-            self.signUpForm.checkPassword = text
+            self.signUpForm.passwordCheck = text
         }
     }
 }

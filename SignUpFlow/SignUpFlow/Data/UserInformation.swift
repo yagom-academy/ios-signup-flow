@@ -27,7 +27,7 @@ protocol UserInfoForm {
 protocol InfoForm: UserInfoForm {
     var id: String? { get }
     var password: String? { get }
-    var checkPassword: String? { get }
+    var passwordCheck: String? { get }
     var image: UIImage? { get }
     var introduction: String? { get }
 }
