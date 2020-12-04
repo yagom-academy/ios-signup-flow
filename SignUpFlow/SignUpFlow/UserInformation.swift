@@ -1,10 +1,10 @@
-import Foundation
+import UIKit
 
 class UserInformation {
     var id: String?
     var password: String?
-    var profileImage: String?
-    var introduceText: String?
+    var profileImage: UIImage?
+    var selfIntroductionText: String?
     var phoneNumber: String?
     var birth: String?
     

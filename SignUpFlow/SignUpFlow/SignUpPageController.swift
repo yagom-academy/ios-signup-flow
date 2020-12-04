@@ -2,6 +2,8 @@ import UIKit
 
 class SignUpPageController: UIViewController {
     
+    let userInformation = UserInformation.default
+    
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userIntroductionTextView: UITextView!
     @IBOutlet weak var userIdTextField: UITextField!
