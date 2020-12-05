@@ -32,6 +32,9 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         passwordTextField.delegate = self
         passwordCheckTextField.delegate = self
         introductionTextView.delegate = self
+        idTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        passwordCheckTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         setTapGesture()
         setKeyboardDoneButton()
@@ -110,7 +113,7 @@ extension SignUpViewController: UIImagePickerControllerDelegate {
 }
 
 extension SignUpViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    @objc func textFieldDidChange(_ textField: UITextField) {
         if idTextField.hasText {
             if let id = idTextField.text {
                 userInfoTemporarySave.id = id

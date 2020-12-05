@@ -24,6 +24,7 @@ class SignUpOptionViewController: UIViewController {
         super.viewDidLoad()
         setKeyboardDoneButton()
         phoneTextField.delegate = self
+        phoneTextField.addTarget(self, action: #selector(SignUpOptionViewController.textFieldDidChange(_:)), for: .editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,7 +94,7 @@ class SignUpOptionViewController: UIViewController {
 }
 
 extension SignUpOptionViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    @objc func textFieldDidChange(_ textField: UITextField) {
         if phoneTextField.hasText {
             if let phone = phoneTextField.text {
                 userInfoTemporarySave.phone = phone
