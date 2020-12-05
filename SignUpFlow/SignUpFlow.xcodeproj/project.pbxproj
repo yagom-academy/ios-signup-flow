@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34B8A45B257A069D0043E9CE /* UITextView+DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8A45A257A069D0043E9CE /* UITextView+DoneButton.swift */; };
+		34B8A460257A516B0043E9CE /* SecondSignUpPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8A45F257A516B0043E9CE /* SecondSignUpPageController.swift */; };
 		C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */; };
-		C7352B89256F59BD00C3B7F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7352B88256F59BD00C3B7F1 /* SceneDelegate.swift */; };
 		C7352B8B256F59BD00C3B7F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7352B8A256F59BD00C3B7F1 /* ViewController.swift */; };
 		C7352B8E256F59BD00C3B7F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7352B8C256F59BD00C3B7F1 /* Main.storyboard */; };
 		C7352B90256F59BF00C3B7F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */; };
 		C7352B93256F59BF00C3B7F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7352B91256F59BF00C3B7F1 /* LaunchScreen.storyboard */; };
+		EAA18ABC2578D73F00257F20 /* FirstSignUpPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA18ABB2578D73F00257F20 /* FirstSignUpPageController.swift */; };
+		EAF35087257527BB00870063 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF35086257527BB00870063 /* UserInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34B8A45A257A069D0043E9CE /* UITextView+DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+DoneButton.swift"; sourceTree = "<group>"; };
+		34B8A45F257A516B0043E9CE /* SecondSignUpPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignUpPageController.swift; sourceTree = "<group>"; };
 		C7352B83256F59BD00C3B7F1 /* SignUpFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUpFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7352B88256F59BD00C3B7F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C7352B8A256F59BD00C3B7F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7352B8D256F59BD00C3B7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7352B92256F59BF00C3B7F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7352B94256F59BF00C3B7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAA18ABB2578D73F00257F20 /* FirstSignUpPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSignUpPageController.swift; sourceTree = "<group>"; };
+		EAF35086257527BB00870063 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +63,15 @@
 			isa = PBXGroup;
 			children = (
 				C7352B86256F59BD00C3B7F1 /* AppDelegate.swift */,
-				C7352B88256F59BD00C3B7F1 /* SceneDelegate.swift */,
 				C7352B8A256F59BD00C3B7F1 /* ViewController.swift */,
 				C7352B8C256F59BD00C3B7F1 /* Main.storyboard */,
 				C7352B8F256F59BF00C3B7F1 /* Assets.xcassets */,
 				C7352B91256F59BF00C3B7F1 /* LaunchScreen.storyboard */,
 				C7352B94256F59BF00C3B7F1 /* Info.plist */,
+				EAF35086257527BB00870063 /* UserInformation.swift */,
+				EAA18ABB2578D73F00257F20 /* FirstSignUpPageController.swift */,
+				34B8A45F257A516B0043E9CE /* SecondSignUpPageController.swift */,
+				34B8A45A257A069D0043E9CE /* UITextView+DoneButton.swift */,
 			);
 			path = SignUpFlow;
 			sourceTree = "<group>";
@@ -137,9 +146,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAA18ABC2578D73F00257F20 /* FirstSignUpPageController.swift in Sources */,
+				34B8A45B257A069D0043E9CE /* UITextView+DoneButton.swift in Sources */,
+				34B8A460257A516B0043E9CE /* SecondSignUpPageController.swift in Sources */,
 				C7352B8B256F59BD00C3B7F1 /* ViewController.swift in Sources */,
+				EAF35087257527BB00870063 /* UserInformation.swift in Sources */,
 				C7352B87256F59BD00C3B7F1 /* AppDelegate.swift in Sources */,
-				C7352B89256F59BD00C3B7F1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +300,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SignUpFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,6 +319,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SignUpFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
