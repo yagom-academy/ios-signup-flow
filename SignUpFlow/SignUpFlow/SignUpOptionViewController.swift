@@ -69,7 +69,7 @@ class SignUpOptionViewController: UIViewController {
     }
     
     @IBAction private func tapCancelButton() {
-        userInfo.resetInfo()
+        userInfo.reset()
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
@@ -80,7 +80,7 @@ class SignUpOptionViewController: UIViewController {
         UserInformation.shared.introduction = userInfo.introduction
         UserInformation.shared.phone = userInfo.phone
         UserInformation.shared.birthDate = userInfo.birthDate
-        userInfo.resetInfo()
+        userInfo.reset()
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     

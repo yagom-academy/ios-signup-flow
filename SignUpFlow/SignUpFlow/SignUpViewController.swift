@@ -51,7 +51,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction private func tapCancelButton() {
-        userInfo.resetInfo()
+        userInfo.reset()
         self.dismiss(animated: true, completion: nil)
     }
     

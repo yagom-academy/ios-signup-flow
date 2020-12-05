@@ -35,7 +35,7 @@ class UserInfoTemporarySave {
         return true
     }
     
-    func resetInfo() {
+    func reset() {
         self.id = nil
         self.password = nil
         self.passwordCheck = nil
