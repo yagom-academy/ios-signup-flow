@@ -154,20 +154,16 @@ extension SignUpSecondViewController: UITextFieldDelegate {
 extension SignUpSecondViewController {
     func setupDatePicker() {
         datePicker.addTarget(self, action: #selector(didDatePickerValueChanged(_:)), for: UIControl.Event.valueChanged)
-        
         datePicker.maximumDate = Date()
     }
     
     @objc func didDatePickerValueChanged(_ sender: UIDatePicker) {
         updateDateLabelFromDatePicker(sender)
-        
         checkToEnableSignUpButton()
     }
     
     func updateDateLabelFromDatePicker(_ sender: UIDatePicker) {
-        let date: Date = sender.date
-        let dateString: String = dateFormatter.string(from: date)
-        
+        let dateString: String = dateFormatter.string(from: sender.date)
         birthDateLabel.text = dateString
     }
 }
