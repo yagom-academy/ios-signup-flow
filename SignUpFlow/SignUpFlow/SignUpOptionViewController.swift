@@ -25,6 +25,13 @@ class SignUpOptionViewController: UIViewController {
         setKeyboardDoneButton()
         phoneTextField.delegate = self
         phoneTextField.addTarget(self, action: #selector(SignUpOptionViewController.textFieldDidChange(_:)), for: .editingChanged)
+        
+        if #available(iOS 14, *) {
+            datePicker.preferredDatePickerStyle = .inline
+        }
+        else if  #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .compact
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
