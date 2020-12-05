@@ -11,7 +11,7 @@ class SignUpSecondViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var birthDateLabel: UILabel!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var birthDatePicker: UIDatePicker!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet var keyboardToolBar: UIToolbar!
     
@@ -48,7 +48,7 @@ class SignUpSecondViewController: UIViewController {
         phoneNumberTextField.delegate = self
         setupDatePicker()
         loadUserInformation()
-        updateDateLabelFromDatePicker(datePicker)
+        updateDateLabelFromDatePicker(birthDatePicker)
         checkToEnableSignUpButton()
     }
 }
@@ -88,7 +88,7 @@ extension SignUpSecondViewController {
         let card = UserInformation.card
         
         card.phoneNumber = phoneNumberTextField.text
-        card.birthDate = datePicker.date
+        card.birthDate = birthDatePicker.date
     }
     
     private func loadUserInformation() {
@@ -96,7 +96,7 @@ extension SignUpSecondViewController {
         
         phoneNumberTextField.text = card.phoneNumber
         if let birthDate = card.birthDate {
-            datePicker.date = birthDate
+            birthDatePicker.date = birthDate
         }
     }
     
@@ -151,8 +151,8 @@ extension SignUpSecondViewController: UITextFieldDelegate {
 // MARK: - UIDatePicker Methods
 extension SignUpSecondViewController {
     func setupDatePicker() {
-        datePicker.addTarget(self, action: #selector(didDatePickerValueChanged(_:)), for: UIControl.Event.valueChanged)
-        datePicker.maximumDate = Date()
+        birthDatePicker.addTarget(self, action: #selector(didDatePickerValueChanged(_:)), for: UIControl.Event.valueChanged)
+        birthDatePicker.maximumDate = Date()
     }
     
     @objc func didDatePickerValueChanged(_ sender: UIDatePicker) {
