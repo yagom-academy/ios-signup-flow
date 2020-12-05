@@ -15,6 +15,15 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let id =  UserInformation.shared.id {
+            idTextField.text = id
+        } else {
+            idTextField.text = nil
+        }
+    }
+    
     @IBAction func tapAction(_ sender: Any) {
         self.view.endEditing(true)
     }
