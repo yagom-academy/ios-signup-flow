@@ -105,13 +105,11 @@ extension SignUpSecondViewController {
     }
     
     private func checkToEnableSignUpButton() {
-        guard phoneNumberTextField.text != "",
-              isValidBirthDate else {
+        if phoneNumberTextField.text == "" || isValidBirthDate == false {
             signUpButton.isEnabled = false
-            return
+        } else {
+            signUpButton.isEnabled = true
         }
-        
-        signUpButton.isEnabled = true
     }
     
     private func alertInvalidPhoneNumber() {
