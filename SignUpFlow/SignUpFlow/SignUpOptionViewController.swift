@@ -12,7 +12,7 @@ class SignUpOptionViewController: UIViewController {
     @IBOutlet weak var birthDateDisplayLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var signUpButton: UIButton!
-    var userInfoTemporarySave: UserInfoTemporarySave = UserInfoTemporarySave()
+    var userInfo: UserInfoTemporarySave = UserInfoTemporarySave()
     
     let dateFormatter: DateFormatter = {
         let formatter: DateFormatter = DateFormatter()
@@ -34,10 +34,10 @@ class SignUpOptionViewController: UIViewController {
     }
         
     private func displayUserInfo() {
-        if let phone = userInfoTemporarySave.phone {
+        if let phone = userInfo.phone {
             phoneTextField.text = phone
         }
-        if let date = userInfoTemporarySave.birthDate {
+        if let date = userInfo.birthDate {
             birthDateDisplayLabel.text = self.dateFormatter.string(from: date)
         }
     }
@@ -59,7 +59,7 @@ class SignUpOptionViewController: UIViewController {
     @IBAction private func didDatePickerValueChanged(_ sender: UIDatePicker) {
         let date: Date = self.datePicker.date
         let dateString: String = self.dateFormatter.string(from: date)
-        userInfoTemporarySave.birthDate = date
+        userInfo.birthDate = date
         self.birthDateDisplayLabel.text = dateString
         signUpButtonEnableChange()
     }
@@ -69,23 +69,23 @@ class SignUpOptionViewController: UIViewController {
     }
     
     @IBAction private func tapCancelButton() {
-        userInfoTemporarySave.resetInfo()
+        userInfo.resetInfo()
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction private func tapSignUpButton() {
-        UserInformation.shared.image = userInfoTemporarySave.image
-        UserInformation.shared.id = userInfoTemporarySave.id
-        UserInformation.shared.password = userInfoTemporarySave.id
-        UserInformation.shared.introduction = userInfoTemporarySave.introduction
-        UserInformation.shared.phone = userInfoTemporarySave.phone
-        UserInformation.shared.birthDate = userInfoTemporarySave.birthDate
-        userInfoTemporarySave.resetInfo()
+        UserInformation.shared.image = userInfo.image
+        UserInformation.shared.id = userInfo.id
+        UserInformation.shared.password = userInfo.id
+        UserInformation.shared.introduction = userInfo.introduction
+        UserInformation.shared.phone = userInfo.phone
+        UserInformation.shared.birthDate = userInfo.birthDate
+        userInfo.resetInfo()
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     private func signUpButtonEnableChange() {
-        if userInfoTemporarySave.isOptionInfoFilled() {
+        if userInfo.isOptionInfoFilled() {
             signUpButton.isEnabled = true
         } else {
             signUpButton.isEnabled = false
@@ -97,10 +97,10 @@ extension SignUpOptionViewController: UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if phoneTextField.hasText {
             if let phone = phoneTextField.text {
-                userInfoTemporarySave.phone = phone
+                userInfo.phone = phone
             }
         } else {
-            userInfoTemporarySave.phone = nil
+            userInfo.phone = nil
         }
         
         signUpButtonEnableChange()

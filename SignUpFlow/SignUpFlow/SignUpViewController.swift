@@ -14,7 +14,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var passwordCheckTextField: UITextField!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var goNextButton: UIButton!
-    let userInfoTemporarySave = UserInfoTemporarySave()
+    let userInfo = UserInfoTemporarySave()
     
     lazy var imagePicker: UIImagePickerController = {
         let picker: UIImagePickerController = UIImagePickerController()
@@ -51,7 +51,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction private func tapCancelButton() {
-        userInfoTemporarySave.resetInfo()
+        userInfo.resetInfo()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -63,7 +63,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func goNextButtonEnableChange() {
-        if userInfoTemporarySave.isSignUpViewFilled() && isPasswordMatch() {
+        if userInfo.isSignUpViewFilled() && isPasswordMatch() {
             goNextButton.isEnabled = true
         } else {
             goNextButton.isEnabled = false
@@ -91,7 +91,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         guard let signUpOptionViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpOption") as? SignUpOptionViewController else {
             return
         }
-        signUpOptionViewController.userInfoTemporarySave = self.userInfoTemporarySave
+        signUpOptionViewController.userInfo = self.userInfo
         signUpOptionViewController.modalPresentationStyle = .fullScreen
         self.present(signUpOptionViewController, animated: true)
     }
@@ -105,7 +105,7 @@ extension SignUpViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage: UIImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             self.imageView.image = editedImage
-            userInfoTemporarySave.image = editedImage
+            userInfo.image = editedImage
         }
         goNextButtonEnableChange()
         self.dismiss(animated: true, completion: nil)
@@ -116,26 +116,26 @@ extension SignUpViewController: UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if idTextField.hasText {
             if let id = idTextField.text {
-                userInfoTemporarySave.id = id
+                userInfo.id = id
             }
         } else {
-            userInfoTemporarySave.id = nil
+            userInfo.id = nil
         }
         
         if passwordTextField.hasText {
             if let password = passwordTextField.text {
-                userInfoTemporarySave.password = password
+                userInfo.password = password
             }
         } else {
-            userInfoTemporarySave.password = nil
+            userInfo.password = nil
         }
         
         if passwordCheckTextField.hasText {
             if let passwordCheck = passwordCheckTextField.text {
-                userInfoTemporarySave.passwordCheck = passwordCheck
+                userInfo.passwordCheck = passwordCheck
             }
         } else {
-            userInfoTemporarySave.passwordCheck = nil
+            userInfo.passwordCheck = nil
         }
         
         goNextButtonEnableChange()
@@ -146,10 +146,10 @@ extension SignUpViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if introductionTextView.hasText {
             if let introduction = introductionTextView.text {
-                userInfoTemporarySave.introduction = introduction
+                userInfo.introduction = introduction
             }
         } else {
-            userInfoTemporarySave.introduction = nil
+            userInfo.introduction = nil
         }
         
         goNextButtonEnableChange()
