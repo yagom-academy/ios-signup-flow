@@ -14,7 +14,7 @@ class UserInformation {
 }
 
 protocol UserInformationManageable {
+    var isAllRequirementFilled: Bool { get }
     func inputUserInformation()
     func resetUserInformation()
-    func isAllRequirementFilled() -> Bool
 }

@@ -60,7 +60,7 @@ extension FirstSignUpPageController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             userImageView.image = pickedImage
-            setButtonStatus()
+            updateButtonStatus()
         } else if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             userImageView.image = pickedImage
         }
@@ -93,6 +93,16 @@ extension FirstSignUpPageController: UITextFieldDelegate, UITextViewDelegate {
 
 // 유저가 입력한 데이터 관리
 extension FirstSignUpPageController: UserInformationManageable {
+    var isAllRequirementFilled: Bool {
+        get {
+           return userIdTextField.hasText &&
+            userPasswordTextField.hasText &&
+            userImageView.image != nil &&
+            userIntroductionTextView.hasText &&
+            userPasswordTextField.text == checkPasswordTextField.text
+        }
+    }
+    
     func inputUserInformation() {
         userInformation.id = userIdTextField.text
         userInformation.password = userPasswordTextField.text
@@ -109,29 +119,19 @@ extension FirstSignUpPageController: UserInformationManageable {
         userInformation.birth = nil
     }
     
-    func isAllRequirementFilled() -> Bool {
-        let isPasswordSame: Bool = (userPasswordTextField.text == checkPasswordTextField.text)
-        
-        return userIdTextField.hasText &&
-            userPasswordTextField.hasText &&
-               userImageView.image != nil &&
-            userIntroductionTextView.hasText &&
-               isPasswordSame
-    }
-    
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        setButtonStatus()
+        updateButtonStatus()
     }
     
     func textViewDidChangeSelection(_ textView: UITextView) {
-        setButtonStatus()
+        updateButtonStatus()
     }
 }
 
 // 버튼 제어
 extension FirstSignUpPageController {
-    func setButtonStatus() {
-        if isAllRequirementFilled() {
+    func updateButtonStatus() {
+        if isAllRequirementFilled {
             nextPageButton.isEnabled = true
         } else {
             nextPageButton.isEnabled = false
