@@ -33,11 +33,7 @@ class SignUpStep1ViewController: UIViewController {
     func isViewHasValue(_ checkingView: UIView?) -> Bool {
         switch checkingView {
         case let imageView as UIImageView:
-            if imageView.image == nil {
-                return false
-            } else {
-                return true
-            }
+            return imageView.image != nil
         case let textField as UITextField:
             return textField.hasText
         case let textView as UITextView:
