@@ -74,15 +74,15 @@ class SignUpStep1ViewController: UIViewController {
         }
     }
     
-    @IBAction func changedIdTextField(_ sender: UITextField) {
+    @IBAction func didChangedIDTextField(_ sender: UITextField) {
         checkNextButtonActivation()
     }
     
-    @IBAction func changedPasswordTextField(_ sender: UITextField) {
+    @IBAction func didChangedPasswordTextField(_ sender: UITextField) {
         checkNextButtonActivation()
     }
     
-    @IBAction func changedCheckPasswordTextField(_ sender: UITextField) {
+    @IBAction func didChangedCheckPasswordTextField(_ sender: UITextField) {
         checkNextButtonActivation()
     }
     
