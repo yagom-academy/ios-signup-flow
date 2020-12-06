@@ -30,8 +30,8 @@ class SignUpStep1ViewController: UIViewController {
     ///
     /// - Parameter uiView: value의 유무를 확인할 UIView
     /// - Returns: value가 있으면, true 없으면 false
-    func isViewHasValue(_ chekingView: UIView?) -> Bool {
-        switch chekingView {
+    func isViewHasValue(_ checkingView: UIView?) -> Bool {
+        switch checkingView {
         case let imageView as UIImageView:
             if imageView.image == nil {
                 return false
