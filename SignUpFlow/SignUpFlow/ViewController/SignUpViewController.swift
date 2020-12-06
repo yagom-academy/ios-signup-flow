@@ -11,7 +11,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var checkPasswordField: UITextField!
+    @IBOutlet weak var confirmationPasswordField: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
@@ -28,38 +28,68 @@ class SignUpViewController: UIViewController {
         
         setUpImageViewTap()
         setUpPasswordSecure()
-        setKeyboardDoneButton()
-        nextButton.isEnabled = false
+        setUpKeyboardDoneButton()
     }
     
-    private func checkCanGoNext() {
+    private func changeNextButtonStatus() {
         guard idTextField.isFilled(),
+              isValidID(idTextField),
               passwordTextField.isFilled(),
-              checkPasswordField.isFilled(),
+              isValidPassword(passwordTextField),
+              confirmationPasswordField.isFilled(),
+              isPasswordSame(passwordTextField, as: confirmationPasswordField),
               introductionTextView.isFilled(),
-              profileImage.image != nil,
-              isPasswordSame() else {
+              profileImage.image != nil else {
             nextButton.isEnabled = false
             return
         }
-        
         nextButton.isEnabled = true
+        saveTempData()
     }
     
-    private func isPasswordSame() -> Bool {
-        guard checkPasswordField.text == passwordTextField.text else {
-            passwordTextField.textColor = .red
-            checkPasswordField.textColor = .red
-            nextButton.isEnabled = false
+    private func isValidID(_ textField: UITextField) -> Bool {
+        let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        guard let id = textField.text,
+              NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: id),
+              UserInformation.common.userDirectory[id] == nil else {
+            idTextField.textColor = .red
             return false
         }
-        passwordTextField.textColor = .black
-        checkPasswordField.textColor = .black
+        idTextField.textColor = .black
         return true
     }
     
+    private func isValidPassword(_ textField: UITextField) -> Bool {
+        let regex = "[\\S]{8,}"
+        guard let password = textField.text,
+              NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: password) else {
+            passwordTextField.textColor = .red
+            return false
+        }
+        passwordTextField.textColor = .black
+        return true
+    }
+    
+    private func isPasswordSame(_ textField: UITextField, as anoterTextField: UITextField) -> Bool {
+        guard textField.text == anoterTextField.text else {
+            passwordTextField.textColor = .red
+            confirmationPasswordField.textColor = .red
+            return false
+        }
+        passwordTextField.textColor = .black
+        confirmationPasswordField.textColor = .black
+        return true
+    }
+    
+    private func saveTempData() {
+        UserInformation.common.id = idTextField.text
+        UserInformation.common.password = passwordTextField.text
+        UserInformation.common.profileImage = profileImage.image
+        UserInformation.common.introduction = introductionTextView.text
+    }
+    
     private func setUpImageViewTap() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(showActionSheet))
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(showImagePickerActionSheet))
         
         profileImage.addGestureRecognizer(tapGestureRecognizer)
         profileImage.isUserInteractionEnabled = true
@@ -67,14 +97,14 @@ class SignUpViewController: UIViewController {
     
     private func setUpPasswordSecure() {
         passwordTextField.isSecureTextEntry = true
-        checkPasswordField.isSecureTextEntry = true
+        confirmationPasswordField.isSecureTextEntry = true
     }
     
-    private func setKeyboardDoneButton() {
+    private func setUpKeyboardDoneButton() {
         let toolBarKeyboard = UIToolbar()
         toolBarKeyboard.sizeToFit()
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(tapView(_:)))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapView(_:)))
         
         toolBarKeyboard.items = [flexibleSpace, doneButton]
         introductionTextView.inputAccessoryView = toolBarKeyboard
@@ -91,12 +121,14 @@ class SignUpViewController: UIViewController {
 
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @objc func showActionSheet() {
+    @objc func showImagePickerActionSheet() {
+        self.view.endEditing(true)
+        
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let albumButton = UIAlertAction(title: ImageSelect.album.rawValue, style: .default) {
             _ in self.openAlbum()
         }
-        let cameraButton = UIAlertAction(title: ImageSelect.cancel.rawValue, style: .default) {
+        let cameraButton = UIAlertAction(title: ImageSelect.camera.rawValue, style: .default) {
             _ in self.openCamera()
         }
         let cancelButton = UIAlertAction(title: ImageSelect.cancel.rawValue, style: .cancel, handler: nil)
@@ -104,16 +136,15 @@ extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationCon
         actionSheet.addAction(albumButton)
         actionSheet.addAction(cameraButton)
         actionSheet.addAction(cancelButton)
-        
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    func openAlbum() {
+    private func openAlbum() {
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func openCamera() {
+    private func openCamera() {
         imagePicker.sourceType = .camera
         present(imagePicker, animated: true, completion: nil)
     }
@@ -122,7 +153,7 @@ extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationCon
         if let image = info[.editedImage] as? UIImage {
             profileImage.image = image
         }
-        checkCanGoNext()
+        changeNextButtonStatus()
         dismiss(animated: true, completion: nil)
     }
 }
@@ -133,8 +164,8 @@ extension SignUpViewController: UITextViewDelegate, UITextFieldDelegate {
         case idTextField:
             passwordTextField.becomeFirstResponder()
         case passwordTextField:
-            checkPasswordField.becomeFirstResponder()
-        case checkPasswordField:
+            confirmationPasswordField.becomeFirstResponder()
+        case confirmationPasswordField:
             introductionTextView.becomeFirstResponder()
         default:
             break
@@ -143,18 +174,17 @@ extension SignUpViewController: UITextViewDelegate, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        checkCanGoNext()
+        changeNextButtonStatus()
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        checkCanGoNext()
+        changeNextButtonStatus()
     }
 }
 
 extension UITextView {
     func isFilled() -> Bool {
-        guard let text = self.text else { return false }
-        if text.isEmpty { return false }
+        guard let text = self.text, text.isEmpty == false else { return false }
         return true
     }
 }

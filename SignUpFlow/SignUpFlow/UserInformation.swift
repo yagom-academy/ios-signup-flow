@@ -15,8 +15,15 @@ class User {
     private(set) var phoneNumber: String?
     private(set) var dateOfBirth: Date?
     
-    init (_ id: String) {
+    init (id: String, password: String,
+          profieImage: UIImage, introduction: String,
+          phoneNumber: String, dateOfBirth: Date) {
         self.id = id
+        self.password = password
+        self.profieImage = profieImage
+        self.introduction = introduction
+        self.phoneNumber = phoneNumber
+        self.dateOfBirth = dateOfBirth
     }
     
     func setPassword(_ password: String) {
@@ -41,18 +48,45 @@ class User {
 }
 
 class UserInformation {
-    static let common: UserInformation = UserInformation()
+    static let common = UserInformation()
     private init() {}
     
-    typealias UserId = String
+    typealias UserID = String
+    private(set) var userDirectory = [UserID : User]()
     
-    private(set) var userDirectory = [UserId : User]()
+    var id: UserID?
+    var password: String?
+    var profileImage: UIImage?
+    var introduction: String?
+    var phoneNumber: String?
+    var dateOfBirth: Date?
+    var recentId: String = ""
     
-    func addNewUser(id: String) {
-        guard userDirectory[id] == nil else {
-            debugPrint(Message.existedId)
-            return
+    func addNewUser() throws {
+        guard let id = self.id,
+              userDirectory[id] == nil,
+              let password = self.password,
+              let profileImage = self.profileImage,
+              let introduction = self.introduction,
+              let phoneNumber = self.phoneNumber,
+              let dateOfBirth = self.dateOfBirth else {
+            throw SystemError.registrationFailure
         }
-        userDirectory[id] = User(id)
+        userDirectory[id] = User(id: id, password: password,
+                                 profieImage: profileImage, introduction: introduction,
+                                 phoneNumber: phoneNumber, dateOfBirth: dateOfBirth)
     }
+    
+    func clearTempData() {
+        id = nil
+        password = nil
+        profileImage = nil
+        introduction = nil
+        phoneNumber = nil
+        dateOfBirth = nil
+    }
+}
+
+enum SystemError: Error {
+    case registrationFailure
 }
