@@ -30,14 +30,10 @@ class SignUpStep1ViewController: UIViewController {
     ///
     /// - Parameter uiView: value의 유무를 확인할 UIView
     /// - Returns: value가 있으면, true 없으면 false
-    func hasValue(_ chekingView: UIView?) -> Bool {
-        switch chekingView {
+    func isViewHasValue(_ checkingView: UIView?) -> Bool {
+        switch checkingView {
         case let imageView as UIImageView:
-            if imageView.image == nil {
-                return false
-            } else {
-                return true
-            }
+            return imageView.image != nil
         case let textField as UITextField:
             return textField.hasText
         case let textView as UITextView:
@@ -54,7 +50,7 @@ class SignUpStep1ViewController: UIViewController {
         let allComponent = [self.profileImageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.introductionTextView]
         
         return allComponent.reduce(true) {
-            $0 && hasValue($1)
+            $0 && isViewHasValue($1)
         }
     }
     
@@ -78,15 +74,15 @@ class SignUpStep1ViewController: UIViewController {
         }
     }
     
-    @IBAction func changedIdTextField(_ sender: UITextField) {
+    @IBAction func didChangedIDTextField(_ sender: UITextField) {
         checkNextButtonActivation()
     }
     
-    @IBAction func changedPasswordTextField(_ sender: UITextField) {
+    @IBAction func didChangedPasswordTextField(_ sender: UITextField) {
         checkNextButtonActivation()
     }
     
-    @IBAction func changedCheckPasswordTextField(_ sender: UITextField) {
+    @IBAction func didChangedCheckPasswordTextField(_ sender: UITextField) {
         checkNextButtonActivation()
     }
     
