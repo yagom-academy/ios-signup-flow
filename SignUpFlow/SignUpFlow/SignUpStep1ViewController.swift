@@ -30,7 +30,7 @@ class SignUpStep1ViewController: UIViewController {
     ///
     /// - Parameter uiView: value의 유무를 확인할 UIView
     /// - Returns: value가 있으면, true 없으면 false
-    func hasValue(_ chekingView: UIView?) -> Bool {
+    func isViewHasValue(_ chekingView: UIView?) -> Bool {
         switch chekingView {
         case let imageView as UIImageView:
             if imageView.image == nil {
@@ -54,7 +54,7 @@ class SignUpStep1ViewController: UIViewController {
         let allComponent = [self.profileImageView, self.idTextField, self.passwordTextField, self.checkPasswordTextField, self.introductionTextView]
         
         return allComponent.reduce(true) {
-            $0 && hasValue($1)
+            $0 && isViewHasValue($1)
         }
     }
     
